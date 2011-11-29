@@ -25,7 +25,7 @@ describe Smartdict::Models::WordClass do
     describe 'name' do
       it 'can not be blank' do
 	wc = Smartdict::Models::WordClass.make(:name => '')
-	wc.should have_errors_on(:name)
+	wc.should have(1).error_on(:name)
       end
     end
   end

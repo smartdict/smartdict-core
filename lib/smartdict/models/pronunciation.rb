@@ -41,5 +41,4 @@ class Smartdict::Models::Pronunciation
     escaped_word = word.name.gsub(/[\s']/, '_')
     "#{escaped_word}.#{bin_data_ext}"
   end
-
 end

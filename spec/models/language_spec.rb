@@ -34,20 +34,20 @@ describe Smartdict::Models::Language do
       it 'is unique' do
 	lang1 = Smartdict::Models::Language.gen(:name => "DuplicatedName")
 	lang2 = Smartdict::Models::Language.make(:name => 'DuplicatedName')
-	lang2.should have_errors_on(:name)
+	lang2.should have(1).error_on(:name)
       end
     end
 
     describe 'code' do
       it 'is not blank' do
 	lang = Smartdict::Models::Language.make(:code => '')	
-	lang.should have_errors_on(:code)
+	lang.should have(1).error_on(:code)
       end
 
       it 'is unique' do
 	lang1 = Smartdict::Models::Language.gen(:code => "duplicated_code")
 	lang2 = Smartdict::Models::Language.make(:code => "duplicated_code")
-	lang2.should have_errors_on(:code)
+	lang2.should have(1).error_on(:code)
       end
 
     end

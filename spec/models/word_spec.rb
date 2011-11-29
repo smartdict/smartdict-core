@@ -29,7 +29,7 @@ describe Smartdict::Models::Word do
 
     it 'requires language' do
       word = Smartdict::Models::Word.make(:language => nil)
-      word.should have_errors_on(:language_id)
+      word.should have(1).error_on(:language_id)
     end
 
   end

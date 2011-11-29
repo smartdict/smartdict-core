@@ -25,8 +25,8 @@ class Smartdict::Core::PluginManager
     end
   end
 
-  def plugin_file_path(plugin)
-    File.join(@plugins_dir, plugin, 'lib', 'smartdict', 'plugins', plugin)
+  def plugin_file_path(plugin_name)
+    File.join(@plugins_dir, plugin_name, 'lib', plugin_name)
   end
 
 end
