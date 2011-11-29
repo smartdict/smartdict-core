@@ -12,4 +12,10 @@ group :development do
   gem "bundler", "~> 1.0.0"
   gem "jeweler", "~> 1.6.4"
   gem "rcov", ">= 0"
+  gem 'dm-sweatshop'
 end
+
+gem 'dm-core'          
+gem 'dm-validations'   
+gem 'dm-migrations'    
+gem 'dm-sqlite-adapter'
