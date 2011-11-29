@@ -5,6 +5,13 @@ source "http://rubygems.org"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
+
+gem 'dm-core'          
+gem 'dm-validations'   
+gem 'dm-migrations'    
+gem 'dm-sqlite-adapter'
+gem 'configatron'
+
 group :development do
   gem "rspec", "~> 2.3.0"
   gem "yard", "~> 0.6.0"
@@ -15,11 +22,6 @@ group :development do
 
   gem 'dm-sweatshop'
   gem 'dm-rspec'
+  gem 'ruby-debug'
 end
 
-gem 'dm-core'          
-gem 'dm-validations'   
-gem 'dm-migrations'    
-gem 'dm-sqlite-adapter'
-
-gem 'configuration'

@@ -1,5 +1,4 @@
-module Smartdict::Core
-end
+module Smartdict::Core; end
 
 require 'smartdict/core/has_log'
 

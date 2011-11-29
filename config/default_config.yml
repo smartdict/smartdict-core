@@ -1,0 +1,5 @@
+plugins:
+- smartdict_google_translate
+
+store:
+  adapter: sqlite

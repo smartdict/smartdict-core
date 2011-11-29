@@ -1,12 +1,9 @@
-class Smartdict::Core::PluginManager
+module Smartdict::Core::PluginManager
   include Smartdict::Core::HasLog
+  extend self
 
-  def initialize(plugins_dir)
-    @plugins_dir = plugins_dir
-  end
-
-  def load_plugins
-    Smartdict.conf.plugins.each do |plugin|
+  def load_plugins!
+    configatron.plugins.each do |plugin|
       load_plugin(plugin)
     end
   end
@@ -26,7 +23,6 @@ class Smartdict::Core::PluginManager
   end
 
   def plugin_file_path(plugin_name)
-    File.join(@plugins_dir, plugin_name, 'lib', plugin_name)
+    File.join(configatron.plugins_dir, plugin_name, 'lib', plugin_name)
   end
-
 end

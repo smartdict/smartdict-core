@@ -3,6 +3,7 @@ $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 
 module Smartdict; end
 
+require 'configatron'
 require "smartdict/core"
 require "smartdict/models"
 
@@ -13,12 +14,10 @@ module Smartdict
   class << self
     include Smartdict::Core
 
-    attr_reader :conf
-
     def run
-      configure
-      Dir.mkdir user_dir unless FileTest.exists?(user_dir) 
-      @conf.save! unless FileTest.exists?(conf_file)
+      init_config
+      Core::PluginManager.load_plugins!
+      Dir.mkdir user_dir unless File.exists?(user_dir) 
       setup_dm
     end
 
@@ -26,9 +25,17 @@ module Smartdict
       @plugin_manager ||= Core::PluginManager.new(plugins_dir)
     end
 
-    def conf_file
-      File.join(user_dir, 'configuration.yml')
+    def init_config
+      default_config_file = File.join(root_dir, 'config', 'default_config.yml')
+      configatron.configure_from_hash YAML.load_file(default_config_file)
+
+      config_file = File.join(user_dir, 'configuration.yml')
+      configatron.configure_from_hash YAML.load_file(config_file)
+
+      configatron.plugins_dir = File.join(root_dir, 'plugins')
+      configatron.store.db = File.join(user_dir, 'database.sqlite')
     end
+
 
     def user_dir
       dirname = {
@@ -52,12 +59,6 @@ module Smartdict
       @env || raise("No env setted for Smartdict")
     end
 
-    def configure
-      @conf ||= Conf.init
-      yield(@conf) if block_given?
-      @conf
-    end
-
     def log_path
       File.join(user_dir, 'smartdict.log')
     end
@@ -74,9 +75,9 @@ module Smartdict
     private
 
     def setup_dm
-      case conf.store.adapter
+      case configatron.store.adapter
       when 'sqlite'
-        db = conf.store.db
+        db = configatron.store.db
         db_adapted = (db == 'memory') ? ":#{db}:" : "//#{db}"
         DataMapper.setup(:default, "sqlite:#{db_adapted}")
         if db == 'memory' or !File.exists?(db)
@@ -84,7 +85,7 @@ module Smartdict
           DataMapper.auto_migrate!
         end
       else
-        raise "Not supported adapter #{conf.store.adapter}" 
+        raise "Not supported adapter #{configatron.store.adapter}" 
       end
     end
 

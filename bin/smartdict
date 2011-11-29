@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'rubygems'
+require 'ruby-debug'
+
+require 'smartdict'
+require 'smartdict/runner'
+
+Smartdict.env = :test
+
+args = ARGV.clone
+Smartdict::Runner.run(args)
+#Smartdict.run
