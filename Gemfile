@@ -13,6 +13,12 @@ gem 'dm-sqlite-adapter'
 gem 'configatron'
 
 group :development do
+
+  gem 'guard'
+  gem 'libnotify'
+  gem 'guard-rspec'
+  gem 'rb-readline'
+
   gem "rspec", "~> 2.3.0"
   gem "yard", "~> 0.6.0"
   gem "cucumber", ">= 0"

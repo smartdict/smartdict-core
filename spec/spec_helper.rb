@@ -22,9 +22,9 @@ RSpec.configure do |config|
 end
 
 
-Smartdict.env = :test
-Smartdict.configure do |config|
-  config.store.adapter  = 'sqlite'
-  config.store.db = 'memory'
-end
-Smartdict.run
+#Smartdict.env = :test
+#Smartdict.configure do |config|
+#  config.store.adapter  = 'sqlite'
+#  config.store.db = 'memory'
+#end
+#Smartdict.run

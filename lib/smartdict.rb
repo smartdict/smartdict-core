@@ -5,6 +5,7 @@ module Smartdict; end
 
 require 'configatron'
 require "smartdict/core"
+require "smartdict/commands"
 require "smartdict/models"
 
 
