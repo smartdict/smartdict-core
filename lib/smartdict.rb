@@ -1,4 +1,7 @@
 require 'rubygems'
+
+require 'active_support/core_ext/class'
+
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 
 module Smartdict; end
@@ -10,6 +13,8 @@ require "smartdict/models"
 
 
 module Smartdict
+  class Error < ::Exception; end
+
   ENVIRONMENTS = [:user, :test, :cucumber]
 
   class << self
