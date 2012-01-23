@@ -1,0 +1,4549 @@
+--- 
+:flay: 
+  :matches: []
+
+  :total_score: "0"
+:roodi: 
+  :problems: 
+  - :file: lib/smartdict/commands/help_command.rb
+    :line: "18"
+    :problem: Found = in conditional.  It should probably be an ==
+  - :file: lib/smartdict/commands/help_command.rb
+    :line: "19"
+    :problem: Found = in conditional.  It should probably be an ==
+  - :file: lib/smartdict/command.rb
+    :line: "178"
+    :problem: Found = in conditional.  It should probably be an ==
+  - :file: lib/smartdict/command.rb
+    :line: "179"
+    :problem: Found = in conditional.  It should probably be an ==
+  - :file: lib/smartdict/command.rb
+    :line: "193"
+    :problem: Found = in conditional.  It should probably be an ==
+  :total: 
+  - Found 5 errors.
+:hotspots: 
+  :classes: 
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelloCommand)
+      file_path: lib/smartdict/commands/hello_command.rb
+      hash: -2686401777
+      method_name: 
+    :details: 
+      :rcov: uncovered code is 100.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)
+      file_path: lib/smartdict/commands/help_command.rb
+      hash: -2077958121
+      method_name: 
+    :details: 
+      :rcov: average uncovered code is 84.4%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)
+      file_path: lib/smartdict/core/plugin_manager.rb
+      hash: 3914174654
+      method_name: 
+    :details: 
+      :rcov: average uncovered code is 78.9%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: -5495519777
+      method_name: 
+    :details: 
+      :rcov: average uncovered code is 76.1%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)
+      file_path: lib/smartdict/models/pronunciation.rb
+      hash: 4495769886
+      method_name: 
+    :details: 
+      :rcov: average uncovered code is 70.8%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :Log)
+      file_path: lib/smartdict/core/log.rb
+      hash: 5623776912
+      method_name: 
+    :details: 
+      :rcov: uncovered code is 66.7%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: main
+      file_path: 
+      hash: -14617435
+      method_name: 
+    :details: 
+      :flog: complexity is 33.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: help_syntax_message
+      file_path: lib/smartdict/command.rb:133
+      hash: -6124640245
+      method_name: 
+    :details: 
+      :flog: complexity is 15.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: help_usage_message
+      file_path: lib/smartdict/command.rb:142
+      hash: -4865277201
+      method_name: 
+    :details: 
+      :flog: complexity is 15.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: TranslationSource
+      file_path: lib/smartdict/models/translation_source.rb
+      hash: 886423974
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 13.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelpCommand
+      file_path: lib/smartdict/commands/help_command.rb
+      hash: 3206099834
+      method_name: 
+    :details: 
+      :reek: found 4 code smells
+      :flog: average complexity is 13.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Language
+      file_path: lib/smartdict/models/language.rb
+      hash: 2535339364
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 13.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Translation
+      file_path: lib/smartdict/models/translation.rb
+      hash: -3157647117
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 12.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb
+      hash: 2595434790
+      method_name: 
+    :details: 
+      :reek: found 11 code smells
+      :flog: average complexity is 11.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelloCommand
+      file_path: lib/smartdict/commands/hello_command.rb
+      hash: 3324081498
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+      :flog: average complexity is 11.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Pronunciation
+      file_path: lib/smartdict/models/pronunciation.rb
+      hash: -6850494971
+      method_name: 
+    :details: 
+      :reek: found 2 code smells
+      :flog: average complexity is 11.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Word
+      file_path: lib/smartdict/models/word.rb
+      hash: -935825757
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 11.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command
+      file_path: lib/smartdict/command.rb
+      hash: 3883512810
+      method_name: 
+    :details: 
+      :reek: found 6 code smells
+      :flog: average complexity is 10.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: TranslateCommand
+      file_path: lib/smartdict/commands/translate_command.rb
+      hash: -2219277963
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 9.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: TranslationQuery
+      file_path: lib/smartdict/models/translation_query.rb
+      hash: -4589119841
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 8.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: before
+      file_path: lib/smartdict/models/pronunciation.rb:28
+      hash: -8114629389
+      method_name: 
+    :details: 
+      :flog: average complexity is 9.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: WordClass
+      file_path: 
+      hash: 651476330
+      method_name: 
+    :details: 
+      :flog: complexity is 6.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: PluginManager
+      file_path: lib/smartdict/core/plugin_manager.rb
+      hash: 3303427264
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+      :flog: average complexity is 6.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: help_message
+      file_path: lib/smartdict/command.rb:126
+      hash: 8587659942
+      method_name: 
+    :details: 
+      :flog: complexity is 6.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: included
+      file_path: lib/smartdict/core/has_log.rb:4
+      hash: 2000340044
+      method_name: 
+    :details: 
+      :flog: complexity is 6.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: options
+      file_path: lib/smartdict/command.rb:88
+      hash: 2490583328
+      method_name: 
+    :details: 
+      :flog: complexity is 4.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: CommandManager
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: 8038383880
+      method_name: 
+    :details: 
+      :reek: found 3 code smells
+      :flog: average complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: root_log
+      file_path: lib/smartdict/core/log.rb:4
+      hash: -3058853823
+      method_name: 
+    :details: 
+      :flog: complexity is 2.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: run
+      file_path: lib/smartdict/command.rb:69
+      hash: -1583460789
+      method_name: 
+    :details: 
+      :flog: average complexity is 2.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: InstanceAndClassMethods
+      file_path: lib/smartdict/core/has_log.rb:10
+      hash: -5919544993
+      method_name: 
+    :details: 
+      :flog: complexity is 1.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: prog_name
+      file_path: lib/smartdict/command.rb:121
+      hash: 7404512204
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: summary
+      file_path: lib/smartdict/command.rb:94
+      hash: -2736335159
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: usage
+      file_path: lib/smartdict/command.rb:116
+      hash: 7379310312
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: name
+      file_path: lib/smartdict/command.rb:104
+      hash: 7204522060
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: syntax
+      file_path: lib/smartdict/command.rb:110
+      hash: 6020471728
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: arguments
+      file_path: lib/smartdict/command.rb:74
+      hash: -4218851797
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: default
+      file_path: lib/smartdict/command.rb:80
+      hash: -2259641595
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: description
+      file_path: lib/smartdict/command.rb:99
+      hash: -4291702415
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command#self
+      file_path: lib/smartdict/command.rb
+      hash: -1780818899
+      method_name: 
+    :details: 
+      :reek: found 2 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Log
+      file_path: lib/smartdict/core/log.rb
+      hash: 5799427512
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Runner
+      file_path: lib/smartdict/runner.rb
+      hash: -5420929383
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Error
+      file_path: lib/smartdict.rb
+      hash: 71521212
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -2846036741
+      method_name: 
+    :details: 
+      :rcov: average uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :TranslateCommand)
+      file_path: lib/smartdict/commands/translate_command.rb
+      hash: -140598339
+      method_name: 
+    :details: 
+      :rcov: uncovered code is 0.0%
+  :methods: 
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)
+      file_path: lib/smartdict/commands/help_command.rb
+      hash: 1123177116
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#help_commands_message
+      simple_method_name: "#help_commands_message"
+    :details: 
+      :rcov: uncovered code is 100.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelloCommand)
+      file_path: lib/smartdict/commands/hello_command.rb
+      hash: -3327165124
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelloCommand)#execute
+      simple_method_name: "#execute"
+    :details: 
+      :rcov: uncovered code is 100.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)
+      file_path: lib/smartdict/commands/help_command.rb
+      hash: 1641815073
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#execute
+      simple_method_name: "#execute"
+    :details: 
+      :rcov: uncovered code is 90.9%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)
+      file_path: lib/smartdict/core/plugin_manager.rb
+      hash: -2862783524
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#load_plugin
+      simple_method_name: "#load_plugin"
+    :details: 
+      :rcov: uncovered code is 90.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: -5205928694
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#run
+      simple_method_name: "#run"
+    :details: 
+      :rcov: uncovered code is 88.9%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: -5610677148
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#initialize
+      simple_method_name: "#initialize"
+    :details: 
+      :rcov: uncovered code is 83.3%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)
+      file_path: lib/smartdict/commands/help_command.rb
+      hash: 886445969
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#help_message
+      simple_method_name: "#help_message"
+    :details: 
+      :rcov: uncovered code is 80.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)
+      file_path: lib/smartdict/core/plugin_manager.rb
+      hash: -2972038867
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#load_plugins!
+      simple_method_name: "#load_plugins!"
+    :details: 
+      :rcov: uncovered code is 80.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)
+      file_path: lib/smartdict/models/pronunciation.rb
+      hash: 6257154357
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)#gen_filename
+      simple_method_name: "#gen_filename"
+    :details: 
+      :rcov: uncovered code is 75.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: 5106151435
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#register_command
+      simple_method_name: "#register_command"
+    :details: 
+      :rcov: uncovered code is 75.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :Log)
+      file_path: lib/smartdict/core/log.rb
+      hash: 5400695214
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :Log)#root_log
+      simple_method_name: "#root_log"
+    :details: 
+      :rcov: uncovered code is 66.7%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)
+      file_path: lib/smartdict/core/plugin_manager.rb
+      hash: -3178104855
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#plugin_file_path
+      simple_method_name: "#plugin_file_path"
+    :details: 
+      :rcov: uncovered code is 66.7%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)
+      file_path: lib/smartdict/commands/help_command.rb
+      hash: 129468010
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#command_manager
+      simple_method_name: "#command_manager"
+    :details: 
+      :rcov: uncovered code is 66.7%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: 5700400099
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#find_command
+      simple_method_name: "#find_command"
+    :details: 
+      :rcov: uncovered code is 66.7%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)
+      file_path: lib/smartdict/models/pronunciation.rb
+      hash: 5517423400
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)#filepath
+      simple_method_name: "#filepath"
+    :details: 
+      :rcov: uncovered code is 66.7%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: 5942461876
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#run_command
+      simple_method_name: "#run_command"
+    :details: 
+      :rcov: uncovered code is 66.7%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb
+      hash: 2333723102
+      method_name: Smartdict#setup_dm
+      simple_method_name: "#setup_dm"
+    :details: 
+      :reek: found 5 code smells
+      :flog: complexity is 38.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelpCommand
+      file_path: lib/smartdict/commands/help_command.rb
+      hash: 3521346070
+      method_name: HelpCommand#help_commands_message
+      simple_method_name: "#help_commands_message"
+    :details: 
+      :reek: found 3 code smells
+      :flog: complexity is 37.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb
+      hash: 2442993825
+      method_name: Smartdict#init_config
+      simple_method_name: "#init_config"
+    :details: 
+      :reek: found 4 code smells
+      :flog: complexity is 34.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: main
+      file_path: 
+      hash: 2077376252
+      method_name: main#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 33.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command
+      file_path: lib/smartdict/command.rb
+      hash: -3731781905
+      method_name: Command#set_arguments!
+      simple_method_name: "#set_arguments!"
+    :details: 
+      :reek: found 2 code smells
+      :flog: complexity is 22.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelloCommand
+      file_path: 
+      hash: 3489740806
+      method_name: HelloCommand#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 18.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb
+      hash: -3096711534
+      method_name: Smartdict#run
+      simple_method_name: "#run"
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 14.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Pronunciation
+      file_path: 
+      hash: 1829935014
+      method_name: Pronunciation#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 13.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: TranslationSource
+      file_path: 
+      hash: 480350680
+      method_name: TranslationSource#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 13.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command
+      file_path: lib/smartdict/command.rb
+      hash: 3536175992
+      method_name: Command#extract_arguments_and_options
+      simple_method_name: "#extract_arguments_and_options"
+    :details: 
+      :reek: found 4 code smells
+      :flog: complexity is 12.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Pronunciation
+      file_path: lib/smartdict/models/pronunciation.rb:34
+      hash: 8156792001
+      method_name: Pronunciation#filepath
+      simple_method_name: "#filepath"
+    :details: 
+      :flog: complexity is 13.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Language
+      file_path: 
+      hash: 1907582575
+      method_name: Language#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 13.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: before
+      file_path: lib/smartdict/models/pronunciation.rb:28
+      hash: 6804860854
+      method_name: before#save
+      simple_method_name: "#save"
+    :details: 
+      :flog: average complexity is 12.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command
+      file_path: lib/smartdict/command.rb:205
+      hash: 4845216760
+      method_name: Command#set_options!
+      simple_method_name: "#set_options!"
+    :details: 
+      :flog: complexity is 12.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Translation
+      file_path: 
+      hash: 4025012849
+      method_name: Translation#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 12.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelpCommand
+      file_path: lib/smartdict/commands/help_command.rb:17
+      hash: 3133354161
+      method_name: HelpCommand#execute
+      simple_method_name: "#execute"
+    :details: 
+      :flog: complexity is 11.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: 
+      hash: -244222695
+      method_name: Smartdict#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 11.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Word
+      file_path: 
+      hash: -155628433
+      method_name: Word#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 11.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: PluginManager
+      file_path: lib/smartdict/core/plugin_manager.rb
+      hash: 2895136035
+      method_name: PluginManager#load_plugin
+      simple_method_name: "#load_plugin"
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 10.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: TranslateCommand
+      file_path: 
+      hash: -2217776143
+      method_name: TranslateCommand#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 9.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command
+      file_path: 
+      hash: -2471906184
+      method_name: Command#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 9.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: TranslationQuery
+      file_path: 
+      hash: -1070775817
+      method_name: TranslationQuery#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 8.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb:60
+      hash: -1871391963
+      method_name: Smartdict#env=
+      simple_method_name: "#env="
+    :details: 
+      :flog: complexity is 8.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb:47
+      hash: 58394448
+      method_name: Smartdict#user_dir
+      simple_method_name: "#user_dir"
+    :details: 
+      :flog: complexity is 8.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelpCommand
+      file_path: lib/smartdict/commands/help_command.rb:29
+      hash: -2206975973
+      method_name: HelpCommand#help_message
+      simple_method_name: "#help_message"
+    :details: 
+      :flog: complexity is 8.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelpCommand
+      file_path: 
+      hash: 1527752038
+      method_name: HelpCommand#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 7.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: WordClass
+      file_path: 
+      hash: 1461323326
+      method_name: WordClass#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 6.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: PluginManager
+      file_path: lib/smartdict/core/plugin_manager.rb:5
+      hash: 1592574108
+      method_name: PluginManager#load_plugins!
+      simple_method_name: "#load_plugins!"
+    :details: 
+      :flog: complexity is 5.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Pronunciation
+      file_path: lib/smartdict/models/pronunciation.rb:40
+      hash: 6706012462
+      method_name: Pronunciation#gen_filename
+      simple_method_name: "#gen_filename"
+    :details: 
+      :flog: complexity is 5.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: PluginManager
+      file_path: 
+      hash: 160812311
+      method_name: PluginManager#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 5.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelloCommand
+      file_path: lib/smartdict/commands/hello_command.rb:24
+      hash: -1741082433
+      method_name: HelloCommand#execute
+      simple_method_name: "#execute"
+    :details: 
+      :flog: complexity is 5.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: CommandManager
+      file_path: lib/smartdict/core/command_manager.rb:20
+      hash: 558469138
+      method_name: CommandManager#run
+      simple_method_name: "#run"
+    :details: 
+      :flog: complexity is 5.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command
+      file_path: lib/smartdict/command.rb:166
+      hash: 5435015024
+      method_name: Command#set_arguments_and_options!
+      simple_method_name: "#set_arguments_and_options!"
+    :details: 
+      :flog: complexity is 5.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: CommandManager
+      file_path: lib/smartdict/core/command_manager.rb:30
+      hash: 481794155
+      method_name: CommandManager#run_command
+      simple_method_name: "#run_command"
+    :details: 
+      :flog: complexity is 4.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb:31
+      hash: -510273897
+      method_name: Smartdict#plugin_manager
+      simple_method_name: "#plugin_manager"
+    :details: 
+      :flog: complexity is 4.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: PluginManager
+      file_path: lib/smartdict/core/plugin_manager.rb:25
+      hash: -3348247985
+      method_name: PluginManager#plugin_file_path
+      simple_method_name: "#plugin_file_path"
+    :details: 
+      :flog: complexity is 4.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: CommandManager
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: -7399020674
+      method_name: CommandManager#register_command
+      simple_method_name: "#register_command"
+    :details: 
+      :reek: found 2 code smells
+      :flog: complexity is 3.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: CommandManager
+      file_path: lib/smartdict/core/command_manager.rb:8
+      hash: -7202371991
+      method_name: CommandManager#initialize
+      simple_method_name: "#initialize"
+    :details: 
+      :flog: complexity is 4.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb:69
+      hash: -548265620
+      method_name: Smartdict#log_path
+      simple_method_name: "#log_path"
+    :details: 
+      :flog: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb
+      hash: 2653797024
+      method_name: Smartdict#root_dir
+      simple_method_name: "#root_dir"
+    :details: 
+      :reek: found 1 code smells
+      :flog: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb:77
+      hash: 1801572957
+      method_name: Smartdict#plugins_dir
+      simple_method_name: "#plugins_dir"
+    :details: 
+      :flog: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: CommandManager
+      file_path: 
+      hash: 3414060003
+      method_name: CommandManager#none
+      simple_method_name: "#none"
+    :details: 
+      :flog: complexity is 3.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: CommandManager
+      file_path: lib/smartdict/core/command_manager.rb:34
+      hash: 477084102
+      method_name: CommandManager#find_command
+      simple_method_name: "#find_command"
+    :details: 
+      :flog: complexity is 2.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb:65
+      hash: 193551673
+      method_name: Smartdict#env
+      simple_method_name: "#env"
+    :details: 
+      :flog: complexity is 2.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: before
+      file_path: lib/smartdict/models/pronunciation.rb:32
+      hash: 7387836391
+      method_name: before#valid?
+      simple_method_name: "#valid?"
+    :details: 
+      :flog: complexity is 2.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Smartdict
+      file_path: lib/smartdict.rb:55
+      hash: 1581184634
+      method_name: Smartdict#home_dir
+      simple_method_name: "#home_dir"
+    :details: 
+      :flog: complexity is 1.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command
+      file_path: lib/smartdict/command.rb:160
+      hash: -5139322438
+      method_name: Command#initialize
+      simple_method_name: "#initialize"
+    :details: 
+      :flog: complexity is 1.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: InstanceAndClassMethods
+      file_path: lib/smartdict/core/has_log.rb:10
+      hash: -5467270539
+      method_name: InstanceAndClassMethods#log
+      simple_method_name: "#log"
+    :details: 
+      :flog: complexity is 1.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: HelpCommand
+      file_path: lib/smartdict/commands/help_command.rb:35
+      hash: 4193577881
+      method_name: HelpCommand#command_manager
+      simple_method_name: "#command_manager"
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command#self
+      file_path: lib/smartdict/command.rb
+      hash: 752594855
+      method_name: Command#self.help_syntax_message
+      simple_method_name: .help_syntax_message
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: Command#self
+      file_path: lib/smartdict/command.rb
+      hash: -196830560
+      method_name: Command#self.help_usage_message
+      simple_method_name: .help_usage_message
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -3568693311
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#help_syntax_message
+      simple_method_name: "#help_syntax_message"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -4255637471
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#options
+      simple_method_name: "#options"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: 4051685092
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#extract_arguments_and_options
+      simple_method_name: "#extract_arguments_and_options"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -3663836077
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#help_message
+      simple_method_name: "#help_message"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -3885365552
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#syntax
+      simple_method_name: "#syntax"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: 3044160293
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#description
+      simple_method_name: "#description"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :TranslateCommand)
+      file_path: lib/smartdict/commands/translate_command.rb
+      hash: -348805283
+      method_name: s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :TranslateCommand)#execute
+      simple_method_name: "#execute"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -2558475512
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#arguments
+      simple_method_name: "#arguments"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -2627521951
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#usage
+      simple_method_name: "#usage"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -2226965152
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#set_options!
+      simple_method_name: "#set_options!"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: 3558222856
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#name
+      simple_method_name: "#name"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: 2393742013
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#set_arguments!
+      simple_method_name: "#set_arguments!"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -2249533201
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#initialize
+      simple_method_name: "#initialize"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: 3904246349
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#inherited
+      simple_method_name: "#inherited"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: 2660564956
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#run
+      simple_method_name: "#run"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: 2786084455
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#summary
+      simple_method_name: "#summary"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: 3103632926
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#prog_name
+      simple_method_name: "#prog_name"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -2468946833
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#help_usage_message
+      simple_method_name: "#help_usage_message"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -2821744348
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#default
+      simple_method_name: "#default"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: s(:colon2, s(:const, :Smartdict), :Command)
+      file_path: lib/smartdict/command.rb
+      hash: -2623734611
+      method_name: s(:colon2, s(:const, :Smartdict), :Command)#set_arguments_and_options!
+      simple_method_name: "#set_arguments_and_options!"
+    :details: 
+      :rcov: uncovered code is 0.0%
+  :files: 
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/commands/hello_command.rb
+      hash: 1797679784
+      method_name: 
+    :details: 
+      :rcov: uncovered code is 100.0%
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/commands/help_command.rb
+      hash: -3641846309
+      method_name: 
+    :details: 
+      :roodi: found 2 design problems
+      :rcov: average uncovered code is 84.4%
+      :reek: found 4 code smells
+      :churn: detected high level of churn (changed 3 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/plugin_manager.rb
+      hash: 2668570880
+      method_name: 
+    :details: 
+      :rcov: average uncovered code is 78.9%
+      :reek: found 1 code smells
+      :churn: detected high level of churn (changed 3 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/command_manager.rb
+      hash: 6037548352
+      method_name: 
+    :details: 
+      :rcov: average uncovered code is 76.1%
+      :reek: found 3 code smells
+      :churn: detected high level of churn (changed 3 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/pronunciation.rb
+      hash: 7497190464
+      method_name: 
+    :details: 
+      :rcov: average uncovered code is 70.8%
+      :reek: found 2 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/log.rb
+      hash: 4692974296
+      method_name: 
+    :details: 
+      :rcov: uncovered code is 66.7%
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:84
+      hash: -1059001349
+      method_name: 
+    :details: 
+      :flog: complexity is 38.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/commands/help_command.rb:39
+      hash: -3626615417
+      method_name: 
+    :details: 
+      :flog: complexity is 37.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:35
+      hash: -1060354357
+      method_name: 
+    :details: 
+      :flog: complexity is 34.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/pronunciation.rb:28
+      hash: -8445825641
+      method_name: 
+    :details: 
+      :flog: complexity is 22.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:190
+      hash: 8365029020
+      method_name: 
+    :details: 
+      :flog: complexity is 22.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:142
+      hash: 8363676052
+      method_name: 
+    :details: 
+      :flog: complexity is 15.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:133
+      hash: 8363405460
+      method_name: 
+    :details: 
+      :flog: complexity is 15.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:24
+      hash: -1060624957
+      method_name: 
+    :details: 
+      :flog: complexity is 14.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/pronunciation.rb:34
+      hash: -8445555101
+      method_name: 
+    :details: 
+      :flog: complexity is 13.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:174
+      hash: 8364487808
+      method_name: 
+    :details: 
+      :flog: complexity is 12.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:205
+      hash: 8396672356
+      method_name: 
+    :details: 
+      :flog: complexity is 12.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/commands/help_command.rb:17
+      hash: -3627156585
+      method_name: 
+    :details: 
+      :flog: complexity is 11.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/plugin_manager.rb:14
+      hash: -2861028253
+      method_name: 
+    :details: 
+      :flog: complexity is 10.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:60
+      hash: -1059542589
+      method_name: 
+    :details: 
+      :flog: complexity is 8.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:47
+      hash: -1060083713
+      method_name: 
+    :details: 
+      :flog: complexity is 8.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/commands/help_command.rb:29
+      hash: -3626885989
+      method_name: 
+    :details: 
+      :flog: complexity is 8.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:126
+      hash: 8363134876
+      method_name: 
+    :details: 
+      :flog: complexity is 6.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/has_log.rb:4
+      hash: -2751436469
+      method_name: 
+    :details: 
+      :flog: complexity is 6.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/plugin_manager.rb:5
+      hash: 1665247348
+      method_name: 
+    :details: 
+      :flog: complexity is 5.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/pronunciation.rb:40
+      hash: -8445284481
+      method_name: 
+    :details: 
+      :flog: complexity is 5.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/commands/hello_command.rb:24
+      hash: 4043564660
+      method_name: 
+    :details: 
+      :flog: complexity is 5.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/command_manager.rb:20
+      hash: 3235250960
+      method_name: 
+    :details: 
+      :flog: complexity is 5.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:166
+      hash: 8364217228
+      method_name: 
+    :details: 
+      :flog: complexity is 5.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:88
+      hash: -718272017
+      method_name: 
+    :details: 
+      :flog: complexity is 4.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/command_manager.rb:30
+      hash: 3235521564
+      method_name: 
+    :details: 
+      :flog: complexity is 4.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:31
+      hash: -1060354341
+      method_name: 
+    :details: 
+      :flog: complexity is 4.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/plugin_manager.rb:25
+      hash: -2860757653
+      method_name: 
+    :details: 
+      :flog: complexity is 4.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/command_manager.rb:8
+      hash: 4392301432
+      method_name: 
+    :details: 
+      :flog: complexity is 4.1
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:73
+      hash: -1059271949
+      method_name: 
+    :details: 
+      :flog: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:69
+      hash: -1059542545
+      method_name: 
+    :details: 
+      :flog: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:77
+      hash: -1059271965
+      method_name: 
+    :details: 
+      :flog: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/command_manager.rb:15
+      hash: 3234980364
+      method_name: 
+    :details: 
+      :flog: complexity is 3.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/log.rb:4
+      hash: -13889645
+      method_name: 
+    :details: 
+      :flog: complexity is 2.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/command_manager.rb:34
+      hash: 3235521544
+      method_name: 
+    :details: 
+      :flog: complexity is 2.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:65
+      hash: -1059542529
+      method_name: 
+    :details: 
+      :flog: complexity is 2.8
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:69
+      hash: -718813213
+      method_name: 
+    :details: 
+      :flog: complexity is 2.6
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/translation_query.rb:14
+      hash: 1492156060
+      method_name: 
+    :details: 
+      :flog: complexity is 2.5
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/runner.rb:2
+      hash: 7355082276
+      method_name: 
+    :details: 
+      :flog: complexity is 2.4
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/pronunciation.rb:32
+      hash: -8445555077
+      method_name: 
+    :details: 
+      :flog: complexity is 2.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb:55
+      hash: -1059813133
+      method_name: 
+    :details: 
+      :flog: complexity is 1.9
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb
+      hash: -1011680933
+      method_name: 
+    :details: 
+      :roodi: found 3 design problems
+      :rcov: average uncovered code is 0.0%
+      :reek: found 8 code smells
+      :churn: detected high level of churn (changed 3 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:160
+      hash: 8364217192
+      method_name: 
+    :details: 
+      :flog: complexity is 1.7
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict.rb
+      hash: 2262131708
+      method_name: 
+    :details: 
+      :reek: found 12 code smells
+      :churn: detected high level of churn (changed 4 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/core/has_log.rb:10
+      hash: 6667594688
+      method_name: 
+    :details: 
+      :flog: complexity is 1.3
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:99
+      hash: -718001385
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:104
+      hash: 8362593644
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:74
+      hash: -718542605
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:80
+      hash: -718272049
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:94
+      hash: -718001413
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:116
+      hash: 8362864272
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/commands/help_command.rb:35
+      hash: -3626615401
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:110
+      hash: 8362864248
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/command.rb:121
+      hash: 8363134816
+      method_name: 
+    :details: 
+      :flog: complexity is 1.2
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/commands/translate_command.rb
+      hash: 925464892
+      method_name: 
+    :details: 
+      :rcov: uncovered code is 0.0%
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/translation.rb
+      hash: -779894069
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: Gemfile
+      hash: -3397960837
+      method_name: 
+    :details: 
+      :churn: detected high level of churn (changed 5 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: spec/models/word_spec.rb
+      hash: -6931684477
+      method_name: 
+    :details: 
+      :churn: detected high level of churn (changed 3 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: Gemfile.lock
+      hash: -4193713749
+      method_name: 
+    :details: 
+      :churn: detected high level of churn (changed 5 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: spec/models/word_class_spec.rb
+      hash: 1122189404
+      method_name: 
+    :details: 
+      :churn: detected high level of churn (changed 3 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: spec/models/pronunciation_spec.rb
+      hash: -8056050373
+      method_name: 
+    :details: 
+      :churn: detected high level of churn (changed 3 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: spec/models/language_spec.rb
+      hash: 4005286096
+      method_name: 
+    :details: 
+      :churn: detected high level of churn (changed 3 times)
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/translation_query.rb
+      hash: 4351666388
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/translation_source.rb
+      hash: -601064453
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/word.rb
+      hash: -964811181
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/models/language.rb
+      hash: -3527109837
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location 
+      class_name: 
+      file_path: lib/smartdict/runner.rb
+      hash: -8490261545
+      method_name: 
+    :details: 
+      :reek: found 1 code smells
+:rcov: 
+  lib/smartdict/models/pronunciation.rb: 
+    :methods: 
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)#filepath: 66.6666666666667
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)#gen_filename: 75.0
+    :lines: 
+    - :content: class Smartdict::Models::Pronunciation
+      :was_run: true
+    - :content: "  include DataMapper::Resource"
+      :was_run: true
+    - :content: "  include DataMapper::Validations"
+      :was_run: true
+    - :content: "  property :word_id              , Integer, :key      => true, :min => 1"
+      :was_run: true
+    - :content: "  property :translation_source_id, Integer, :key      => true, :min => 1"
+      :was_run: true
+    - :content: "  property :filename             , String"
+      :was_run: true
+    - :content: "  belongs_to :word              , :key => true"
+      :was_run: true
+    - :content: "  belongs_to :translation_source, :key => true"
+      :was_run: true
+    - :content: "  validates_presence_of :filename"
+      :was_run: true
+    - :content: "  attr_accessor :bin_data, :bin_data_ext"
+      :was_run: true
+    - :content: "  # TODO: refactor condition"
+      :was_run: true
+    - :content: "  before :save do"
+      :was_run: true
+    - :content: "    if bin_data && bin_data_ext"
+      :was_run: false
+    - :content: "      FileUtils.mkdir_p File.dirname(filepath)"
+      :was_run: false
+    - :content: "      File.open(filepath, 'w') {|f| f.write bin_data}"
+      :was_run: false
+    - :content: "    else"
+      :was_run: false
+    - :content: "      puts 'HALT'"
+      :was_run: false
+    - :content: "      p bin_data"
+      :was_run: false
+    - :content: "      p bin_data_ext"
+      :was_run: false
+    - :content: "      throw :halt"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  before :valid? do"
+      :was_run: true
+    - :content: "    self.filename ||= gen_filename"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def filepath"
+      :was_run: true
+    - :content: "    File.join(Smartdict.pronunciations_dir, translation_source.name, word.language.code, filename || gen_filename)"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  private"
+      :was_run: true
+    - :content: "  def gen_filename"
+      :was_run: true
+    - :content: "    escaped_word = word.name.gsub(/[\\s']/, '_')"
+      :was_run: false
+    - :content: "    \"#{escaped_word}.#{bin_data_ext}\""
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 47
+  lib/smartdict/core/has_log.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: require 'smartdict/core/log'
+      :was_run: true
+    - :content: module Smartdict::Core::HasLog
+      :was_run: true
+    - :content: "  def self.included(base)"
+      :was_run: true
+    - :content: "    base.extend         InstanceAndClassMethods"
+      :was_run: true
+    - :content: "    base.send :include, InstanceAndClassMethods"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  module InstanceAndClassMethods"
+      :was_run: true
+    - :content: "    def log"
+      :was_run: true
+    - :content: "      Smartdict::Core::Log.root_log"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 67
+  lib/smartdict/commands.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: module Smartdict::Commands
+      :was_run: true
+    - :content: end
+      :was_run: true
+    - :content: require 'smartdict/command'
+      :was_run: true
+    - :content: Dir.glob("#{File.dirname(__FILE__)}/commands/*rb").each do |file|
+      :was_run: true
+    - :content: "  require file"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  lib/smartdict/commands/hello_command.rb: 
+    :methods: 
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelloCommand)#execute: 100.0
+    :lines: 
+    - :content: class Smartdict::Commands::HelloCommand < Smartdict::Command
+      :was_run: true
+    - :content: "  # arguments and their default values"
+      :was_run: true
+    - :content: "  arguments :name"
+      :was_run: true
+    - :content: "  default   :name => \"world\""
+      :was_run: true
+    - :content: "  # options and their default values."
+      :was_run: true
+    - :content: "  options :greating => \"Hello\","
+      :was_run: true
+    - :content: "          :today => lambda { Time.now.strftime(\"%A\") }"
+      :was_run: true
+    - :content: "  # Other helpful information about the command"
+      :was_run: true
+    - :content: "  name        \"hello\""
+      :was_run: true
+    - :content: "  summary     \"Summary for the hello command\""
+      :was_run: true
+    - :content: "  description \"Demonstrates how Command class works\""
+      :was_run: true
+    - :content: "  syntax      \"#{prog_name} NAME [--greating GREATING] [--today DAY]\""
+      :was_run: true
+    - :content: "  usage <<-USAGE"
+      :was_run: true
+    - :content: "    #{prog_name}         "
+      :was_run: true
+    - :content: "    #{prog_name} Sergey"
+      :was_run: true
+    - :content: "    #{prog_name} --today Friday"
+      :was_run: true
+    - :content: "  USAGE"
+      :was_run: true
+    - :content: "  # This method runs when command executes."
+      :was_run: true
+    - :content: "  def execute"
+      :was_run: true
+    - :content: "    puts \"#{@options[:greating]} #{@arguments[:name]}! Today is #{@options[:today]}.\""
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 86
+  lib/smartdict/models/word.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: class Smartdict::Models::Word
+      :was_run: true
+    - :content: "  include DataMapper::Resource"
+      :was_run: true
+    - :content: "  property :id,            Serial"
+      :was_run: true
+    - :content: "  property :name,          String, :required => true"
+      :was_run: true
+    - :content: "  property :transcription, String"
+      :was_run: true
+    - :content: "  belongs_to :language, :required  => true"
+      :was_run: true
+    - :content: "  has n, :translations, :child_key => :source_id"
+      :was_run: true
+    - :content: "  has n, :pronunciations"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  lib/smartdict/models/translation_source.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: class Smartdict::Models::TranslationSource
+      :was_run: true
+    - :content: "  include DataMapper::Resource"
+      :was_run: true
+    - :content: "  include DataMapper::Validations"
+      :was_run: true
+    - :content: "  property :id  , Serial"
+      :was_run: true
+    - :content: "  property :name, String"
+      :was_run: true
+    - :content: "  has n, :translations"
+      :was_run: true
+    - :content: "  has n, :pronunciations"
+      :was_run: true
+    - :content: "  validates_presence_of :name"
+      :was_run: true
+    - :content: "  validates_uniqueness_of :name"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  lib/smartdict/models/translation_query.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: class Smartdict::Models::TranslationQuery
+      :was_run: true
+    - :content: "  include DataMapper::Resource"
+      :was_run: true
+    - :content: "  property :id                , Serial"
+      :was_run: true
+    - :content: "  property :created_at        , DateTime"
+      :was_run: true
+    - :content: "  property :word_id           , Integer"
+      :was_run: true
+    - :content: "  property :target_language_id, Integer"
+      :was_run: true
+    - :content: "  belongs_to :word                       , :key => true"
+      :was_run: true
+    - :content: "  belongs_to :target_language, 'Language', :key => true"
+      :was_run: true
+    - :content: "  before :save do"
+      :was_run: true
+    - :content: "    self.created_at = Time.now"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 75
+  lib/smartdict/commands/translate_command.rb: 
+    :methods: 
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :TranslateCommand)#execute: 0.0
+    :lines: 
+    - :content: class Smartdict::Commands::TranslateCommand < Smartdict::Command
+      :was_run: true
+    - :content: "  summary     \"Translate a word\""
+      :was_run: true
+    - :content: "  description \"Translate a word\""
+      :was_run: true
+    - :content: "  syntax       \"#{prog_name} <WORD> [--from LANGUAGE] [--to LANGUAGE]\""
+      :was_run: true
+    - :content: "  usage <<-USAGE"
+      :was_run: true
+    - :content: "    #{prog_name} hello"
+      :was_run: true
+    - :content: "    #{prog_name} again --from en"
+      :was_run: true
+    - :content: "    #{prog_name} again --to ru"
+      :was_run: true
+    - :content: "  USAGE"
+      :was_run: true
+    - :content: "  def execute"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  lib/smartdict/models.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: module Smartdict::Models; end
+      :was_run: true
+    - :content: "# rubygems"
+      :was_run: true
+    - :content: "require 'dm-core'          #, '1.0.2'"
+      :was_run: true
+    - :content: "require 'dm-validations'   #, '1.0.2'"
+      :was_run: true
+    - :content: "require 'dm-migrations'    #, '1.0.2'"
+      :was_run: true
+    - :content: require 'dm-sqlite-adapter'#, '1.0.2'
+      :was_run: true
+    - :content: "# models"
+      :was_run: true
+    - :content: "%w{language pronunciation translation translation_query translation_source word word_class}.each do |model|"
+      :was_run: true
+    - :content: "  require \"smartdict/models/#{model}\""
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  lib/smartdict/command.rb: 
+    :methods: 
+      s(:colon2, s(:const, :Smartdict), :Command)::name: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::help_usage_message: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)#set_arguments_and_options!: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::syntax: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::inherited: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)#extract_arguments_and_options: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::run: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::help_syntax_message: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::options: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::default: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::usage: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)#set_options!: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::arguments: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)#set_arguments!: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::help_message: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::description: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::prog_name: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)::summary: 0.0
+      s(:colon2, s(:const, :Smartdict), :Command)#initialize: 0.0
+    :lines: 
+    - :content: "# Basic class for all command classes."
+      :was_run: true
+    - :content: "#"
+      :was_run: true
+    - :content: "# == Usage:"
+      :was_run: true
+    - :content: "#   class Smartdict::Commands::HelloCommand < Smartdict::Command"
+      :was_run: true
+    - :content: "#     # arguments and their default values"
+      :was_run: true
+    - :content: "#     arguments :name"
+      :was_run: true
+    - :content: "#     default   :name => \"world\""
+      :was_run: true
+    - :content: "#   "
+      :was_run: true
+    - :content: "#     # options and their default values."
+      :was_run: true
+    - :content: "#     options :greating => \"Hello\","
+      :was_run: true
+    - :content: "#             :today => lambda { Time.now.strftime(\"%A\") }"
+      :was_run: true
+    - :content: "#   "
+      :was_run: true
+    - :content: "#     # Other helpful information about the command"
+      :was_run: true
+    - :content: "#     name        \"hello\""
+      :was_run: true
+    - :content: "#     summary     \"Summary for the hello command\""
+      :was_run: true
+    - :content: "#     description \"Demonstrates how Command class works\""
+      :was_run: true
+    - :content: "#     syntax      \"#{prog_name} NAME [--greating GREATING] [--today DAY]\""
+      :was_run: true
+    - :content: "#     usage <<-USAGE"
+      :was_run: true
+    - :content: "#       #{prog_name}         "
+      :was_run: true
+    - :content: "#       #{prog_name} Sergey"
+      :was_run: true
+    - :content: "#       #{prog_name} --today Friday"
+      :was_run: true
+    - :content: "#     USAGE"
+      :was_run: true
+    - :content: "#   "
+      :was_run: true
+    - :content: "#     # This method runs when command executes."
+      :was_run: true
+    - :content: "#     def execute"
+      :was_run: true
+    - :content: "#       puts \"#{@options[:greating]} #{@arguments[:name]}! Today is #{@options[:today]}.\""
+      :was_run: true
+    - :content: "#     end"
+      :was_run: true
+    - :content: "#   end"
+      :was_run: true
+    - :content: "#   "
+      :was_run: true
+    - :content: "#   # == Output:"
+      :was_run: true
+    - :content: "#   # smartdict hello"
+      :was_run: true
+    - :content: "#   # Hello world! Today is Monday."
+      :was_run: true
+    - :content: "#   #"
+      :was_run: true
+    - :content: "#   # smartdict hello Sergey"
+      :was_run: true
+    - :content: "#   # Hello Sergey! Today is Monday."
+      :was_run: true
+    - :content: "#   # "
+      :was_run: true
+    - :content: "#   # smartdict hello Sergey --today Friday"
+      :was_run: true
+    - :content: "#   # Hello Sergey! Today is Friday."
+      :was_run: true
+    - :content: class Smartdict::Command
+      :was_run: true
+    - :content: "  # Number of spaces for indent."
+      :was_run: true
+    - :content: "  INDENT_SIZE = 2"
+      :was_run: true
+    - :content: "  # array with available arguments"
+      :was_run: true
+    - :content: "  class_attribute :known_arguments"
+      :was_run: true
+    - :content: "  # hash with default values for {known_arguments}."
+      :was_run: true
+    - :content: "  class_attribute :default_argument_values"
+      :was_run: true
+    - :content: "  # hash with names of options and default values"
+      :was_run: true
+    - :content: "  class_attribute :known_options"
+      :was_run: true
+    - :content: "  # short summary message for a command"
+      :was_run: true
+    - :content: "  class_attribute :summary_message"
+      :was_run: true
+    - :content: "  # command description"
+      :was_run: true
+    - :content: "  class_attribute :description_message"
+      :was_run: true
+    - :content: "  # command name"
+      :was_run: true
+    - :content: "  class_attribute :command_name"
+      :was_run: true
+    - :content: "  # multi line text with syntax format"
+      :was_run: true
+    - :content: "  class_attribute :syntax_message"
+      :was_run: true
+    - :content: "  # multi line text with usage example"
+      :was_run: true
+    - :content: "  class_attribute :usage_message"
+      :was_run: true
+    - :content: "  # Runs command."
+      :was_run: true
+    - :content: "  # @param [Array] args arguments passed from the command line"
+      :was_run: true
+    - :content: "  def self.run(args)"
+      :was_run: true
+    - :content: "    self.new(args).execute"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Defines available arguments and their order. "
+      :was_run: true
+    - :content: "  def self.arguments(*argument_names)"
+      :was_run: true
+    - :content: "    self.known_arguments = argument_names"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Sets default values for arguments."
+      :was_run: true
+    - :content: "  # @param [Hash] values"
+      :was_run: true
+    - :content: "  def self.default(values)"
+      :was_run: true
+    - :content: "    self.default_argument_values = values"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Defines available options with their default values."
+      :was_run: true
+    - :content: "  # == Usage:"
+      :was_run: true
+    - :content: "  #   options :to => \"en\","
+      :was_run: true
+    - :content: "  #           :from => lambda { Settings.current_language }"
+      :was_run: true
+    - :content: "  def self.options(options = {})"
+      :was_run: true
+    - :content: "    raise Smartdict::Error.new(\"options must be a hash\") unless options.is_a? Hash"
+      :was_run: true
+    - :content: "    self.known_options = options"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Sets summary message for a command."
+      :was_run: true
+    - :content: "  def self.summary(summary)"
+      :was_run: true
+    - :content: "    self.summary_message = summary"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Sets description message for a command."
+      :was_run: true
+    - :content: "  def self.description(description)"
+      :was_run: true
+    - :content: "    self.description_message = description"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Defines name of a command."
+      :was_run: true
+    - :content: "  def self.name(name)"
+      :was_run: true
+    - :content: "    self.command_name = name"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Sets syntax message."
+      :was_run: true
+    - :content: "  # @param [String] syntax multi line text with number of syntax examples"
+      :was_run: true
+    - :content: "  def self.syntax(syntax)"
+      :was_run: true
+    - :content: "    self.syntax_message = syntax"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Sets usage examples"
+      :was_run: true
+    - :content: "  # @param [String] usage multi line text with number of usage examples."
+      :was_run: true
+    - :content: "  def self.usage(usage)"
+      :was_run: true
+    - :content: "    self.usage_message = usage"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # @return [String] program name. It's meant to be used in usage examples."
+      :was_run: true
+    - :content: "  def self.prog_name"
+      :was_run: true
+    - :content: "    \"smartdict #{command_name}\""
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # @return [String] help message for the command to be displayed."
+      :was_run: true
+    - :content: "  def self.help_message"
+      :was_run: true
+    - :content: "    message = \"#{description_message}\\n\\n\" "
+      :was_run: true
+    - :content: "    message << \"#{help_syntax_message}\\n\" "
+      :was_run: true
+    - :content: "    message << \"#{help_usage_message}\\n\""
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # @return [String] syntax part of the help message."
+      :was_run: true
+    - :content: "  def self.help_syntax_message"
+      :was_run: true
+    - :content: "    result = \" \" * INDENT_SIZE + \"Syntax:\\n\""
+      :was_run: true
+    - :content: "    syntax_message.split(\"\\n\").map do |line|"
+      :was_run: true
+    - :content: "      result << \" \" * INDENT_SIZE * 2 + \"#{line.strip}\\n\""
+      :was_run: true
+    - :content: "    end"
+      :was_run: true
+    - :content: "    result"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # @return [String] usage part of the help message."
+      :was_run: true
+    - :content: "  def self.help_usage_message"
+      :was_run: true
+    - :content: "    result = \" \" * INDENT_SIZE + \"Usage:\\n\""
+      :was_run: true
+    - :content: "    usage_message.split(\"\\n\").map do |line|"
+      :was_run: true
+    - :content: "      result << \" \" * INDENT_SIZE * 2 + \"#{line.strip}\\n\""
+      :was_run: true
+    - :content: "    end"
+      :was_run: true
+    - :content: "    result"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Sets default values for class attributes."
+      :was_run: true
+    - :content: "  def self.inherited(base)"
+      :was_run: true
+    - :content: "    base.known_arguments ||= []"
+      :was_run: true
+    - :content: "    base.default_argument_values ||= {}"
+      :was_run: true
+    - :content: "    base.known_options ||= {}"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # @param [Array] args arguments passed from the command line"
+      :was_run: true
+    - :content: "  def initialize(args = [])"
+      :was_run: true
+    - :content: "    set_arguments_and_options!(args)"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Parses all passed arguments and initializes @arguments and @options variables."
+      :was_run: true
+    - :content: "  # @param [Array] args arguments passed from the command line"
+      :was_run: true
+    - :content: "  def set_arguments_and_options!(args)"
+      :was_run: true
+    - :content: "    arguments, options = extract_arguments_and_options(args)"
+      :was_run: true
+    - :content: "    set_arguments!(arguments)"
+      :was_run: true
+    - :content: "    set_options!(options)"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Splits input args to arguments and options."
+      :was_run: true
+    - :content: "  # Returns arguments as an array and options as a hash."
+      :was_run: true
+    - :content: "  def extract_arguments_and_options(args)"
+      :was_run: true
+    - :content: "    arguments = []"
+      :was_run: true
+    - :content: "    options = {}"
+      :was_run: true
+    - :content: "    args = args.dup"
+      :was_run: true
+    - :content: "    while value = args.shift"
+      :was_run: true
+    - :content: "      if match = value.match(/^--(\\w+)/)"
+      :was_run: true
+    - :content: "        options[match[1].to_sym] = args.shift"
+      :was_run: true
+    - :content: "      else"
+      :was_run: true
+    - :content: "        arguments << value"
+      :was_run: true
+    - :content: "      end"
+      :was_run: true
+    - :content: "    end"
+      :was_run: true
+    - :content: "    [arguments, options]"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Initializes @arguments variable."
+      :was_run: true
+    - :content: "  # If no argument was passed then it uses default value."
+      :was_run: true
+    - :content: "  def set_arguments!(arg_values)"
+      :was_run: true
+    - :content: "    @arguments = {}"
+      :was_run: true
+    - :content: "    known_arguments.each_with_index do |arg_name, index|"
+      :was_run: true
+    - :content: "      if value = arg_values[index]"
+      :was_run: true
+    - :content: "        @arguments[arg_name.to_sym] = value"
+      :was_run: true
+    - :content: "      elsif default_argument_values.has_key?(arg_name.to_sym)"
+      :was_run: true
+    - :content: "        @arguments[arg_name.to_sym] = default_argument_values[arg_name.to_sym]"
+      :was_run: true
+    - :content: "      else"
+      :was_run: true
+    - :content: "        raise Smartdict::Error.new(\"Argument `#{arg_name}` is not passed\")"
+      :was_run: true
+    - :content: "      end"
+      :was_run: true
+    - :content: "    end"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: "  # Initializes @options variable."
+      :was_run: true
+    - :content: "  # If no argument was passed then it uses default value."
+      :was_run: true
+    - :content: "  def set_options!(options)"
+      :was_run: true
+    - :content: "    @options = {}"
+      :was_run: true
+    - :content: "    known_options.each do |opt_name, default_value|"
+      :was_run: true
+    - :content: "      value = options[opt_name]"
+      :was_run: true
+    - :content: "      unless value"
+      :was_run: true
+    - :content: "        value = case default_value"
+      :was_run: true
+    - :content: "          when Proc then default_value.call"
+      :was_run: true
+    - :content: "          else default_value"
+      :was_run: true
+    - :content: "        end"
+      :was_run: true
+    - :content: "      end"
+      :was_run: true
+    - :content: "      @options[opt_name] = value"
+      :was_run: true
+    - :content: "    end"
+      :was_run: true
+    - :content: "  end"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  lib/smartdict/models/translation.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: class Smartdict::Models::Translation
+      :was_run: true
+    - :content: "  include DataMapper::Resource"
+      :was_run: true
+    - :content: "  property :source_id            , Integer, :key => true, :min => 1"
+      :was_run: true
+    - :content: "  property :target_id            , Integer, :key => true, :min => 1"
+      :was_run: true
+    - :content: "  property :word_class_id        , Integer, :key => true, :min => 1"
+      :was_run: true
+    - :content: "  property :translation_source_id, Integer, :key => true, :min => 1"
+      :was_run: true
+    - :content: "  belongs_to :source,        'Word', :key =>  true"
+      :was_run: true
+    - :content: "  belongs_to :target,        'Word', :key =>  true"
+      :was_run: true
+    - :content: "  belongs_to :word_class,            :key =>  true"
+      :was_run: true
+    - :content: "  belongs_to :translation_source,    :key =>  true"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  :global_percent_run: 73.7
+  lib/smartdict/core/command_manager.rb: 
+    :methods: 
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#run: 88.8888888888889
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#run_command: 66.6666666666667
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#initialize: 83.3333333333333
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#register_command: 75.0
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#find_command: 66.6666666666667
+    :lines: 
+    - :content: require 'singleton'
+      :was_run: true
+    - :content: class Smartdict::Core::CommandManager
+      :was_run: true
+    - :content: "  include Singleton "
+      :was_run: true
+    - :content: "  attr_reader :commands"
+      :was_run: true
+    - :content: "  def initialize"
+      :was_run: true
+    - :content: "    @commands = {}"
+      :was_run: false
+    - :content: "    register_command :help     , Smartdict::Commands::HelpCommand"
+      :was_run: false
+    - :content: "    register_command :hello    , Smartdict::Commands::HelloCommand"
+      :was_run: false
+    - :content: "    register_command :translate, Smartdict::Commands::TranslateCommand"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def register_command(name, klass)"
+      :was_run: true
+    - :content: "    klass.command_name = name.to_s"
+      :was_run: false
+    - :content: "    @commands[name.to_s] = klass"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def run(args)"
+      :was_run: true
+    - :content: "    cmd_name = args.shift"
+      :was_run: false
+    - :content: "    case cmd_name "
+      :was_run: false
+    - :content: "    when '-h', '--help', 'help'"
+      :was_run: false
+    - :content: "      run_command :help, args"
+      :was_run: false
+    - :content: "    else"
+      :was_run: false
+    - :content: "      run_command cmd_name, args"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def run_command(name, args = [])"
+      :was_run: true
+    - :content: "    @commands[name.to_s].run(args)"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def find_command(name)"
+      :was_run: true
+    - :content: "    @commands[name.to_s]"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 30
+  lib/smartdict/core/plugin_manager.rb: 
+    :methods: 
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#load_plugins!: 80.0
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#plugin_file_path: 66.6666666666667
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#load_plugin: 90.0
+    :lines: 
+    - :content: module Smartdict::Core::PluginManager
+      :was_run: true
+    - :content: "  include Smartdict::Core::HasLog"
+      :was_run: true
+    - :content: "  extend self"
+      :was_run: true
+    - :content: "  def load_plugins!"
+      :was_run: true
+    - :content: "    configatron.plugins.each do |plugin|"
+      :was_run: false
+    - :content: "      load_plugin(plugin)"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  private"
+      :was_run: true
+    - :content: "  def load_plugin(name)"
+      :was_run: true
+    - :content: "    log.info \"Loading #{name} plugin\""
+      :was_run: false
+    - :content: "    require plugin_file_path(name)"
+      :was_run: false
+    - :content: "  rescue LoadError "
+      :was_run: false
+    - :content: "    begin"
+      :was_run: false
+    - :content: "      require \"smartdict/plugins/#{name}\""
+      :was_run: false
+    - :content: "    rescue LoadError"
+      :was_run: false
+    - :content: "      log.error \"Plugin #{name} not found in plugins dir or rubygems\""
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def plugin_file_path(plugin_name)"
+      :was_run: true
+    - :content: "    File.join(configatron.plugins_dir, plugin_name, 'lib', plugin_name)"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 30
+  lib/smartdict/core/log.rb: 
+    :methods: 
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :Log)::root_log: 66.6666666666667
+    :lines: 
+    - :content: require 'logger'
+      :was_run: true
+    - :content: class Smartdict::Core::Log < ::Logger
+      :was_run: true
+    - :content: "  def self.root_log"
+      :was_run: true
+    - :content: "    @log ||= self.new(Smartdict.log_path)"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 50
+  lib/smartdict/models/word_class.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: "# Word class is the same what is type of speech and lexical class"
+      :was_run: true
+    - :content: class Smartdict::Models::WordClass
+      :was_run: true
+    - :content: "  include DataMapper::Resource"
+      :was_run: true
+    - :content: "  property :id,   Serial"
+      :was_run: true
+    - :content: "  property :name, String, :required => true"
+      :was_run: true
+    - :content: "  has n, :translations"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  lib/smartdict/core.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: module Smartdict::Core; end
+      :was_run: true
+    - :content: require 'smartdict/core/has_log'
+      :was_run: true
+    - :content: Dir.glob("#{File.dirname(__FILE__)}/core/*rb").each do |file|
+      :was_run: true
+    - :content: "  require file"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+  lib/smartdict/commands/help_command.rb: 
+    :methods: 
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#help_message: 80.0
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#execute: 90.9090909090909
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#command_manager: 66.6666666666667
+      s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#help_commands_message: 100.0
+    :lines: 
+    - :content: class Smartdict::Commands::HelpCommand < Smartdict::Command
+      :was_run: true
+    - :content: "  arguments :command"
+      :was_run: true
+    - :content: "  default   :command => nil"
+      :was_run: true
+    - :content: "  name        \"help\""
+      :was_run: true
+    - :content: "  summary     \"Show help message\""
+      :was_run: true
+    - :content: "  description \"Smartdict is a dictionary designed to improve you knowledge of foreign languages.\""
+      :was_run: true
+    - :content: "  syntax <<-SYNTAX"
+      :was_run: true
+    - :content: "    smartdict COMMAND [arguments...] [options...]"
+      :was_run: true
+    - :content: "    #{prog_name} COMMAND"
+      :was_run: true
+    - :content: "    smartdict --help"
+      :was_run: true
+    - :content: "    smartdict --version"
+      :was_run: true
+    - :content: "  SYNTAX"
+      :was_run: true
+    - :content: "  def execute"
+      :was_run: true
+    - :content: "    if cmd_name = @arguments[:command]"
+      :was_run: false
+    - :content: "      if cmd_class = command_manager.find_command(cmd_name)"
+      :was_run: false
+    - :content: "        puts cmd_class.help_message"
+      :was_run: false
+    - :content: "      else"
+      :was_run: false
+    - :content: "        abort \"Uknown command: #{cmd_name}\""
+      :was_run: false
+    - :content: "      end"
+      :was_run: false
+    - :content: "    else"
+      :was_run: false
+    - :content: "      puts help_message"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def help_message"
+      :was_run: true
+    - :content: "    message = \"#{description_message}\\n\\n\""
+      :was_run: false
+    - :content: "    message << \"#{self.class.help_syntax_message}\\n\""
+      :was_run: false
+    - :content: "    message << help_commands_message"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def command_manager"
+      :was_run: true
+    - :content: "    Smartdict::Core::CommandManager.instance"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: "  def help_commands_message"
+      :was_run: true
+    - :content: "    width = command_manager.commands.keys.map(&:size).max"
+      :was_run: false
+    - :content: "    result = \" \" * INDENT_SIZE + \"Commands:\\n\""
+      :was_run: false
+    - :content: "    command_manager.commands.each do |command_name, command_class|"
+      :was_run: false
+    - :content: "      result << \" \" * 2 * INDENT_SIZE + \"#{command_name.ljust(width)}\""
+      :was_run: false
+    - :content: "      result << \"    #{command_class.summary_message}\\n\""
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    result"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 39
+  lib/smartdict.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: require 'rubygems'
+      :was_run: true
+    - :content: require 'active_support/core_ext/class'
+      :was_run: true
+    - :content: $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
+      :was_run: true
+    - :content: module Smartdict; end
+      :was_run: true
+    - :content: require 'configatron'
+      :was_run: true
+    - :content: require "smartdict/core"
+      :was_run: true
+    - :content: require "smartdict/commands"
+      :was_run: true
+    - :content: require "smartdict/models"
+      :was_run: true
+    - :content: module Smartdict
+      :was_run: true
+    - :content: "  class Error < ::Exception; end"
+      :was_run: true
+    - :content: "  #autoload "
+      :was_run: true
+    - :content: "  ENVIRONMENTS = [:user, :test, :cucumber]"
+      :was_run: true
+    - :content: "  class << self"
+      :was_run: true
+    - :content: "    include Smartdict::Core"
+      :was_run: true
+    - :content: "    def run"
+      :was_run: true
+    - :content: "      init_config"
+      :was_run: false
+    - :content: "      Core::PluginManager.load_plugins!"
+      :was_run: false
+    - :content: "      Dir.mkdir user_dir unless File.exists?(user_dir) "
+      :was_run: false
+    - :content: "      setup_dm"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    def plugin_manager"
+      :was_run: true
+    - :content: "      @plugin_manager ||= Core::PluginManager.new(plugins_dir)"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    def init_config"
+      :was_run: true
+    - :content: "      default_config_file = File.join(root_dir, 'config', 'default_config.yml')"
+      :was_run: false
+    - :content: "      configatron.configure_from_hash YAML.load_file(default_config_file)"
+      :was_run: false
+    - :content: "      config_file = File.join(user_dir, 'configuration.yml')"
+      :was_run: false
+    - :content: "      configatron.configure_from_hash YAML.load_file(config_file)"
+      :was_run: false
+    - :content: "      configatron.plugins_dir = File.join(root_dir, 'plugins')"
+      :was_run: false
+    - :content: "      configatron.store.db = File.join(user_dir, 'database.sqlite')"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    def user_dir"
+      :was_run: true
+    - :content: "      dirname = {"
+      :was_run: false
+    - :content: "        :user     => '.smartdict',"
+      :was_run: false
+    - :content: "        :test     => '.smartdict_test', "
+      :was_run: false
+    - :content: "        :cucumber => '.smartdict_test' }[env]"
+      :was_run: false
+    - :content: "      File.join(home_dir, dirname) "
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    def home_dir"
+      :was_run: true
+    - :content: "      ENV['HOME']"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    def env=(environment)"
+      :was_run: true
+    - :content: "      @env = environment.to_sym"
+      :was_run: true
+    - :content: "      raise \"env must be one of #{ENVIRONMENTS.inspect}\" unless ENVIRONMENTS.include?(@env)"
+      :was_run: true
+    - :content: "    end"
+      :was_run: true
+    - :content: "    def env"
+      :was_run: true
+    - :content: "      @env || raise(\"No env setted for Smartdict\")"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    def log_path"
+      :was_run: true
+    - :content: "      File.join(user_dir, 'smartdict.log')"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    def root_dir"
+      :was_run: true
+    - :content: "      File.join(File.dirname(__FILE__), '..')"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    def plugins_dir"
+      :was_run: true
+    - :content: "      File.join(root_dir, 'plugins')"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "    private"
+      :was_run: true
+    - :content: "    def setup_dm"
+      :was_run: true
+    - :content: "      case configatron.store.adapter"
+      :was_run: false
+    - :content: "      when 'sqlite'"
+      :was_run: false
+    - :content: "        db = configatron.store.db"
+      :was_run: false
+    - :content: "        db_adapted = (db == 'memory') ? \":#{db}:\" : \"//#{db}\""
+      :was_run: false
+    - :content: "        DataMapper.setup(:default, \"sqlite:#{db_adapted}\")"
+      :was_run: false
+    - :content: "        if db == 'memory' or !File.exists?(db)"
+      :was_run: false
+    - :content: "          DataMapper.finalize"
+      :was_run: false
+    - :content: "          DataMapper.auto_migrate!"
+      :was_run: false
+    - :content: "        end"
+      :was_run: false
+    - :content: "      else"
+      :was_run: false
+    - :content: "        raise \"Not supported adapter #{configatron.store.adapter}\" "
+      :was_run: false
+    - :content: "      end"
+      :was_run: false
+    - :content: "    end"
+      :was_run: false
+    - :content: "  end"
+      :was_run: false
+    - :content: end
+      :was_run: false
+    :percent_run: 39
+  lib/smartdict/models/language.rb: 
+    :methods: {}
+
+    :lines: 
+    - :content: class Smartdict::Models::Language
+      :was_run: true
+    - :content: "  include DataMapper::Resource"
+      :was_run: true
+    - :content: "  include DataMapper::Validations"
+      :was_run: true
+    - :content: "  property :id  , Serial"
+      :was_run: true
+    - :content: "  property :name, String"
+      :was_run: true
+    - :content: "  property :code, String #, :length => 2"
+      :was_run: true
+    - :content: "  has n, :words"
+      :was_run: true
+    - :content: "  validates_presence_of :name"
+      :was_run: true
+    - :content: "  validates_presence_of :code"
+      :was_run: true
+    - :content: "  validates_uniqueness_of :name, :code"
+      :was_run: true
+    - :content: end
+      :was_run: true
+    :percent_run: 100
+:reek: 
+  :matches: 
+  - :code_smells: 
+    - :type: Duplication
+      :method: Smartdict#init_config
+      :message: calls configatron 4 times
+    - :type: Duplication
+      :method: Smartdict#init_config
+      :message: calls root_dir twice
+    - :type: Duplication
+      :method: Smartdict#init_config
+      :message: calls user_dir twice
+    - :type: LongMethod
+      :method: Smartdict#init_config
+      :message: has approx 6 statements
+    - :type: LowCohesion
+      :method: Smartdict#root_dir
+      :message: doesn't depend on instance state
+    - :type: Duplication
+      :method: Smartdict#run
+      :message: calls user_dir twice
+    - :type: Duplication
+      :method: Smartdict#setup_dm
+      :message: calls (db == "memory") twice
+    - :type: Duplication
+      :method: Smartdict#setup_dm
+      :message: calls configatron 3 times
+    - :type: Duplication
+      :method: Smartdict#setup_dm
+      :message: calls configatron.store 3 times
+    - :type: Duplication
+      :method: Smartdict#setup_dm
+      :message: calls configatron.store.adapter twice
+    - :type: LongMethod
+      :method: Smartdict#setup_dm
+      :message: has approx 6 statements
+    - :type: IrresponsibleModule
+      :method: Smartdict::Error
+      :message: has no descriptive comment
+    :file_path: lib/smartdict.rb
+  - :code_smells: 
+    - :type: Duplication
+      :method: Smartdict::Command#extract_arguments_and_options
+      :message: calls args.shift twice
+    - :type: LowCohesion
+      :method: Smartdict::Command#extract_arguments_and_options
+      :message: doesn't depend on instance state
+    - :type: LongMethod
+      :method: Smartdict::Command#extract_arguments_and_options
+      :message: has approx 6 statements
+    - :type: LowCohesion
+      :method: Smartdict::Command#extract_arguments_and_options
+      :message: refers to args more than self
+    - :type: Duplication
+      :method: Smartdict::Command#self.help_syntax_message
+      :message: calls (" " * INDENT_SIZE) twice
+    - :type: Duplication
+      :method: Smartdict::Command#self.help_usage_message
+      :message: calls (" " * INDENT_SIZE) twice
+    - :type: Duplication
+      :method: Smartdict::Command#set_arguments!
+      :message: calls arg_name.to_sym 4 times
+    - :type: Duplication
+      :method: Smartdict::Command#set_arguments!
+      :message: calls default_argument_values twice
+    :file_path: lib/smartdict/command.rb
+  - :code_smells: []
+
+    :file_path: lib/smartdict/commands.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Commands::HelloCommand
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/commands/hello_command.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Commands::HelpCommand
+      :message: has no descriptive comment
+    - :type: Duplication
+      :method: Smartdict::Commands::HelpCommand#help_commands_message
+      :message: calls command_manager twice
+    - :type: Duplication
+      :method: Smartdict::Commands::HelpCommand#help_commands_message
+      :message: calls command_manager.commands twice
+    - :type: LongMethod
+      :method: Smartdict::Commands::HelpCommand#help_commands_message
+      :message: has approx 6 statements
+    :file_path: lib/smartdict/commands/help_command.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Commands::TranslateCommand
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/commands/translate_command.rb
+  - :code_smells: []
+
+    :file_path: lib/smartdict/core.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Core::CommandManager
+      :message: has no descriptive comment
+    - :type: Duplication
+      :method: Smartdict::Core::CommandManager#register_command
+      :message: calls name.to_s twice
+    - :type: LowCohesion
+      :method: Smartdict::Core::CommandManager#register_command
+      :message: refers to name more than self
+    :file_path: lib/smartdict/core/command_manager.rb
+  - :code_smells: []
+
+    :file_path: lib/smartdict/core/has_log.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Core::Log
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/core/log.rb
+  - :code_smells: 
+    - :type: Duplication
+      :method: Smartdict::Core::PluginManager#load_plugin
+      :message: calls log twice
+    :file_path: lib/smartdict/core/plugin_manager.rb
+  - :code_smells: []
+
+    :file_path: lib/smartdict/models.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Models::Language
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/models/language.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Models::Pronunciation
+      :message: has no descriptive comment
+    - :type: UncommunicativeName
+      :method: Smartdict::Models::Pronunciation
+      :message: has the variable name 'f'
+    :file_path: lib/smartdict/models/pronunciation.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Models::Translation
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/models/translation.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Models::TranslationQuery
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/models/translation_query.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Models::TranslationSource
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/models/translation_source.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Models::Word
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/models/word.rb
+  - :code_smells: []
+
+    :file_path: lib/smartdict/models/word_class.rb
+  - :code_smells: 
+    - :type: IrresponsibleModule
+      :method: Smartdict::Runner
+      :message: has no descriptive comment
+    :file_path: lib/smartdict/runner.rb
+:saikuro: 
+  :classes: 
+  - :lines: 180
+    :complexity: 30
+    :name: Smartdict
+    :defs: 
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.run
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.arguments
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.default
+    - :lines: 3
+      :complexity: 2
+      :name: Smartdict#self.options
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.summary
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.description
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.name
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.syntax
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.usage
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.prog_name
+    - :lines: 4
+      :complexity: 1
+      :name: Smartdict#self.help_message
+    - :lines: 6
+      :complexity: 2
+      :name: Smartdict#self.help_syntax_message
+    - :lines: 6
+      :complexity: 2
+      :name: Smartdict#self.help_usage_message
+    - :lines: 4
+      :complexity: 1
+      :name: Smartdict#self.inherited
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#initialize
+    - :lines: 4
+      :complexity: 1
+      :name: Smartdict#set_arguments_and_options!
+    - :lines: 12
+      :complexity: 3
+      :name: Smartdict#extract_arguments_and_options
+    - :lines: 11
+      :complexity: 4
+      :name: Smartdict#set_arguments!
+    - :lines: 12
+      :complexity: 4
+      :name: Smartdict#set_options!
+  - :lines: 78
+    :complexity: 16
+    :name: Smartdict::Smartdict
+    :defs: 
+    - :lines: 5
+      :complexity: 2
+      :name: Smartdict::Smartdict#run
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict::Smartdict#plugin_manager
+    - :lines: 9
+      :complexity: 1
+      :name: Smartdict::Smartdict#init_config
+    - :lines: 6
+      :complexity: 1
+      :name: Smartdict::Smartdict#user_dir
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict::Smartdict#home_dir
+    - :lines: 3
+      :complexity: 2
+      :name: Smartdict::Smartdict#env=
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict::Smartdict#env
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict::Smartdict#log_path
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict::Smartdict#root_dir
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict::Smartdict#plugins_dir
+    - :lines: 13
+      :complexity: 4
+      :name: Smartdict::Smartdict#setup_dm
+  - :lines: 40
+    :complexity: 7
+    :name: Smartdict
+    :defs: 
+    - :lines: 10
+      :complexity: 3
+      :name: Smartdict#execute
+    - :lines: 4
+      :complexity: 1
+      :name: Smartdict#help_message
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#command_manager
+    - :lines: 8
+      :complexity: 2
+      :name: Smartdict#help_commands_message
+  - :lines: 27
+    :complexity: 6
+    :name: Smartdict
+    :defs: 
+    - :lines: 4
+      :complexity: 2
+      :name: Smartdict#load_plugins!
+    - :lines: 9
+      :complexity: 3
+      :name: Smartdict#load_plugin
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#plugin_file_path
+  - :lines: 43
+    :complexity: 6
+    :name: Smartdict
+    :defs: 
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#filepath
+    - :lines: 3
+      :complexity: 1
+      :name: Smartdict#gen_filename
+  - :lines: 34
+    :complexity: 6
+    :name: Smartdict
+    :defs: 
+    - :lines: 5
+      :complexity: 1
+      :name: Smartdict#initialize
+    - :lines: 3
+      :complexity: 1
+      :name: Smartdict#register_command
+    - :lines: 8
+      :complexity: 2
+      :name: Smartdict#run
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#run_command
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#find_command
+  - :lines: 20
+    :complexity: 2
+    :name: Smartdict
+    :defs: 
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#execute
+  - :lines: 2
+    :complexity: 1
+    :name: ""
+  - :lines: 14
+    :complexity: 1
+    :name: Smartdict
+  - :lines: 9
+    :complexity: 1
+    :name: Smartdict
+    :defs: 
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#execute
+  - :lines: 2
+    :complexity: 1
+    :name: ""
+  - :lines: 4
+    :complexity: 1
+    :name: Smartdict
+    :defs: 
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.run
+  - :lines: 2
+    :complexity: 1
+    :name: ""
+  - :lines: 4
+    :complexity: 1
+    :name: Smartdict
+    :defs: 
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict#self.root_log
+  - :lines: 7
+    :complexity: 1
+    :name: Smartdict
+    :defs: 
+    - :lines: 3
+      :complexity: 1
+      :name: Smartdict#self.included
+  - :lines: 4
+    :complexity: 1
+    :name: Smartdict::InstanceAndClassMethods
+    :defs: 
+    - :lines: 2
+      :complexity: 1
+      :name: Smartdict::InstanceAndClassMethods#log
+  - :lines: 7
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 1
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 0
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 0
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 10
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 13
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 12
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 12
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 0
+    :complexity: 0
+    :name: Smartdict::Error
+  - :lines: 8
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 0
+    :complexity: 0
+    :name: Smartdict
+  - :lines: 1
+    :complexity: 0
+    :name: ""
+  - :lines: 1
+    :complexity: 0
+    :name: ""
+  :methods: 
+  - :lines: 12
+    :complexity: 4
+    :name: Smartdict#set_options!
+  - :lines: 13
+    :complexity: 4
+    :name: Smartdict::Smartdict#setup_dm
+  - :lines: 11
+    :complexity: 4
+    :name: Smartdict#set_arguments!
+  - :lines: 9
+    :complexity: 3
+    :name: Smartdict#load_plugin
+  - :lines: 12
+    :complexity: 3
+    :name: Smartdict#extract_arguments_and_options
+  - :lines: 10
+    :complexity: 3
+    :name: Smartdict#execute
+  - :lines: 5
+    :complexity: 2
+    :name: Smartdict::Smartdict#run
+  - :lines: 6
+    :complexity: 2
+    :name: Smartdict#self.help_usage_message
+  - :lines: 4
+    :complexity: 2
+    :name: Smartdict#load_plugins!
+  - :lines: 3
+    :complexity: 2
+    :name: Smartdict::Smartdict#env=
+  - :lines: 6
+    :complexity: 2
+    :name: Smartdict#self.help_syntax_message
+  - :lines: 8
+    :complexity: 2
+    :name: Smartdict#run
+  - :lines: 3
+    :complexity: 2
+    :name: Smartdict#self.options
+  - :lines: 8
+    :complexity: 2
+    :name: Smartdict#help_commands_message
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict::Smartdict#env
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#filepath
+  - :lines: 5
+    :complexity: 1
+    :name: Smartdict#initialize
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#command_manager
+  - :lines: 4
+    :complexity: 1
+    :name: Smartdict#help_message
+  - :lines: 3
+    :complexity: 1
+    :name: Smartdict#register_command
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#run_command
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict::Smartdict#plugins_dir
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict::Smartdict#root_dir
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict::Smartdict#log_path
+  - :lines: 3
+    :complexity: 1
+    :name: Smartdict#gen_filename
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#find_command
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict::Smartdict#home_dir
+  - :lines: 6
+    :complexity: 1
+    :name: Smartdict::Smartdict#user_dir
+  - :lines: 9
+    :complexity: 1
+    :name: Smartdict::Smartdict#init_config
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict::Smartdict#plugin_manager
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#plugin_file_path
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#execute
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.run
+  - :lines: 3
+    :complexity: 1
+    :name: Smartdict#self.included
+  - :lines: 4
+    :complexity: 1
+    :name: Smartdict#set_arguments_and_options!
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#initialize
+  - :lines: 4
+    :complexity: 1
+    :name: Smartdict#self.inherited
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict::InstanceAndClassMethods#log
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#execute
+  - :lines: 4
+    :complexity: 1
+    :name: Smartdict#self.help_message
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.prog_name
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.usage
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.syntax
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.name
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.description
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.summary
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.root_log
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.default
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.arguments
+  - :lines: 2
+    :complexity: 1
+    :name: Smartdict#self.run
+  :files: 
+  - :classes: 
+    - :class_name: ""
+      :methods: []
+
+      :lines: 1
+      :complexity: 0
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 12
+        :complexity: 4
+        :name: Smartdict#set_options!
+      - :lines: 11
+        :complexity: 4
+        :name: Smartdict#set_arguments!
+      - :lines: 12
+        :complexity: 3
+        :name: Smartdict#extract_arguments_and_options
+      - :lines: 3
+        :complexity: 2
+        :name: Smartdict#self.options
+      - :lines: 6
+        :complexity: 2
+        :name: Smartdict#self.help_syntax_message
+      - :lines: 6
+        :complexity: 2
+        :name: Smartdict#self.help_usage_message
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.prog_name
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#initialize
+      - :lines: 4
+        :complexity: 1
+        :name: Smartdict#self.help_message
+      - :lines: 4
+        :complexity: 1
+        :name: Smartdict#self.inherited
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.usage
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.syntax
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.name
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.description
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.summary
+      - :lines: 4
+        :complexity: 1
+        :name: Smartdict#set_arguments_and_options!
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.default
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.arguments
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.run
+      :lines: 180
+      :complexity: 30
+    :filename: lib/smartdict/command.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 8
+      :complexity: 0
+    - :class_name: Smartdict::Error
+      :methods: []
+
+      :lines: 0
+      :complexity: 0
+    - :class_name: Smartdict::Smartdict
+      :methods: 
+      - :lines: 13
+        :complexity: 4
+        :name: Smartdict::Smartdict#setup_dm
+      - :lines: 3
+        :complexity: 2
+        :name: Smartdict::Smartdict#env=
+      - :lines: 5
+        :complexity: 2
+        :name: Smartdict::Smartdict#run
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict::Smartdict#home_dir
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict::Smartdict#env
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict::Smartdict#plugins_dir
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict::Smartdict#log_path
+      - :lines: 6
+        :complexity: 1
+        :name: Smartdict::Smartdict#user_dir
+      - :lines: 9
+        :complexity: 1
+        :name: Smartdict::Smartdict#init_config
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict::Smartdict#plugin_manager
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict::Smartdict#root_dir
+      :lines: 78
+      :complexity: 16
+    :filename: lib/smartdict.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 10
+        :complexity: 3
+        :name: Smartdict#execute
+      - :lines: 8
+        :complexity: 2
+        :name: Smartdict#help_commands_message
+      - :lines: 4
+        :complexity: 1
+        :name: Smartdict#help_message
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#command_manager
+      :lines: 40
+      :complexity: 7
+    :filename: lib/smartdict/commands/help_command.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 3
+        :complexity: 1
+        :name: Smartdict#gen_filename
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#filepath
+      :lines: 43
+      :complexity: 6
+    :filename: lib/smartdict/models/pronunciation.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 8
+        :complexity: 2
+        :name: Smartdict#run
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#find_command
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#run_command
+      - :lines: 3
+        :complexity: 1
+        :name: Smartdict#register_command
+      - :lines: 5
+        :complexity: 1
+        :name: Smartdict#initialize
+      :lines: 34
+      :complexity: 6
+    :filename: lib/smartdict/core/command_manager.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 9
+        :complexity: 3
+        :name: Smartdict#load_plugin
+      - :lines: 4
+        :complexity: 2
+        :name: Smartdict#load_plugins!
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#plugin_file_path
+      :lines: 27
+      :complexity: 6
+    :filename: lib/smartdict/core/plugin_manager.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#execute
+      :lines: 20
+      :complexity: 2
+    :filename: lib/smartdict/commands/hello_command.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.run
+      :lines: 4
+      :complexity: 1
+    :filename: lib/smartdict/runner.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 3
+        :complexity: 1
+        :name: Smartdict#self.included
+      :lines: 7
+      :complexity: 1
+    - :class_name: Smartdict::InstanceAndClassMethods
+      :methods: 
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict::InstanceAndClassMethods#log
+      :lines: 4
+      :complexity: 1
+    :filename: lib/smartdict/core/has_log.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#execute
+      :lines: 9
+      :complexity: 1
+    :filename: lib/smartdict/commands/translate_command.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: 
+      - :lines: 2
+        :complexity: 1
+        :name: Smartdict#self.root_log
+      :lines: 4
+      :complexity: 1
+    :filename: lib/smartdict/core/log.rb
+  - :classes: 
+    - :class_name: ""
+      :methods: []
+
+      :lines: 2
+      :complexity: 1
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 1
+      :complexity: 0
+    :filename: lib/smartdict/commands.rb
+  - :classes: 
+    - :class_name: ""
+      :methods: []
+
+      :lines: 2
+      :complexity: 1
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 0
+      :complexity: 0
+    :filename: lib/smartdict/core.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 14
+      :complexity: 1
+    :filename: lib/smartdict/models/translation_query.rb
+  - :classes: 
+    - :class_name: ""
+      :methods: []
+
+      :lines: 2
+      :complexity: 1
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 0
+      :complexity: 0
+    :filename: lib/smartdict/models.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 10
+      :complexity: 0
+    :filename: lib/smartdict/models/word.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 13
+      :complexity: 0
+    :filename: lib/smartdict/models/language.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 12
+      :complexity: 0
+    :filename: lib/smartdict/models/translation_source.rb
+  - :classes: 
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 12
+      :complexity: 0
+    :filename: lib/smartdict/models/translation.rb
+  - :classes: 
+    - :class_name: ""
+      :methods: []
+
+      :lines: 1
+      :complexity: 0
+    - :class_name: Smartdict
+      :methods: []
+
+      :lines: 7
+      :complexity: 0
+    :filename: lib/smartdict/models/word_class.rb
+:churn: 
+  :changed_files: 
+  - lib/smartdict/commands/hello_command.rb
+  - spec/lib/smartdict/command_spec.rb
+  - Guardfile
+  - Gemfile
+  - lib/smartdict/commands/translate_command.rb
+  - lib/smartdict/command.rb
+  - lib/smartdict/core/command_manager.rb
+  - Gemfile.lock
+  - lib/smartdict/commands/help_command.rb
+  - /dev/null
+  - lib/smartdict.rb
+  :changed_classes: 
+  - &id004 
+    klass: TranslateCommand
+    file: lib/smartdict/commands/translate_command.rb
+  - &id003 
+    klass: Command
+    file: lib/smartdict/command.rb
+  - &id002 
+    klass: CommandManager
+    file: lib/smartdict/core/command_manager.rb
+  - &id001 
+    klass: HelpCommand
+    file: lib/smartdict/commands/help_command.rb
+  :class_churn: 
+  - klass: *id001
+    times_changed: 1
+  - klass: *id002
+    times_changed: 1
+  - klass: *id003
+    times_changed: 1
+  - klass: *id004
+    times_changed: 1
+  :method_churn: 
+  - method: &id016 
+      klass: HelpCommand
+      method: HelpCommand#command_manager
+      file: lib/smartdict/commands/help_command.rb
+    times_changed: 1
+  - method: &id011 
+      klass: CommandManager
+      method: CommandManager#run
+      file: lib/smartdict/core/command_manager.rb
+    times_changed: 1
+  - method: &id018 
+      klass: HelpCommand
+      method: HelpCommand#execute
+      file: lib/smartdict/commands/help_command.rb
+    times_changed: 1
+  - method: &id012 
+      klass: CommandManager
+      method: CommandManager#run_command
+      file: lib/smartdict/core/command_manager.rb
+    times_changed: 1
+  - method: &id006 
+      klass: Command
+      method: Command#set_arguments_and_options!
+      file: lib/smartdict/command.rb
+    times_changed: 1
+  - method: &id014 
+      klass: CommandManager
+      method: CommandManager#initialize
+      file: lib/smartdict/core/command_manager.rb
+    times_changed: 1
+  - method: &id009 
+      klass: Command
+      method: Command#set_options!
+      file: lib/smartdict/command.rb
+    times_changed: 1
+  - method: &id015 
+      klass: HelpCommand
+      method: HelpCommand#help_commands_message
+      file: lib/smartdict/commands/help_command.rb
+    times_changed: 1
+  - method: &id005 
+      klass: TranslateCommand
+      method: TranslateCommand#execute
+      file: lib/smartdict/commands/translate_command.rb
+    times_changed: 1
+  - method: &id010 
+      klass: Command
+      method: Command#initialize
+      file: lib/smartdict/command.rb
+    times_changed: 1
+  - method: &id013 
+      klass: CommandManager
+      method: CommandManager#find_command
+      file: lib/smartdict/core/command_manager.rb
+    times_changed: 1
+  - method: &id008 
+      klass: Command
+      method: Command#set_arguments!
+      file: lib/smartdict/command.rb
+    times_changed: 1
+  - method: &id017 
+      klass: HelpCommand
+      method: HelpCommand#help_message
+      file: lib/smartdict/commands/help_command.rb
+    times_changed: 1
+  - method: &id007 
+      klass: Command
+      method: Command#extract_arguments_and_options
+      file: lib/smartdict/command.rb
+    times_changed: 1
+  :changes: 
+  - :times_changed: 5
+    :file_path: Gemfile.lock
+  - :times_changed: 5
+    :file_path: Gemfile
+  - :times_changed: 4
+    :file_path: lib/smartdict.rb
+  - :times_changed: 3
+    :file_path: spec/models/word_spec.rb
+  - :times_changed: 3
+    :file_path: lib/smartdict/command.rb
+  - :times_changed: 3
+    :file_path: spec/models/word_class_spec.rb
+  - :times_changed: 3
+    :file_path: lib/smartdict/core/command_manager.rb
+  - :times_changed: 3
+    :file_path: lib/smartdict/core/plugin_manager.rb
+  - :times_changed: 3
+    :file_path: lib/smartdict/commands/help_command.rb
+  - :times_changed: 3
+    :file_path: spec/models/language_spec.rb
+  - :times_changed: 3
+    :file_path: spec/models/pronunciation_spec.rb
+  :changed_methods: 
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - *id009
+  - *id010
+  - *id011
+  - *id012
+  - *id013
+  - *id014
+  - *id015
+  - *id016
+  - *id017
+  - *id018
+:flog: 
+  :average: 8.7306292113693
+  :total: 576.221527950374
+  :method_containers: 
+  - :methods: 
+      Smartdict#run: 
+        :score: 14.0292551477261
+        :operators: 
+          :exists?: 1.9
+          :mkdir: 2.0
+          :setup_dm: 1.9
+          :branch: 1.9
+          :load_plugins!: 1.9
+          :init_config: 1.9
+          :user_dir: 4.3
+        :path: lib/smartdict.rb:24
+      Smartdict#user_dir: 
+        :score: 8.22253002426869
+        :operators: 
+          :env: 2.1
+          :join: 1.9
+          :assignment: 1.9
+          :home_dir: 2.1
+          :[]: 1.9
+        :path: lib/smartdict.rb:47
+      Smartdict#env=: 
+        :score: 8.43919427433686
+        :operators: 
+          :inspect: 2.2
+          :to_sym: 1.9
+          :include?: 1.9
+          :assignment: 1.9
+          :raise: 2.0
+          :branch: 1.9
+        :path: lib/smartdict.rb:60
+      Smartdict#plugins_dir: 
+        :score: 4.0
+        :operators: 
+          :root_dir: 2.1
+          :join: 1.9
+        :path: lib/smartdict.rb:77
+      Smartdict#init_config: 
+        :score: 34.9366569665731
+        :operators: 
+          :root_dir: 4.2
+          :configure_from_hash: 3.8
+          :configatron: 8.2
+          :join: 7.6
+          :assignment: 7.6
+          :store: 1.9
+          :load_file: 4.2
+          :user_dir: 4.2
+        :path: lib/smartdict.rb:35
+      Smartdict#env: 
+        :score: 2.75862284482674
+        :operators: 
+          :raise: 2.0
+          :branch: 1.9
+        :path: lib/smartdict.rb:65
+      Smartdict#home_dir: 
+        :score: 1.9
+        :operators: 
+          :[]: 1.9
+        :path: lib/smartdict.rb:55
+      Smartdict#log_path: 
+        :score: 4.0
+        :operators: 
+          :join: 1.9
+          :user_dir: 2.1
+        :path: lib/smartdict.rb:69
+      Smartdict#setup_dm: 
+        :score: 38.2342778145475
+        :operators: 
+          :exists?: 2.3
+          :auto_migrate!: 2.4
+          :setup: 2.2
+          :db: 2.2
+          :configatron: 7.5
+          :finalize: 2.4
+          :assignment: 4.4
+          :raise: 2.0
+          :store: 6.9
+          :branch: 10.5
+          :==: 4.5
+          :adapter: 4.1
+        :path: lib/smartdict.rb:84
+      Smartdict#plugin_manager: 
+        :score: 4.42831796509691
+        :operators: 
+          :assignment: 1.9
+          :plugins_dir: 2.1
+          :new: 1.9
+        :path: lib/smartdict.rb:31
+      Smartdict#root_dir: 
+        :score: 4.0
+        :operators: 
+          :join: 1.9
+          :dirname: 2.1
+        :path: lib/smartdict.rb:73
+      Smartdict#none: 
+        :score: 11.4
+        :operators: 
+          :sclass: 6.0
+          :include: 3.6
+          :private: 1.8
+        :path: 
+    :total_score: 136.348855037376
+    :average_score: 11.362404586448
+    :name: Smartdict
+    :path: lib/smartdict.rb
+    :highest_score: 38.2342778145475
+  - :methods: 
+      Smartdict::Commands::HelpCommand#help_message: 
+        :score: 8.08949936646267
+        :operators: 
+          :help_syntax_message: 1.4
+          :class: 1.6
+          :help_commands_message: 1.4
+          :<<: 2.4
+          :assignment: 1.2
+          :description_message: 1.2
+        :path: lib/smartdict/commands/help_command.rb:29
+      Smartdict::Commands::HelpCommand#none: 
+        :score: 7.9
+        :operators: 
+          :syntax: 1.1
+          :description: 1.1
+          :summary: 1.1
+          :name: 1.1
+          :arguments: 1.1
+          :prog_name: 1.3
+          :default: 1.1
+        :path: 
+      Smartdict::Commands::HelpCommand#command_manager: 
+        :score: 1.2
+        :operators: 
+          :instance: 1.2
+        :path: lib/smartdict/commands/help_command.rb:35
+      Smartdict::Commands::HelpCommand#help_commands_message: 
+        :score: 37.1083885395203
+        :operators: 
+          :+: 2.8
+          :commands: 3.2
+          :ljust: 1.8
+          :<<: 2.8
+          :to_proc_normal: 8.0
+          :each: 1.2
+          :assignment: 6.3
+          :summary_message: 1.6
+          :branch: 1.2
+          :keys: 1.6
+          :*: 5.2
+          :max: 1.2
+          :map: 1.4
+          :lit_fixnum: 0.55
+          :block_pass: 1.6
+          :command_manager: 3.6
+        :path: lib/smartdict/commands/help_command.rb:39
+      Smartdict::Commands::HelpCommand#execute: 
+        :score: 11.7447860772344
+        :operators: 
+          :help_message: 3.1
+          :find_command: 1.3
+          :abort: 1.4
+          :assignment: 2.5
+          :branch: 2.5
+          :puts: 2.7
+          :[]: 1.2
+          :command_manager: 1.5
+        :path: lib/smartdict/commands/help_command.rb:17
+    :total_score: 66.0426739832174
+    :average_score: 13.2085347966435
+    :name: Smartdict::Commands::HelpCommand
+    :path: lib/smartdict/commands/help_command.rb
+    :highest_score: 37.1083885395203
+  - :methods: 
+      main#none: 
+        :score: 33.2604870679911
+        :operators: 
+          :expand_path: 1.3
+          :unshift: 1.1
+          :assignment: 3.6
+          :each: 3.3
+          :glob: 2.6
+          :dirname: 4.5
+          :branch: 3.3
+          :require: 20.1
+        :path: 
+    :total_score: 33.2604870679911
+    :average_score: 33.2604870679911
+    :name: main
+    :path: ""
+    :highest_score: 33.2604870679911
+  - :methods: 
+      Smartdict::Models::Pronunciation::before#save: 
+        :score: 22.3206182710067
+        :operators: 
+          :open: 1.3
+          :filepath: 3.2
+          :write: 1.4
+          :assignment: 1.4
+          :p: 2.6
+          :dirname: 1.5
+          :bin_data: 4.3
+          :mkdir_p: 1.3
+          :branch: 3.5
+          :bin_data_ext: 2.7
+          :throw: 1.3
+          :puts: 1.3
+          :before: 1.1
+        :path: lib/smartdict/models/pronunciation.rb:28
+      Smartdict::Models::Pronunciation::before#valid?: 
+        :score: 2.2
+        :operators: 
+          :gen_filename: 1.1
+          :before: 1.1
+        :path: lib/smartdict/models/pronunciation.rb:32
+    :total_score: 24.5206182710067
+    :average_score: 12.2603091355034
+    :name: Smartdict::Models::Pronunciation::before
+    :path: lib/smartdict/models/pronunciation.rb
+    :highest_score: 22.3206182710067
+  - :methods: 
+      Smartdict::Command#set_arguments_and_options!: 
+        :score: 5.09116882454314
+        :operators: 
+          :assignment: 3.6
+          :set_arguments!: 1.2
+          :set_options!: 1.2
+          :extract_arguments_and_options: 1.2
+        :path: lib/smartdict/command.rb:166
+      Smartdict::Command#set_options!: 
+        :score: 12.3830529353629
+        :operators: 
+          :call: 1.7
+          :known_options: 1.4
+          :each: 1.2
+          :assignment: 9.4
+          :branch: 5.7
+          :[]: 1.4
+        :path: lib/smartdict/command.rb:205
+      Smartdict::Command#none: 
+        :score: 9.075
+        :operators: 
+          :class_attribute: 8.8
+          :lit_fixnum: 0.275
+        :path: 
+      Smartdict::Command#extract_arguments_and_options: 
+        :score: 12.8457191312904
+        :operators: 
+          :to_sym: 1.4
+          :shift: 2.7
+          :<<: 1.4
+          :assignment: 7.6
+          :dup: 1.2
+          :branch: 2.5
+          :match: 1.3
+          :[]: 1.6
+          :lit_fixnum: 0.45
+        :path: lib/smartdict/command.rb:174
+      Smartdict::Command#initialize: 
+        :score: 1.69705627484771
+        :operators: 
+          :set_arguments_and_options!: 1.2
+          :assignment: 1.2
+        :path: lib/smartdict/command.rb:160
+      Smartdict::Command#set_arguments!: 
+        :score: 21.9533596517708
+        :operators: 
+          :has_key?: 1.4
+          :to_sym: 6.2
+          :known_arguments: 1.4
+          :default_argument_values: 3.3
+          :assignment: 9.3
+          :raise: 1.5
+          :branch: 3.9
+          :[]: 2.8
+          :each_with_index: 1.2
+          :new: 1.7
+        :path: lib/smartdict/command.rb:190
+    :total_score: 63.045356817815
+    :average_score: 10.5075594696358
+    :name: Smartdict::Command
+    :path: lib/smartdict/command.rb
+    :highest_score: 21.9533596517708
+  - :methods: 
+      Smartdict::Commands::HelloCommand#none: 
+        :score: 18.3461167553245
+        :operators: 
+          :usage: 1.1
+          :syntax: 1.1
+          :now: 1.6
+          :lambda: 1.3
+          :description: 1.1
+          :options: 1.1
+          :summary: 1.1
+          :branch: 1.3
+          :name: 1.1
+          :arguments: 1.1
+          :prog_name: 5.2
+          :strftime: 1.4
+          :default: 1.1
+        :path: 
+      Smartdict::Commands::HelloCommand#execute: 
+        :score: 5.4
+        :operators: 
+          :puts: 1.2
+          :[]: 4.2
+        :path: lib/smartdict/commands/hello_command.rb:24
+    :total_score: 23.7461167553245
+    :average_score: 11.8730583776623
+    :name: Smartdict::Commands::HelloCommand
+    :path: lib/smartdict/commands/hello_command.rb
+    :highest_score: 18.3461167553245
+  - :methods: 
+      Smartdict::Command::help_syntax_message: 
+        :score: 15.6230798820207
+        :operators: 
+          :+: 2.7
+          :syntax_message: 1.6
+          :<<: 1.3
+          :strip: 1.7
+          :assignment: 2.5
+          :split: 1.4
+          :branch: 1.2
+          :map: 1.2
+          :*: 5.0
+          :lit_fixnum: 0.475
+        :path: lib/smartdict/command.rb:133
+    :total_score: 15.6230798820207
+    :average_score: 15.6230798820207
+    :name: Smartdict::Command::help_syntax_message
+    :path: lib/smartdict/command.rb
+    :highest_score: 15.6230798820207
+  - :methods: 
+      Smartdict::Command::help_usage_message: 
+        :score: 15.6230798820207
+        :operators: 
+          :+: 2.7
+          :usage_message: 1.6
+          :<<: 1.3
+          :strip: 1.7
+          :assignment: 2.5
+          :split: 1.4
+          :branch: 1.2
+          :map: 1.2
+          :*: 5.0
+          :lit_fixnum: 0.475
+        :path: lib/smartdict/command.rb:142
+    :total_score: 15.6230798820207
+    :average_score: 15.6230798820207
+    :name: Smartdict::Command::help_usage_message
+    :path: lib/smartdict/command.rb
+    :highest_score: 15.6230798820207
+  - :methods: 
+      Smartdict::Models::Pronunciation#filepath: 
+        :score: 13.4729358344794
+        :operators: 
+          :language: 1.6
+          :join: 1.2
+          :translation_source: 1.6
+          :gen_filename: 1.5
+          :filename: 1.5
+          :branch: 1.4
+          :word: 1.8
+          :code: 1.4
+          :name: 1.4
+          :pronunciations_dir: 1.4
+        :path: lib/smartdict/models/pronunciation.rb:34
+      Smartdict::Models::Pronunciation#gen_filename: 
+        :score: 5.53172667437573
+        :operators: 
+          :assignment: 1.2
+          :word: 1.6
+          :bin_data_ext: 1.2
+          :name: 1.4
+          :gsub: 1.2
+        :path: lib/smartdict/models/pronunciation.rb:40
+      Smartdict::Models::Pronunciation#none: 
+        :score: 13.85
+        :operators: 
+          :include: 4.4
+          :belongs_to: 2.2
+          :validates_presence_of: 1.1
+          :private: 1.1
+          :attr_accessor: 1.1
+          :property: 3.3
+          :lit_fixnum: 0.65
+        :path: 
+    :total_score: 32.8546625088552
+    :average_score: 10.9515541696184
+    :name: Smartdict::Models::Pronunciation
+    :path: lib/smartdict/models/pronunciation.rb
+    :highest_score: 13.85
+  - :methods: 
+      Smartdict::Models::TranslationSource#none: 
+        :score: 13.6
+        :operators: 
+          :n: 2.6
+          :has: 2.2
+          :include: 4.4
+          :validates_presence_of: 1.1
+          :validates_uniqueness_of: 1.1
+          :property: 2.2
+        :path: 
+    :total_score: 13.6
+    :average_score: 13.6
+    :name: Smartdict::Models::TranslationSource
+    :path: ""
+    :highest_score: 13.6
+  - :methods: 
+      Smartdict::Models::Language#none: 
+        :score: 13.4
+        :operators: 
+          :n: 1.3
+          :has: 1.1
+          :include: 4.4
+          :validates_presence_of: 2.2
+          :validates_uniqueness_of: 1.1
+          :property: 3.3
+        :path: 
+    :total_score: 13.4
+    :average_score: 13.4
+    :name: Smartdict::Models::Language
+    :path: ""
+    :highest_score: 13.4
+  - :methods: 
+      Smartdict::Models::Translation#none: 
+        :score: 12.3
+        :operators: 
+          :include: 2.2
+          :belongs_to: 4.4
+          :property: 4.4
+          :lit_fixnum: 1.3
+        :path: 
+    :total_score: 12.3
+    :average_score: 12.3
+    :name: Smartdict::Models::Translation
+    :path: ""
+    :highest_score: 12.3
+  - :methods: 
+      Smartdict::Models::Word#none: 
+        :score: 11.4
+        :operators: 
+          :n: 2.6
+          :has: 2.2
+          :include: 2.2
+          :belongs_to: 1.1
+          :property: 3.3
+        :path: 
+    :total_score: 11.4
+    :average_score: 11.4
+    :name: Smartdict::Models::Word
+    :path: ""
+    :highest_score: 11.4
+  - :methods: 
+      Smartdict::Core::PluginManager#load_plugin: 
+        :score: 10.6962610289764
+        :operators: 
+          :log: 3.2
+          :error: 1.4
+          :plugin_file_path: 1.6
+          :branch: 2.5
+          :require: 2.8
+          :info: 1.4
+        :path: lib/smartdict/core/plugin_manager.rb:14
+      Smartdict::Core::PluginManager#plugin_file_path: 
+        :score: 4.2
+        :operators: 
+          :join: 1.2
+          :configatron: 1.6
+          :plugins_dir: 1.4
+        :path: lib/smartdict/core/plugin_manager.rb:25
+      Smartdict::Core::PluginManager#none: 
+        :score: 5.5
+        :operators: 
+          :include: 2.2
+          :private: 1.1
+          :extend: 2.2
+        :path: 
+      Smartdict::Core::PluginManager#load_plugins!: 
+        :score: 5.77754273026172
+        :operators: 
+          :plugins: 1.4
+          :configatron: 1.6
+          :load_plugin: 1.3
+          :assignment: 1.3
+          :each: 1.2
+          :branch: 1.2
+        :path: lib/smartdict/core/plugin_manager.rb:5
+    :total_score: 26.1738037592382
+    :average_score: 6.54345093980954
+    :name: Smartdict::Core::PluginManager
+    :path: lib/smartdict/core/plugin_manager.rb
+    :highest_score: 10.6962610289764
+  - :methods: 
+      Smartdict::Commands::TranslateCommand#none: 
+        :score: 9.6
+        :operators: 
+          :usage: 1.1
+          :syntax: 1.1
+          :description: 1.1
+          :summary: 1.1
+          :prog_name: 5.2
+        :path: 
+    :total_score: 9.6
+    :average_score: 9.6
+    :name: Smartdict::Commands::TranslateCommand
+    :path: ""
+    :highest_score: 9.6
+  - :methods: 
+      Smartdict::Models::TranslationQuery#none: 
+        :score: 8.8
+        :operators: 
+          :include: 2.2
+          :belongs_to: 2.2
+          :property: 4.4
+        :path: 
+    :total_score: 8.8
+    :average_score: 8.8
+    :name: Smartdict::Models::TranslationQuery
+    :path: ""
+    :highest_score: 8.8
+  - :methods: 
+      Smartdict::Models::WordClass#none: 
+        :score: 6.8
+        :operators: 
+          :n: 1.3
+          :has: 1.1
+          :include: 2.2
+          :property: 2.2
+        :path: 
+    :total_score: 6.8
+    :average_score: 6.8
+    :name: Smartdict::Models::WordClass
+    :path: ""
+    :highest_score: 6.8
+  - :methods: 
+      Smartdict::Command::help_message: 
+        :score: 6.51152823843988
+        :operators: 
+          :help_syntax_message: 1.4
+          :help_usage_message: 1.4
+          :<<: 2.4
+          :assignment: 1.2
+          :description_message: 1.2
+        :path: lib/smartdict/command.rb:126
+    :total_score: 6.51152823843988
+    :average_score: 6.51152823843988
+    :name: Smartdict::Command::help_message
+    :path: lib/smartdict/command.rb
+    :highest_score: 6.51152823843988
+  - :methods: 
+      Smartdict::Core::HasLog::included: 
+        :score: 6.5
+        :operators: 
+          :send: 3.9
+          :extend: 2.6
+        :path: lib/smartdict/core/has_log.rb:4
+    :total_score: 6.5
+    :average_score: 6.5
+    :name: Smartdict::Core::HasLog::included
+    :path: lib/smartdict/core/has_log.rb
+    :highest_score: 6.5
+  - :methods: 
+      Smartdict::Core::CommandManager#run_command: 
+        :score: 4.68401537145215
+        :operators: 
+          :run: 1.3
+          :assignment: 1.3
+          :[]: 1.5
+          :to_s: 1.7
+        :path: lib/smartdict/core/command_manager.rb:30
+      Smartdict::Core::CommandManager#run: 
+        :score: 5.15945733580577
+        :operators: 
+          :shift: 1.3
+          :assignment: 1.3
+          :run_command: 2.9
+          :branch: 2.7
+        :path: lib/smartdict/core/command_manager.rb:20
+      Smartdict::Core::CommandManager#find_command: 
+        :score: 2.8
+        :operators: 
+          :[]: 1.3
+          :to_s: 1.5
+        :path: lib/smartdict/core/command_manager.rb:34
+      Smartdict::Core::CommandManager#none: 
+        :score: 3.6
+        :operators: 
+          :include: 2.4
+          :attr_reader: 1.2
+        :path: 
+      Smartdict::Core::CommandManager#register_command: 
+        :score: 3.67695526217005
+        :operators: 
+          :assignment: 2.6
+          :to_s: 2.6
+        :path: lib/smartdict/core/command_manager.rb:15
+      Smartdict::Core::CommandManager#initialize: 
+        :score: 4.11096095821889
+        :operators: 
+          :register_command: 3.9
+          :assignment: 1.3
+        :path: lib/smartdict/core/command_manager.rb:8
+    :total_score: 24.0313889276469
+    :average_score: 4.00523148794114
+    :name: Smartdict::Core::CommandManager
+    :path: lib/smartdict/core/command_manager.rb
+    :highest_score: 5.15945733580577
+  - :methods: 
+      Smartdict::Command::options: 
+        :score: 4.81663783151692
+        :operators: 
+          :is_a?: 1.2
+          :assignment: 2.4
+          :raise: 1.3
+          :branch: 1.2
+          :new: 1.5
+        :path: lib/smartdict/command.rb:88
+    :total_score: 4.81663783151692
+    :average_score: 4.81663783151692
+    :name: Smartdict::Command::options
+    :path: lib/smartdict/command.rb
+    :highest_score: 4.81663783151692
+  - :methods: 
+      Smartdict::Core::Log::root_log: 
+        :score: 2.86356421265527
+        :operators: 
+          :assignment: 1.2
+          :log_path: 1.4
+          :new: 1.2
+        :path: lib/smartdict/core/log.rb:4
+    :total_score: 2.86356421265527
+    :average_score: 2.86356421265527
+    :name: Smartdict::Core::Log::root_log
+    :path: lib/smartdict/core/log.rb
+    :highest_score: 2.86356421265527
+  - :methods: 
+      Smartdict::Command::run: 
+        :score: 2.6
+        :operators: 
+          :execute: 1.2
+          :new: 1.4
+        :path: lib/smartdict/command.rb:69
+    :total_score: 2.6
+    :average_score: 2.6
+    :name: Smartdict::Command::run
+    :path: lib/smartdict/command.rb
+    :highest_score: 2.6
+  - :methods: 
+      Smartdict::Models::TranslationQuery::before#save: 
+        :score: 2.45967477524977
+        :operators: 
+          :now: 1.1
+          :assignment: 1.1
+          :before: 1.1
+        :path: lib/smartdict/models/translation_query.rb:14
+    :total_score: 2.45967477524977
+    :average_score: 2.45967477524977
+    :name: Smartdict::Models::TranslationQuery::before
+    :path: lib/smartdict/models/translation_query.rb
+    :highest_score: 2.45967477524977
+  - :methods: 
+      Smartdict::Runner::run: 
+        :score: 2.4
+        :operators: 
+          :run: 1.1
+          :instance: 1.3
+        :path: lib/smartdict/runner.rb:2
+    :total_score: 2.4
+    :average_score: 2.4
+    :name: Smartdict::Runner::run
+    :path: lib/smartdict/runner.rb
+    :highest_score: 2.4
+  - :methods: 
+      Smartdict::Core::HasLog::InstanceAndClassMethods#log: 
+        :score: 1.3
+        :operators: 
+          :root_log: 1.3
+        :path: lib/smartdict/core/has_log.rb:10
+    :total_score: 1.3
+    :average_score: 1.3
+    :name: Smartdict::Core::HasLog::InstanceAndClassMethods
+    :path: lib/smartdict/core/has_log.rb
+    :highest_score: 1.3
+  - :methods: 
+      Smartdict::Command::usage: 
+        :score: 1.2
+        :operators: 
+          :assignment: 1.2
+        :path: lib/smartdict/command.rb:116
+    :total_score: 1.2
+    :average_score: 1.2
+    :name: Smartdict::Command::usage
+    :path: lib/smartdict/command.rb
+    :highest_score: 1.2
+  - :methods: 
+      Smartdict::Command::arguments: 
+        :score: 1.2
+        :operators: 
+          :assignment: 1.2
+        :path: lib/smartdict/command.rb:74
+    :total_score: 1.2
+    :average_score: 1.2
+    :name: Smartdict::Command::arguments
+    :path: lib/smartdict/command.rb
+    :highest_score: 1.2
+  - :methods: 
+      Smartdict::Command::description: 
+        :score: 1.2
+        :operators: 
+          :assignment: 1.2
+        :path: lib/smartdict/command.rb:99
+    :total_score: 1.2
+    :average_score: 1.2
+    :name: Smartdict::Command::description
+    :path: lib/smartdict/command.rb
+    :highest_score: 1.2
+  - :methods: 
+      Smartdict::Command::summary: 
+        :score: 1.2
+        :operators: 
+          :assignment: 1.2
+        :path: lib/smartdict/command.rb:94
+    :total_score: 1.2
+    :average_score: 1.2
+    :name: Smartdict::Command::summary
+    :path: lib/smartdict/command.rb
+    :highest_score: 1.2
+  - :methods: 
+      Smartdict::Command::syntax: 
+        :score: 1.2
+        :operators: 
+          :assignment: 1.2
+        :path: lib/smartdict/command.rb:110
+    :total_score: 1.2
+    :average_score: 1.2
+    :name: Smartdict::Command::syntax
+    :path: lib/smartdict/command.rb
+    :highest_score: 1.2
+  - :methods: 
+      Smartdict::Command::name: 
+        :score: 1.2
+        :operators: 
+          :assignment: 1.2
+        :path: lib/smartdict/command.rb:104
+    :total_score: 1.2
+    :average_score: 1.2
+    :name: Smartdict::Command::name
+    :path: lib/smartdict/command.rb
+    :highest_score: 1.2
+  - :methods: 
+      Smartdict::Command::default: 
+        :score: 1.2
+        :operators: 
+          :assignment: 1.2
+        :path: lib/smartdict/command.rb:80
+    :total_score: 1.2
+    :average_score: 1.2
+    :name: Smartdict::Command::default
+    :path: lib/smartdict/command.rb
+    :highest_score: 1.2
+  - :methods: 
+      Smartdict::Command::prog_name: 
+        :score: 1.2
+        :operators: 
+          :command_name: 1.2
+        :path: lib/smartdict/command.rb:121
+    :total_score: 1.2
+    :average_score: 1.2
+    :name: Smartdict::Command::prog_name
+    :path: lib/smartdict/command.rb
+    :highest_score: 1.2

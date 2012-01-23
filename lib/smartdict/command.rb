@@ -150,13 +150,14 @@ class Smartdict::Command
   # Sets default values for class attributes.
   def self.inherited(base)
     base.known_arguments ||= []
+    base.default_argument_values ||= {}
     base.known_options ||= {}
   end
 
 
 
   # @param [Array] args arguments passed from the command line
-  def initialize(args)
+  def initialize(args = [])
     set_arguments_and_options!(args)
   end
 

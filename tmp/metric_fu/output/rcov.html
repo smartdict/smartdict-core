@@ -1,0 +1,3433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <meta content='en' http-equiv='Content-Language' />
+    <title>metrics</title>
+    <style>
+    /*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+
+    /* --------------------------------------------------------------
+
+   buttons.css
+   * Gives you some great CSS-only buttons.
+
+   Created by Kevin Hale [particletree.com]
+   * particletree.com/features/rediscovering-the-button-element
+
+   See Readme.txt in this folder for instructions.
+
+-------------------------------------------------------------- */
+
+button {
+  display:block;
+  float:left;
+  margin:0 0.583em 0.667em 0;
+  padding:5px 10px 5px 7px;   /* Links */
+
+  border:1px solid #dedede;
+  border-top:1px solid #eee;
+  border-left:1px solid #eee;
+
+  background-color:#f5f5f5;
+  font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size:100%;
+  line-height:130%;
+  text-decoration:none;
+  font-weight:bold;
+  color:#565656;
+  cursor:pointer;
+}
+button {
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px;   /* IE6 */
+}
+button[type] {
+  padding:4px 10px 4px 7px;   /* Firefox */
+  line-height:17px;           /* Safari */
+}
+*:first-child+html button[type] {
+  padding:4px 10px 3px 7px;   /* IE7 */
+}
+button img {
+  margin:0 3px -3px 0 !important;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+  float:none;
+}
+
+
+/* Button colors
+-------------------------------------------------------------- */
+
+/* Standard */
+button:hover {
+  background-color:#dff4ff;
+  border:1px solid #c2e1ef;
+  color:#336699;
+}
+
+/* Positive */
+body .positive {
+  color:#529214;
+}
+button.positive:hover {
+  background-color:#E6EFC2;
+  border:1px solid #C6D880;
+  color:#529214;
+}
+
+/* Negative */
+body .negative {
+  color:#d12f19;
+}
+button.negative:hover {
+  background:#fbe3e4;
+  border:1px solid #fbc2c4;
+  color:#d12f19;
+}
+
+    html {
+  background-color: #e0e0e0; }
+
+body {
+  font-size: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #333333; }
+
+a {
+  color: #ed1556;
+  text-decoration: none; }
+  a:hover {
+    color: #ffffff;
+    background-color: #ed1556; }
+
+#header, #content, #footer {
+  margin: 0 auto;
+  background: #eeeeee;
+  padding: 0 2em;
+  z-index: 0;
+  position: relative;
+  font-size: 1em; }
+
+#header {
+  background: #ffffff; }
+  #header h1 {
+    font-weight: bold;
+    font-size: 1.5em; }
+  #header address.watermark {
+    position: absolute;
+    font-weight: bold;
+    right: 3em;
+    top: 0;
+    font-size: .75em;
+    color: #cccccc; }
+    #header address.watermark a {
+      color: #cccccc;
+      font-weight: bold;
+      font-size: 2em; }
+      #header address.watermark a:hover {
+        background: transparent;
+        color: #aaaaaa; }
+
+#content {
+  padding-top: 1em;
+  padding-bottom: 2em; }
+  #content strong {
+    font-weight: bold; }
+  #content em {
+    font-style: italic; }
+  #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    color: #4e4e4e; }
+  #content h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: .75em;
+    padding: .25em 0;
+    line-height: 1.2;
+    border-bottom: 1px solid #c0c0c0; }
+  #content h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em 0 .2em; }
+  #content h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: .25em 0; }
+  #content h4, #content h5, #content h6 {
+    font-weight: bold;
+    margin-top: .5em; }
+  #content code, #content pre, #content textarea, #content input {
+    font-family: Monaco, Deja Vu Sans Mono, Inconsolata, Consolas, monospace; }
+  #content form p {
+    margin-top: 1em;
+    position: relative; }
+    #content form p.checkbox label {
+      margin-top: 0 !important; }
+  #content form input.text, #content form textarea {
+    width: 30em;
+    padding: .2em .4em;
+    color: #4e4e4e; }
+  #content form input.text {
+    height: 1.4em; }
+  #content form label {
+    float: left;
+    display: block;
+    margin-top: .5em;
+    width: 8em;
+    margin-right: .75em; }
+  #content form .with_errors label {
+    background: red;
+    color: white;
+    position: relative;
+    top: -.7em; }
+  #content form .with_errors.required label {
+    position: static;
+    margin-right: .25em;
+    padding: 0 .2em; }
+  #content form .with_errors input, #content form .with_errors textarea {
+    border: 2px solid #f22;
+    background: #fee;
+    color: #222222; }
+  #content form .required label {
+    float: none;
+    display: block;
+    width: auto;
+    position: relative;
+    font-weight: bold;
+    margin-top: 1em;
+    text-indent: -.65em; }
+    #content form .required label:before {
+      content: "* ";
+      color: #ed1556; }
+  #content form .required input.text {
+    width: 25.6em;
+    font-size: 24px;
+    font-weight: bold; }
+  #content form .normal {
+    margin-top: 2em; }
+  #content form h2.notifier label {
+    float: none;
+    width: auto;
+    margin-right: 0; }
+    #content form h2.notifier label .warning {
+      font-size: .5em;
+      font-weight: normal;
+      color: #999999; }
+  #content form fieldset {
+    padding-bottom: 1em;
+    margin-left: 1.35em;
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 1em; }
+    #content form fieldset h3 {
+      margin-top: 1em;
+      margin-bottom: 0; }
+    #content form fieldset p.normal {
+      margin-top: 1em; }
+    #content form fieldset p label {
+      width: 6.7em; }
+  #content form p.submit {
+    margin-top: 2em; }
+    #content form p.submit:after {
+      display: block;
+      clear: both;
+      float: none;
+      content: ".";
+      text-indent: -9999em;
+      text-align: left; }
+    #content form p.submit.destroy button,     #content form p.submit.manual-build button {
+      float: none;
+      display: inline; }
+    #content form p.submit.manual-build button {
+      margin-right: 0; }
+  #content #build form, #content #last_build form {
+    font-size: .75em; }
+    #content #build form p.submit,     #content #last_build form p.submit {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      right: .5em;
+      top: 1.25em; }
+  #content .blank_slate p,   #content .error p {
+    position: relative;
+    top: .3em; }
+  #content .blank_slate h1,   #content .error h1 {
+    border-width: 0;
+    margin: 0;
+    padding: 0; }
+    #content .blank_slate h1 button,     #content .error h1 button {
+      float: none;
+      border: 0 none;
+      background: transparent;
+      display: inline;
+      color: #ed1556;
+      padding: 0.25em 0;
+      margin: 0; }
+      #content .blank_slate h1 button:hover,       #content .error h1 button:hover {
+        background: #ed1556;
+        color: #ffffff; }
+  #content .error dt {
+    margin-top: 1.4em;
+    margin-bottom: .3em;
+    font-size: 1.75em;
+    font-family: Georgia, Times New Roman, serif; }
+  #content .error dd {
+    line-height: 1.4; }
+  #content .error .backtrace {
+    margin: 1em 0;
+    overflow: scroll;
+    height: 30em;
+    border: 1px solid #c0c0c0;
+    line-height: 1.6; }
+  #content #projects {
+    margin: 1em 0 2em;
+    border-top: 1px solid #c0c0c0; }
+    #content #projects li {
+      position: relative;
+      border-bottom: 1px solid #c0c0c0; }
+      #content #projects li.odd {
+        background: #e6e6e6; }
+      #content #projects li.building {
+        background: transparent url(/spinner.gif) no-repeat scroll right; }
+      #content #projects li a {
+        font-size: 2em;
+        padding: .25em;
+        line-height: 1.2;
+        font-weight: bold;
+        display: block; }
+        #content #projects li a.success {
+          color: #337022; }
+        #content #projects li a.failed {
+          color: #ff1100; }
+      #content #projects li .meta {
+        position: absolute;
+        right: .6em;
+        top: 1.5em;
+        font-size: 0.8em;
+        color: #999999;
+        text-align: right; }
+      #content #projects li.building .meta {
+        right: 1.6em; }
+      #content #projects li.success .meta {
+        color: #337022; }
+      #content #projects li.failed .meta {
+        color: #ff1100; }
+  #content #previous_builds li a {
+    display: block;
+    padding: .25em;
+    margin-bottom: .25em;
+    border-width: 1px;
+    border-style: solid; }
+    #content #previous_builds li a strong {
+      font-size: 1.3em; }
+    #content #previous_builds li a .attribution {
+      font-size: .9em; }
+  #content #projects li.success a,   #content #previous_builds li.success a {
+    background-color: #bbf8aa;
+    border-color: #99d688;
+    color: #337022; }
+    #content #projects li.success a .attribution,     #content #previous_builds li.success a .attribution {
+      color: #77b466; }
+    #content #projects li.success a:hover,     #content #previous_builds li.success a:hover {
+      background-color: #ddffcc; }
+  #content #projects li.failed a,   #content #previous_builds li.failed a {
+    background-color: #ffbbaa;
+    border-color: #dd9988;
+    color: #ff1100; }
+    #content #projects li.failed a .attribution,     #content #previous_builds li.failed a .attribution {
+      color: #bb7766; }
+    #content #projects li.failed a:hover,     #content #previous_builds li.failed a:hover {
+      background-color: #ffddcc; }
+  #content #build, #content #last_build {
+    position: relative; }
+    #content #build h1, #content #build blockquote,     #content #last_build h1, #content #last_build blockquote {
+      border-width: 0 1px;
+      border-style: solid; }
+    #content #build h1,     #content #last_build h1 {
+      border-top-width: 1px; }
+    #content #build blockquote,     #content #last_build blockquote {
+      bottom-bottom-width: 1px;
+      line-height: 1.4; }
+    #content #build.success h1, #content #build.success blockquote,     #content #last_build.success h1, #content #last_build.success blockquote {
+      background-color: #bbf8aa;
+      border-color: #99d688 #ccffbb #ccffbb #99d688; }
+    #content #build.success h1,     #content #last_build.success h1 {
+      color: #337022; }
+    #content #build.success .meta,     #content #last_build.success .meta {
+      color: #77b466; }
+    #content #build.failed h1, #content #build.failed blockquote,     #content #last_build.failed h1, #content #last_build.failed blockquote {
+      background-color: #ffbbaa;
+      border-color: #dd9988 #ffccbb #ffccbb #dd9988; }
+    #content #build.failed h1,     #content #last_build.failed h1 {
+      color: #ff1100; }
+    #content #build.failed .meta,     #content #last_build.failed .meta {
+      color: #bb7766; }
+    #content #build h1,     #content #last_build h1 {
+      margin-top: .5em;
+      margin-bottom: 0;
+      padding: .25em;
+      color: #337022; }
+    #content #build blockquote,     #content #last_build blockquote {
+      padding: .75em;
+      margin-bottom: 2em; }
+      #content #build blockquote .meta,       #content #last_build blockquote .meta {
+        margin-top: 1em;
+        display: block;
+        font-size: .9em; }
+    #content #build pre.output,     #content #last_build pre.output {
+      background: #111;
+      color: #fff;
+      padding: .5em;
+      overflow: auto;
+      max-height: 50em;
+      font-size: .825em; }
+      #content #build pre.output .color30,       #content #last_build pre.output .color30 {
+        color: #333; }
+      #content #build pre.output .color31,       #content #last_build pre.output .color31 {
+        color: #e33; }
+      #content #build pre.output .color32,       #content #last_build pre.output .color32 {
+        color: #3e3; }
+      #content #build pre.output .color33,       #content #last_build pre.output .color33 {
+        color: #ee3; }
+      #content #build pre.output .color34,       #content #last_build pre.output .color34 {
+        color: #33e; }
+      #content #build pre.output .color35,       #content #last_build pre.output .color35 {
+        color: #e3e; }
+      #content #build pre.output .color36,       #content #last_build pre.output .color36 {
+        color: #3ee; }
+      #content #build pre.output .color37,       #content #last_build pre.output .color37 {
+        color: #fff; }
+  #content #push_path {
+    display: block;
+    margin-top: 1em;
+    margin-left: 2em; }
+
+a.success {
+  color: #bbf8aa; }
+  a.success:hover {
+    background-color: #bbf8aa;
+    color: white; }
+a.failed {
+  color: #ffbbaa; }
+  a.failed:hover {
+    background-color: #ffbbaa;
+    color: white; }
+
+#footer {
+  padding: 1.5em 2.5em;
+  border-top: 1px solid #ccc;
+  font-size: .8em;
+  color: #666;
+  text-align: right; }
+  #footer strong {
+    font-weight: bold; }
+
+    table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: 1px solid #666;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+table tr.light {
+   background: #fff;
+}
+
+table tr.dark {
+  background: #f9f9f9;
+}
+
+table tr:hover {
+  background: #FFFFC0;
+}
+
+table td, table th {
+  padding: 4px;
+  font-size: 11px;
+}
+table th {
+  text-align: center;
+  color: #337022;
+  background: #DDFFCC;
+  font-weight: bold;
+  border: #99D688 1px solid;
+}
+
+table td {
+  border: #d0d0d0 1px solid;
+}
+
+table td.score {
+  text-align: right;
+}
+
+.warning {
+  background: yellow;
+}
+.rcov_code td {
+  border-bottom: 1px solid #ddd ;
+  padding: 0;
+  margin: 0;
+}
+.rcov_code tr {
+  border: 0px;
+  padding:0px;
+  margin: 0px;
+}
+.rcov_code pre {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+.rcov_run {}
+.rcov_not_run {
+  background-color: #d88;
+}
+.rcov_run a, .rcov_not_run a {
+  text-decoration: none;
+}
+.rcov_run a {
+  color: #333;
+}
+.rcov_not_run a {
+  color: #000;
+}
+.rcov_overflow {
+  overflow: auto;
+  font-size: 50%;
+}
+
+.bluff-tooltip {
+	background: #fff;
+	border: 1px solid #d1edf5;
+	padding: 8px 8px 6px;
+}
+.bluff-tooltip .color {
+	display: block;
+	height: 4px;
+	width: 30px;
+	margin: 0 0 4px;
+	overflow: hidden;
+}
+.bluff-tooltip .data {
+	font-weight: bold;
+}
+
+    </style>
+    <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+    <script language="javascript" src="js-class.js" type="text/javascript"></script>
+    <script language="javascript" src="bluff-min.js" type="text/javascript"></script>
+    <script language="javascript" src="excanvas.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id='header'>
+      <h1><a href="/">metrics</a> | <a href="index.html">smartdict_child</a></h1>
+      <address class='watermark'>
+        built with
+        <a href='http://metric-fu.rubyforge.org/'>metric-fu</a>
+      </address>
+    </div>
+    <div id='content'>
+      <h3>Rcov Code Coverage Results</h3>
+
+<p>C0 code coverage information.</p>
+
+
+
+<canvas id="graph"></canvas>
+<script language="javascript" src="rcov.js?1327359557" type="text/javascript"></script>
+
+
+<p>Total Coverage: 73.7% </p>
+<table>
+  <tr>
+    <th>File Path</th>
+    <th>Percent run</th>
+  </tr>
+  
+  
+    <tr>
+      <td><a href="#lib_smartdict_core_command_manager_rb">lib/smartdict/core/command_manager.rb</a></td>
+      <td>30</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_core_plugin_manager_rb">lib/smartdict/core/plugin_manager.rb</a></td>
+      <td>30</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_rb">lib/smartdict.rb</a></td>
+      <td>39</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_commands_help_command_rb">lib/smartdict/commands/help_command.rb</a></td>
+      <td>39</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_models_pronunciation_rb">lib/smartdict/models/pronunciation.rb</a></td>
+      <td>47</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_core_log_rb">lib/smartdict/core/log.rb</a></td>
+      <td>50</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_core_has_log_rb">lib/smartdict/core/has_log.rb</a></td>
+      <td>67</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_models_translation_query_rb">lib/smartdict/models/translation_query.rb</a></td>
+      <td>75</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_commands_hello_command_rb">lib/smartdict/commands/hello_command.rb</a></td>
+      <td>86</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_command_rb">lib/smartdict/command.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_models_translation_rb">lib/smartdict/models/translation.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_models_rb">lib/smartdict/models.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_commands_translate_command_rb">lib/smartdict/commands/translate_command.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_models_translation_source_rb">lib/smartdict/models/translation_source.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_models_word_class_rb">lib/smartdict/models/word_class.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_core_rb">lib/smartdict/core.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_models_word_rb">lib/smartdict/models/word.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_commands_rb">lib/smartdict/commands.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#lib_smartdict_models_language_rb">lib/smartdict/models/language.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+</table>
+
+
+  <h2 id="lib_smartdict_core_command_manager_rb"> lib/smartdict/core/command_manager.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>require 'singleton'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>class Smartdict::Core::CommandManager</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  include Singleton </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  attr_reader :commands</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  def initialize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    @commands = {}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    register_command :help     , Smartdict::Commands::HelpCommand</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    register_command :hello    , Smartdict::Commands::HelloCommand</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    register_command :translate, Smartdict::Commands::TranslateCommand</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  def register_command(name, klass)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    klass.command_name = name.to_s</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    @commands[name.to_s] = klass</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  def run(args)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    cmd_name = args.shift</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    case cmd_name </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    when '-h', '--help', 'help'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>      run_command :help, args</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>      run_command cmd_name, args</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  def run_command(name, args = [])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    @commands[name.to_s].run(args)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  def find_command(name)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>    @commands[name.to_s]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_core_plugin_manager_rb"> lib/smartdict/core/plugin_manager.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>module Smartdict::Core::PluginManager</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  include Smartdict::Core::HasLog</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  extend self</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  def load_plugins!</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>    configatron.plugins.each do |plugin|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>      load_plugin(plugin)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  private</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  def load_plugin(name)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>    log.info "Loading #{name} plugin"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>    require plugin_file_path(name)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  rescue LoadError </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>    begin</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>      require "smartdict/plugins/#{name}"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>    rescue LoadError</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>      log.error "Plugin #{name} not found in plugins dir or rubygems"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  def plugin_file_path(plugin_name)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>    File.join(configatron.plugins_dir, plugin_name, 'lib', plugin_name)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_rb"> lib/smartdict.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>require 'rubygems'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>require 'active_support/core_ext/class'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>module Smartdict; end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>require 'configatron'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>require "smartdict/core"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>require "smartdict/commands"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>require "smartdict/models"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>module Smartdict</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>  class Error < ::Exception; end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>  #autoload </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>  ENVIRONMENTS = [:user, :test, :cucumber]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>  class << self</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    include Smartdict::Core</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def run</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      init_config</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      Core::PluginManager.load_plugins!</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      Dir.mkdir user_dir unless File.exists?(user_dir) </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      setup_dm</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def plugin_manager</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      @plugin_manager ||= Core::PluginManager.new(plugins_dir)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def init_config</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      default_config_file = File.join(root_dir, 'config', 'default_config.yml')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      configatron.configure_from_hash YAML.load_file(default_config_file)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      config_file = File.join(user_dir, 'configuration.yml')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      configatron.configure_from_hash YAML.load_file(config_file)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      configatron.plugins_dir = File.join(root_dir, 'plugins')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      configatron.store.db = File.join(user_dir, 'database.sqlite')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def user_dir</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      dirname = {</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        :user     => '.smartdict',</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        :test     => '.smartdict_test', </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        :cucumber => '.smartdict_test' }[env]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      File.join(home_dir, dirname) </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def home_dir</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      ENV['HOME']</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def env=(environment)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      @env = environment.to_sym</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      raise "env must be one of #{ENVIRONMENTS.inspect}" unless ENVIRONMENTS.include?(@env)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def env</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      @env || raise("No env setted for Smartdict")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def log_path</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      File.join(user_dir, 'smartdict.log')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def root_dir</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      File.join(File.dirname(__FILE__), '..')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def plugins_dir</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      File.join(root_dir, 'plugins')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    private</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    def setup_dm</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      case configatron.store.adapter</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      when 'sqlite'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        db = configatron.store.db</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        db_adapted = (db == 'memory') ? ":#{db}:" : "//#{db}"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        DataMapper.setup(:default, "sqlite:#{db_adapted}")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        if db == 'memory' or !File.exists?(db)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>          DataMapper.finalize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>          DataMapper.auto_migrate!</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>        raise "Not supported adapter #{configatron.store.adapter}" </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>      end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_commands_help_command_rb"> lib/smartdict/commands/help_command.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>class Smartdict::Commands::HelpCommand < Smartdict::Command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  arguments :command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  default   :command => nil</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  name        "help"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  summary     "Show help message"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  description "Smartdict is a dictionary designed to improve you knowledge of foreign languages."</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  syntax <<-SYNTAX</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    smartdict COMMAND [arguments...] [options...]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    #{prog_name} COMMAND</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    smartdict --help</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    smartdict --version</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  SYNTAX</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  def execute</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    if cmd_name = @arguments[:command]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>      if cmd_class = command_manager.find_command(cmd_name)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>        puts cmd_class.help_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>      else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>        abort "Uknown command: #{cmd_name}"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>      end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>      puts help_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  def help_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    message = "#{description_message}\n\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    message << "#{self.class.help_syntax_message}\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    message << help_commands_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  def command_manager</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    Smartdict::Core::CommandManager.instance</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  def help_commands_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    width = command_manager.commands.keys.map(&:size).max</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    result = " " * INDENT_SIZE + "Commands:\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    command_manager.commands.each do |command_name, command_class|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>      result << " " * 2 * INDENT_SIZE + "#{command_name.ljust(width)}"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>      result << "    #{command_class.summary_message}\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>    result</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_models_pronunciation_rb"> lib/smartdict/models/pronunciation.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>class Smartdict::Models::Pronunciation</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  include DataMapper::Resource</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  include DataMapper::Validations</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  property :word_id              , Integer, :key      => true, :min => 1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  property :translation_source_id, Integer, :key      => true, :min => 1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  property :filename             , String</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  belongs_to :word              , :key => true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  belongs_to :translation_source, :key => true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  validates_presence_of :filename</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  attr_accessor :bin_data, :bin_data_ext</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  # TODO: refactor condition</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  before :save do</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>    if bin_data && bin_data_ext</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>      FileUtils.mkdir_p File.dirname(filepath)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>      File.open(filepath, 'w') {|f| f.write bin_data}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>    else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>      puts 'HALT'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>      p bin_data</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>      p bin_data_ext</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>      throw :halt</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  before :valid? do</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>    self.filename ||= gen_filename</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  def filepath</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>    File.join(Smartdict.pronunciations_dir, translation_source.name, word.language.code, filename || gen_filename)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  private</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  def gen_filename</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>    escaped_word = word.name.gsub(/[\s']/, '_')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>    "#{escaped_word}.#{bin_data_ext}"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_core_log_rb"> lib/smartdict/core/log.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'><pre>require 'logger'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'><pre>class Smartdict::Core::Log < ::Logger</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'><pre>  def self.root_log</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'><pre>    @log ||= self.new(Smartdict.log_path)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_core_has_log_rb"> lib/smartdict/core/has_log.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>require 'smartdict/core/log'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>module Smartdict::Core::HasLog</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>  def self.included(base)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>    base.extend         InstanceAndClassMethods</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>    base.send :include, InstanceAndClassMethods</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>  module InstanceAndClassMethods</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>    def log</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>      Smartdict::Core::Log.root_log</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_models_translation_query_rb"> lib/smartdict/models/translation_query.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>class Smartdict::Models::TranslationQuery</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  include DataMapper::Resource</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  property :id                , Serial</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  property :created_at        , DateTime</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  property :word_id           , Integer</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  property :target_language_id, Integer</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  belongs_to :word                       , :key => true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  belongs_to :target_language, 'Language', :key => true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  before :save do</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>    self.created_at = Time.now</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_commands_hello_command_rb"> lib/smartdict/commands/hello_command.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>class Smartdict::Commands::HelloCommand < Smartdict::Command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  # arguments and their default values</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  arguments :name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  default   :name => "world"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  # options and their default values.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  options :greating => "Hello",</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>          :today => lambda { Time.now.strftime("%A") }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  # Other helpful information about the command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  name        "hello"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  summary     "Summary for the hello command"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  description "Demonstrates how Command class works"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  syntax      "#{prog_name} NAME [--greating GREATING] [--today DAY]"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  usage <<-USAGE</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>    #{prog_name}         </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>    #{prog_name} Sergey</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>    #{prog_name} --today Friday</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  USAGE</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  # This method runs when command executes.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  def execute</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>    puts "#{@options[:greating]} #{@arguments[:name]}! Today is #{@options[:today]}."</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_command_rb"> lib/smartdict/command.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre># Basic class for all command classes.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre># == Usage:</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   class Smartdict::Commands::HelloCommand < Smartdict::Command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     # arguments and their default values</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     arguments :name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     default   :name => "world"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     # options and their default values.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     options :greating => "Hello",</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#             :today => lambda { Time.now.strftime("%A") }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     # Other helpful information about the command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     name        "hello"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     summary     "Summary for the hello command"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     description "Demonstrates how Command class works"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     syntax      "#{prog_name} NAME [--greating GREATING] [--today DAY]"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     usage <<-USAGE</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#       #{prog_name}         </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#       #{prog_name} Sergey</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#       #{prog_name} --today Friday</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     USAGE</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     # This method runs when command executes.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     def execute</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#       puts "#{@options[:greating]} #{@arguments[:name]}! Today is #{@options[:today]}."</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   # == Output:</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   # smartdict hello</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   # Hello world! Today is Monday.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   #</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   # smartdict hello Sergey</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   # Hello Sergey! Today is Monday.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   # </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   # smartdict hello Sergey --today Friday</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>#   # Hello Sergey! Today is Friday.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>class Smartdict::Command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Number of spaces for indent.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  INDENT_SIZE = 2</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # array with available arguments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  class_attribute :known_arguments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # hash with default values for {known_arguments}.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  class_attribute :default_argument_values</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # hash with names of options and default values</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  class_attribute :known_options</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # short summary message for a command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  class_attribute :summary_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # command description</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  class_attribute :description_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # command name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  class_attribute :command_name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # multi line text with syntax format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  class_attribute :syntax_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # multi line text with usage example</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  class_attribute :usage_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Runs command.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @param [Array] args arguments passed from the command line</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.run(args)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.new(args).execute</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Defines available arguments and their order. </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.arguments(*argument_names)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.known_arguments = argument_names</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Sets default values for arguments.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @param [Hash] values</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.default(values)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.default_argument_values = values</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Defines available options with their default values.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # == Usage:</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  #   options :to => "en",</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  #           :from => lambda { Settings.current_language }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.options(options = {})</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    raise Smartdict::Error.new("options must be a hash") unless options.is_a? Hash</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.known_options = options</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Sets summary message for a command.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.summary(summary)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.summary_message = summary</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Sets description message for a command.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.description(description)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.description_message = description</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Defines name of a command.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.name(name)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.command_name = name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Sets syntax message.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @param [String] syntax multi line text with number of syntax examples</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.syntax(syntax)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.syntax_message = syntax</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Sets usage examples</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @param [String] usage multi line text with number of usage examples.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.usage(usage)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    self.usage_message = usage</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @return [String] program name. It's meant to be used in usage examples.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.prog_name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    "smartdict #{command_name}"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @return [String] help message for the command to be displayed.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.help_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    message = "#{description_message}\n\n" </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    message << "#{help_syntax_message}\n" </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    message << "#{help_usage_message}\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @return [String] syntax part of the help message.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.help_syntax_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    result = " " * INDENT_SIZE + "Syntax:\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    syntax_message.split("\n").map do |line|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      result << " " * INDENT_SIZE * 2 + "#{line.strip}\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    result</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @return [String] usage part of the help message.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.help_usage_message</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    result = " " * INDENT_SIZE + "Usage:\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    usage_message.split("\n").map do |line|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      result << " " * INDENT_SIZE * 2 + "#{line.strip}\n"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    result</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Sets default values for class attributes.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def self.inherited(base)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    base.known_arguments ||= []</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    base.default_argument_values ||= {}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    base.known_options ||= {}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @param [Array] args arguments passed from the command line</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def initialize(args = [])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    set_arguments_and_options!(args)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Parses all passed arguments and initializes @arguments and @options variables.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # @param [Array] args arguments passed from the command line</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def set_arguments_and_options!(args)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    arguments, options = extract_arguments_and_options(args)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    set_arguments!(arguments)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    set_options!(options)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Splits input args to arguments and options.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Returns arguments as an array and options as a hash.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def extract_arguments_and_options(args)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    arguments = []</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    options = {}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    args = args.dup</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    while value = args.shift</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      if match = value.match(/^--(\w+)/)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>        options[match[1].to_sym] = args.shift</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>        arguments << value</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    [arguments, options]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Initializes @arguments variable.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # If no argument was passed then it uses default value.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def set_arguments!(arg_values)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    @arguments = {}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    known_arguments.each_with_index do |arg_name, index|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      if value = arg_values[index]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>        @arguments[arg_name.to_sym] = value</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      elsif default_argument_values.has_key?(arg_name.to_sym)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>        @arguments[arg_name.to_sym] = default_argument_values[arg_name.to_sym]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>        raise Smartdict::Error.new("Argument `#{arg_name}` is not passed")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # Initializes @options variable.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  # If no argument was passed then it uses default value.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  def set_options!(options)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    @options = {}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    known_options.each do |opt_name, default_value|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      value = options[opt_name]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      unless value</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>        value = case default_value</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>          when Proc then default_value.call</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>          else default_value</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>        end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>      @options[opt_name] = value</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>    end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_models_translation_rb"> lib/smartdict/models/translation.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>class Smartdict::Models::Translation</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  include DataMapper::Resource</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  property :source_id            , Integer, :key => true, :min => 1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  property :target_id            , Integer, :key => true, :min => 1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  property :word_class_id        , Integer, :key => true, :min => 1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  property :translation_source_id, Integer, :key => true, :min => 1</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  belongs_to :source,        'Word', :key =>  true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  belongs_to :target,        'Word', :key =>  true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  belongs_to :word_class,            :key =>  true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>  belongs_to :translation_source,    :key =>  true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_models_rb"> lib/smartdict/models.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre>module Smartdict::Models; end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre># rubygems</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre>require 'dm-core'          #, '1.0.2'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre>require 'dm-validations'   #, '1.0.2'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre>require 'dm-migrations'    #, '1.0.2'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre>require 'dm-sqlite-adapter'#, '1.0.2'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre># models</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre>%w{language pronunciation translation translation_query translation_source word word_class}.each do |model|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre>  require "smartdict/models/#{model}"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_commands_translate_command_rb"> lib/smartdict/commands/translate_command.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>class Smartdict::Commands::TranslateCommand < Smartdict::Command</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>  summary     "Translate a word"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>  description "Translate a word"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>  syntax       "#{prog_name} <WORD> [--from LANGUAGE] [--to LANGUAGE]"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>  usage <<-USAGE</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>    #{prog_name} hello</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>    #{prog_name} again --from en</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>    #{prog_name} again --to ru</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>  USAGE</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>  def execute</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>  end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_models_translation_source_rb"> lib/smartdict/models/translation_source.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>class Smartdict::Models::TranslationSource</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>  include DataMapper::Resource</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>  include DataMapper::Validations</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>  property :id  , Serial</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>  property :name, String</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>  has n, :translations</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>  has n, :pronunciations</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>  validates_presence_of :name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>  validates_uniqueness_of :name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_models_word_class_rb"> lib/smartdict/models/word_class.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word_class.rb'><pre># Word class is the same what is type of speech and lexical class</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word_class.rb'><pre>class Smartdict::Models::WordClass</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word_class.rb'><pre>  include DataMapper::Resource</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word_class.rb'><pre>  property :id,   Serial</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word_class.rb'><pre>  property :name, String, :required => true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word_class.rb'><pre>  has n, :translations</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word_class.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_core_rb"> lib/smartdict/core.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core.rb'><pre>module Smartdict::Core; end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core.rb'><pre>require 'smartdict/core/has_log'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core.rb'><pre>Dir.glob("#{File.dirname(__FILE__)}/core/*rb").each do |file|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core.rb'><pre>  require file</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_models_word_rb"> lib/smartdict/models/word.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>class Smartdict::Models::Word</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>  include DataMapper::Resource</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>  property :id,            Serial</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>  property :name,          String, :required => true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>  property :transcription, String</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>  belongs_to :language, :required  => true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>  has n, :translations, :child_key => :source_id</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>  has n, :pronunciations</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_commands_rb"> lib/smartdict/commands.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands.rb'><pre>module Smartdict::Commands</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands.rb'><pre>end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands.rb'><pre>require 'smartdict/command'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands.rb'><pre>Dir.glob("#{File.dirname(__FILE__)}/commands/*rb").each do |file|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands.rb'><pre>  require file</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="lib_smartdict_models_language_rb"> lib/smartdict/models/language.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>class Smartdict::Models::Language</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  include DataMapper::Resource</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  include DataMapper::Validations</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  property :id  , Serial</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  property :name, String</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  property :code, String #, :length => 2</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  has n, :words</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  validates_presence_of :name</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  validates_presence_of :code</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>  validates_uniqueness_of :name, :code</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'><pre>end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+<p>Generated on Tue Jan 24 00:59:18 +0200 2012</p>
+
+    </div>
+  </body>
+</html>

@@ -23,13 +23,3 @@ class Smartdict::Commands::HelloCommand < Smartdict::Command
     puts "#{@options[:greating]} #{@arguments[:name]}! Today is #{@options[:today]}."
   end
 end
-
-# == Output:
-# smartdict hello
-# Hello world! Today is Monday.
-#
-# smartdict hello Sergey
-# Hello Sergey! Today is Monday.
-# 
-# smartdict hello Sergey --today Friday
-# Hello Sergey! Today is Friday.

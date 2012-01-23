@@ -31,6 +31,8 @@ group :development do
   gem 'dm-sweatshop'
   gem 'dm-rspec'
 
+  gem 'metrical'
+
   gem 'ruby-debug' if RUBY_VERSION =~ /^1.8/
   gem 'ruby-debug19' if RUBY_VERSION =~ /^1.9/
 end

@@ -1,9 +1,22 @@
 require 'spec_helper'
 
 describe Smartdict::Command do
-  let(:command) do 
-    Class.new(Smartdict::Command).new
+  let(:command_class) do 
+    Class.new(Smartdict::Command) do
+      arguments :arg1, :arg2
+      syntax <<-SYNTAX
+        cmd ARG
+        cmd ARG1 ARG2
+      SYNTAX
+      usage <<-USAGE
+        cmd 1
+        cmd 10 50
+      USAGE
+    end
   end
+
+  let(:command){ command_class.new(["v1", "v2"]) }
+
 
 
   describe 'methods' do
@@ -18,18 +31,55 @@ describe Smartdict::Command do
       end
     end
 
+
     describe '.options' do
       it 'raises Smartdict::Error if other than hash is passed' do
         expect {Smartdict::Command.options "string"}.to raise_error Smartdict::Error
       end
     end
-  end
 
+    describe '.run' do
+      it 'create new command with passed args and executes it' do
+        command_stub = stub(:command)
+        command_stub.should_receive(:execute)
+        command_class.should_receive(:new).with([1, 2]).and_return(command_stub)
+        command_class.run([1, 2])
+      end
+    end
+
+    describe ".help_message" do
+      it "returns help message" do
+        command_class.should_receive(:description_message).and_return("DESC")
+        command_class.should_receive(:help_syntax_message).and_return("SYNTAX")
+        command_class.should_receive(:help_usage_message).and_return("USAGE")
+        command_class.help_message.should == "DESC\n\nSYNTAX\nUSAGE\n"
+      end
+    end
+
+    describe ".help_syntax_message" do
+      it "returns formatted syntax message" do
+        expected = "  Syntax:\n" +
+                   "    cmd ARG\n" +
+                   "    cmd ARG1 ARG2\n"
+        command_class.help_syntax_message.should == expected
+      end
+    end
+
+    describe ".help_usage_message" do
+      it "returns formatted usage message" do
+        expected = "  Usage:\n" +
+                   "    cmd 1\n" +
+                   "    cmd 10 50\n"
+        command_class.help_usage_message.should == expected
+      end
+    end
+  end 
 
   describe 'subclass' do
     before :all do
       @subclass = Class.new(Smartdict::Command) do
-        arguments :arg1
+        arguments :arg1, :arg2
+        default :arg2 => "default arg2"
         options :opt1 => "default", :opt2 => lambda { "default in block" }
         summary "subclass"
       end
@@ -51,7 +101,7 @@ describe Smartdict::Command do
 
     describe 'known_arguments' do
       it "should not be overalped" do
-        @subclass.known_arguments.should == [:arg1]
+        @subclass.known_arguments.should == [:arg1, :arg2]
         @another_subclass.known_arguments.should == [:one, :two]
       end
     end
@@ -65,9 +115,16 @@ describe Smartdict::Command do
 
     describe 'arguments are initialized' do
       it 'with passed values' do
-        command = @subclass.new %w(arg1_val)
+        command = @subclass.new %w(a1 a2)
         arguments = command.instance_variable_get('@arguments')
-        arguments[:arg1].should == 'arg1_val'
+        arguments[:arg1].should == 'a1'
+        arguments[:arg2].should == 'a2'
+      end
+
+      it "with default values if it't specified" do
+        command = @subclass.new %w(a1)
+        arguments = command.instance_variable_get('@arguments')
+        arguments[:arg2].should == 'default arg2'
       end
 
       it 'raises Smartdict::Error when not enough arguments are provided' do

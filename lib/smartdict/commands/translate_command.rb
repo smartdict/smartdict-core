@@ -12,5 +12,4 @@ class Smartdict::Commands::TranslateCommand < Smartdict::Command
   def execute
 
   end
-
 end

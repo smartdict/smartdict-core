@@ -1,0 +1,5948 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <meta content='en' http-equiv='Content-Language' />
+    <title>metrics</title>
+    <style>
+    /*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+
+    /* --------------------------------------------------------------
+
+   buttons.css
+   * Gives you some great CSS-only buttons.
+
+   Created by Kevin Hale [particletree.com]
+   * particletree.com/features/rediscovering-the-button-element
+
+   See Readme.txt in this folder for instructions.
+
+-------------------------------------------------------------- */
+
+button {
+  display:block;
+  float:left;
+  margin:0 0.583em 0.667em 0;
+  padding:5px 10px 5px 7px;   /* Links */
+
+  border:1px solid #dedede;
+  border-top:1px solid #eee;
+  border-left:1px solid #eee;
+
+  background-color:#f5f5f5;
+  font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size:100%;
+  line-height:130%;
+  text-decoration:none;
+  font-weight:bold;
+  color:#565656;
+  cursor:pointer;
+}
+button {
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px;   /* IE6 */
+}
+button[type] {
+  padding:4px 10px 4px 7px;   /* Firefox */
+  line-height:17px;           /* Safari */
+}
+*:first-child+html button[type] {
+  padding:4px 10px 3px 7px;   /* IE7 */
+}
+button img {
+  margin:0 3px -3px 0 !important;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+  float:none;
+}
+
+
+/* Button colors
+-------------------------------------------------------------- */
+
+/* Standard */
+button:hover {
+  background-color:#dff4ff;
+  border:1px solid #c2e1ef;
+  color:#336699;
+}
+
+/* Positive */
+body .positive {
+  color:#529214;
+}
+button.positive:hover {
+  background-color:#E6EFC2;
+  border:1px solid #C6D880;
+  color:#529214;
+}
+
+/* Negative */
+body .negative {
+  color:#d12f19;
+}
+button.negative:hover {
+  background:#fbe3e4;
+  border:1px solid #fbc2c4;
+  color:#d12f19;
+}
+
+    html {
+  background-color: #e0e0e0; }
+
+body {
+  font-size: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #333333; }
+
+a {
+  color: #ed1556;
+  text-decoration: none; }
+  a:hover {
+    color: #ffffff;
+    background-color: #ed1556; }
+
+#header, #content, #footer {
+  margin: 0 auto;
+  background: #eeeeee;
+  padding: 0 2em;
+  z-index: 0;
+  position: relative;
+  font-size: 1em; }
+
+#header {
+  background: #ffffff; }
+  #header h1 {
+    font-weight: bold;
+    font-size: 1.5em; }
+  #header address.watermark {
+    position: absolute;
+    font-weight: bold;
+    right: 3em;
+    top: 0;
+    font-size: .75em;
+    color: #cccccc; }
+    #header address.watermark a {
+      color: #cccccc;
+      font-weight: bold;
+      font-size: 2em; }
+      #header address.watermark a:hover {
+        background: transparent;
+        color: #aaaaaa; }
+
+#content {
+  padding-top: 1em;
+  padding-bottom: 2em; }
+  #content strong {
+    font-weight: bold; }
+  #content em {
+    font-style: italic; }
+  #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    color: #4e4e4e; }
+  #content h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: .75em;
+    padding: .25em 0;
+    line-height: 1.2;
+    border-bottom: 1px solid #c0c0c0; }
+  #content h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em 0 .2em; }
+  #content h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: .25em 0; }
+  #content h4, #content h5, #content h6 {
+    font-weight: bold;
+    margin-top: .5em; }
+  #content code, #content pre, #content textarea, #content input {
+    font-family: Monaco, Deja Vu Sans Mono, Inconsolata, Consolas, monospace; }
+  #content form p {
+    margin-top: 1em;
+    position: relative; }
+    #content form p.checkbox label {
+      margin-top: 0 !important; }
+  #content form input.text, #content form textarea {
+    width: 30em;
+    padding: .2em .4em;
+    color: #4e4e4e; }
+  #content form input.text {
+    height: 1.4em; }
+  #content form label {
+    float: left;
+    display: block;
+    margin-top: .5em;
+    width: 8em;
+    margin-right: .75em; }
+  #content form .with_errors label {
+    background: red;
+    color: white;
+    position: relative;
+    top: -.7em; }
+  #content form .with_errors.required label {
+    position: static;
+    margin-right: .25em;
+    padding: 0 .2em; }
+  #content form .with_errors input, #content form .with_errors textarea {
+    border: 2px solid #f22;
+    background: #fee;
+    color: #222222; }
+  #content form .required label {
+    float: none;
+    display: block;
+    width: auto;
+    position: relative;
+    font-weight: bold;
+    margin-top: 1em;
+    text-indent: -.65em; }
+    #content form .required label:before {
+      content: "* ";
+      color: #ed1556; }
+  #content form .required input.text {
+    width: 25.6em;
+    font-size: 24px;
+    font-weight: bold; }
+  #content form .normal {
+    margin-top: 2em; }
+  #content form h2.notifier label {
+    float: none;
+    width: auto;
+    margin-right: 0; }
+    #content form h2.notifier label .warning {
+      font-size: .5em;
+      font-weight: normal;
+      color: #999999; }
+  #content form fieldset {
+    padding-bottom: 1em;
+    margin-left: 1.35em;
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 1em; }
+    #content form fieldset h3 {
+      margin-top: 1em;
+      margin-bottom: 0; }
+    #content form fieldset p.normal {
+      margin-top: 1em; }
+    #content form fieldset p label {
+      width: 6.7em; }
+  #content form p.submit {
+    margin-top: 2em; }
+    #content form p.submit:after {
+      display: block;
+      clear: both;
+      float: none;
+      content: ".";
+      text-indent: -9999em;
+      text-align: left; }
+    #content form p.submit.destroy button,     #content form p.submit.manual-build button {
+      float: none;
+      display: inline; }
+    #content form p.submit.manual-build button {
+      margin-right: 0; }
+  #content #build form, #content #last_build form {
+    font-size: .75em; }
+    #content #build form p.submit,     #content #last_build form p.submit {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      right: .5em;
+      top: 1.25em; }
+  #content .blank_slate p,   #content .error p {
+    position: relative;
+    top: .3em; }
+  #content .blank_slate h1,   #content .error h1 {
+    border-width: 0;
+    margin: 0;
+    padding: 0; }
+    #content .blank_slate h1 button,     #content .error h1 button {
+      float: none;
+      border: 0 none;
+      background: transparent;
+      display: inline;
+      color: #ed1556;
+      padding: 0.25em 0;
+      margin: 0; }
+      #content .blank_slate h1 button:hover,       #content .error h1 button:hover {
+        background: #ed1556;
+        color: #ffffff; }
+  #content .error dt {
+    margin-top: 1.4em;
+    margin-bottom: .3em;
+    font-size: 1.75em;
+    font-family: Georgia, Times New Roman, serif; }
+  #content .error dd {
+    line-height: 1.4; }
+  #content .error .backtrace {
+    margin: 1em 0;
+    overflow: scroll;
+    height: 30em;
+    border: 1px solid #c0c0c0;
+    line-height: 1.6; }
+  #content #projects {
+    margin: 1em 0 2em;
+    border-top: 1px solid #c0c0c0; }
+    #content #projects li {
+      position: relative;
+      border-bottom: 1px solid #c0c0c0; }
+      #content #projects li.odd {
+        background: #e6e6e6; }
+      #content #projects li.building {
+        background: transparent url(/spinner.gif) no-repeat scroll right; }
+      #content #projects li a {
+        font-size: 2em;
+        padding: .25em;
+        line-height: 1.2;
+        font-weight: bold;
+        display: block; }
+        #content #projects li a.success {
+          color: #337022; }
+        #content #projects li a.failed {
+          color: #ff1100; }
+      #content #projects li .meta {
+        position: absolute;
+        right: .6em;
+        top: 1.5em;
+        font-size: 0.8em;
+        color: #999999;
+        text-align: right; }
+      #content #projects li.building .meta {
+        right: 1.6em; }
+      #content #projects li.success .meta {
+        color: #337022; }
+      #content #projects li.failed .meta {
+        color: #ff1100; }
+  #content #previous_builds li a {
+    display: block;
+    padding: .25em;
+    margin-bottom: .25em;
+    border-width: 1px;
+    border-style: solid; }
+    #content #previous_builds li a strong {
+      font-size: 1.3em; }
+    #content #previous_builds li a .attribution {
+      font-size: .9em; }
+  #content #projects li.success a,   #content #previous_builds li.success a {
+    background-color: #bbf8aa;
+    border-color: #99d688;
+    color: #337022; }
+    #content #projects li.success a .attribution,     #content #previous_builds li.success a .attribution {
+      color: #77b466; }
+    #content #projects li.success a:hover,     #content #previous_builds li.success a:hover {
+      background-color: #ddffcc; }
+  #content #projects li.failed a,   #content #previous_builds li.failed a {
+    background-color: #ffbbaa;
+    border-color: #dd9988;
+    color: #ff1100; }
+    #content #projects li.failed a .attribution,     #content #previous_builds li.failed a .attribution {
+      color: #bb7766; }
+    #content #projects li.failed a:hover,     #content #previous_builds li.failed a:hover {
+      background-color: #ffddcc; }
+  #content #build, #content #last_build {
+    position: relative; }
+    #content #build h1, #content #build blockquote,     #content #last_build h1, #content #last_build blockquote {
+      border-width: 0 1px;
+      border-style: solid; }
+    #content #build h1,     #content #last_build h1 {
+      border-top-width: 1px; }
+    #content #build blockquote,     #content #last_build blockquote {
+      bottom-bottom-width: 1px;
+      line-height: 1.4; }
+    #content #build.success h1, #content #build.success blockquote,     #content #last_build.success h1, #content #last_build.success blockquote {
+      background-color: #bbf8aa;
+      border-color: #99d688 #ccffbb #ccffbb #99d688; }
+    #content #build.success h1,     #content #last_build.success h1 {
+      color: #337022; }
+    #content #build.success .meta,     #content #last_build.success .meta {
+      color: #77b466; }
+    #content #build.failed h1, #content #build.failed blockquote,     #content #last_build.failed h1, #content #last_build.failed blockquote {
+      background-color: #ffbbaa;
+      border-color: #dd9988 #ffccbb #ffccbb #dd9988; }
+    #content #build.failed h1,     #content #last_build.failed h1 {
+      color: #ff1100; }
+    #content #build.failed .meta,     #content #last_build.failed .meta {
+      color: #bb7766; }
+    #content #build h1,     #content #last_build h1 {
+      margin-top: .5em;
+      margin-bottom: 0;
+      padding: .25em;
+      color: #337022; }
+    #content #build blockquote,     #content #last_build blockquote {
+      padding: .75em;
+      margin-bottom: 2em; }
+      #content #build blockquote .meta,       #content #last_build blockquote .meta {
+        margin-top: 1em;
+        display: block;
+        font-size: .9em; }
+    #content #build pre.output,     #content #last_build pre.output {
+      background: #111;
+      color: #fff;
+      padding: .5em;
+      overflow: auto;
+      max-height: 50em;
+      font-size: .825em; }
+      #content #build pre.output .color30,       #content #last_build pre.output .color30 {
+        color: #333; }
+      #content #build pre.output .color31,       #content #last_build pre.output .color31 {
+        color: #e33; }
+      #content #build pre.output .color32,       #content #last_build pre.output .color32 {
+        color: #3e3; }
+      #content #build pre.output .color33,       #content #last_build pre.output .color33 {
+        color: #ee3; }
+      #content #build pre.output .color34,       #content #last_build pre.output .color34 {
+        color: #33e; }
+      #content #build pre.output .color35,       #content #last_build pre.output .color35 {
+        color: #e3e; }
+      #content #build pre.output .color36,       #content #last_build pre.output .color36 {
+        color: #3ee; }
+      #content #build pre.output .color37,       #content #last_build pre.output .color37 {
+        color: #fff; }
+  #content #push_path {
+    display: block;
+    margin-top: 1em;
+    margin-left: 2em; }
+
+a.success {
+  color: #bbf8aa; }
+  a.success:hover {
+    background-color: #bbf8aa;
+    color: white; }
+a.failed {
+  color: #ffbbaa; }
+  a.failed:hover {
+    background-color: #ffbbaa;
+    color: white; }
+
+#footer {
+  padding: 1.5em 2.5em;
+  border-top: 1px solid #ccc;
+  font-size: .8em;
+  color: #666;
+  text-align: right; }
+  #footer strong {
+    font-weight: bold; }
+
+    table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: 1px solid #666;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+table tr.light {
+   background: #fff;
+}
+
+table tr.dark {
+  background: #f9f9f9;
+}
+
+table tr:hover {
+  background: #FFFFC0;
+}
+
+table td, table th {
+  padding: 4px;
+  font-size: 11px;
+}
+table th {
+  text-align: center;
+  color: #337022;
+  background: #DDFFCC;
+  font-weight: bold;
+  border: #99D688 1px solid;
+}
+
+table td {
+  border: #d0d0d0 1px solid;
+}
+
+table td.score {
+  text-align: right;
+}
+
+.warning {
+  background: yellow;
+}
+.rcov_code td {
+  border-bottom: 1px solid #ddd ;
+  padding: 0;
+  margin: 0;
+}
+.rcov_code tr {
+  border: 0px;
+  padding:0px;
+  margin: 0px;
+}
+.rcov_code pre {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+.rcov_run {}
+.rcov_not_run {
+  background-color: #d88;
+}
+.rcov_run a, .rcov_not_run a {
+  text-decoration: none;
+}
+.rcov_run a {
+  color: #333;
+}
+.rcov_not_run a {
+  color: #000;
+}
+.rcov_overflow {
+  overflow: auto;
+  font-size: 50%;
+}
+
+.bluff-tooltip {
+	background: #fff;
+	border: 1px solid #d1edf5;
+	padding: 8px 8px 6px;
+}
+.bluff-tooltip .color {
+	display: block;
+	height: 4px;
+	width: 30px;
+	margin: 0 0 4px;
+	overflow: hidden;
+}
+.bluff-tooltip .data {
+	font-weight: bold;
+}
+
+    </style>
+    <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+    <script language="javascript" src="js-class.js" type="text/javascript"></script>
+    <script language="javascript" src="bluff-min.js" type="text/javascript"></script>
+    <script language="javascript" src="excanvas.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id='header'>
+      <h1><a href="/">metrics</a> | <a href="index.html">smartdict_child</a></h1>
+      <address class='watermark'>
+        built with
+        <a href='http://metric-fu.rubyforge.org/'>metric-fu</a>
+      </address>
+    </div>
+    <div id='content'>
+      <h3>Hotspot Results</h3>
+<p>Meta analysis of your metrics to find hotspots in your code.</p>
+<br/>
+
+
+
+
+<table>
+<tr valign="top">
+
+   <th width='33%'>
+Files</th>
+
+   <th width='33%'>
+Classes</th>
+
+   <th width='33%'>
+Methods</th>
+
+</tr>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'>lib/smartdict/commands/hello_command.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_hello_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 100.0%<br/>
+          
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'>lib/smartdict/commands/hello_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelloCommand)
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_hello_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 100.0%<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'>lib/smartdict/commands/help_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#help_commands_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 100.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'>lib/smartdict/commands/help_command.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Roodi: found 2 design problems<br/>
+          
+          <br/>
+          Rcov: average uncovered code is 84.4%<br/>
+          
+          <br/>
+          Reek: found 4 code smells<br/>
+          
+          <br/>
+          Churn: detected high level of churn (changed 3 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'>lib/smartdict/commands/help_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: average uncovered code is 84.4%<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'>lib/smartdict/commands/hello_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelloCommand)#execute
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_hello_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 100.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'>lib/smartdict/core/plugin_manager.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: average uncovered code is 78.9%<br/>
+          
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Churn: detected high level of churn (changed 3 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'>lib/smartdict/core/plugin_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: average uncovered code is 78.9%<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'>lib/smartdict/commands/help_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#execute
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 90.9%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: average uncovered code is 76.1%<br/>
+          
+          <br/>
+          Reek: found 3 code smells<br/>
+          
+          <br/>
+          Churn: detected high level of churn (changed 3 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: average uncovered code is 76.1%<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'>lib/smartdict/core/plugin_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#load_plugin
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 90.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'>lib/smartdict/models/pronunciation.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: average uncovered code is 70.8%<br/>
+          
+          <br/>
+          Reek: found 2 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'>lib/smartdict/models/pronunciation.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: average uncovered code is 70.8%<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#run
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 88.9%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'>lib/smartdict/core/log.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_log.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 66.7%<br/>
+          
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'>lib/smartdict/core/log.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :Log)
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_log.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 66.7%<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#initialize
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 83.3%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:84'>lib/smartdict.rb:84</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line84">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 38.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : main
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 33.3<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'>lib/smartdict/commands/help_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#help_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 80.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb:39'>lib/smartdict/commands/help_command.rb:39</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html#line39">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 37.1<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:133'>lib/smartdict/command.rb:133</a> : help_syntax_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line133">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 15.6<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'>lib/smartdict/core/plugin_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#load_plugins!
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 80.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:35'>lib/smartdict.rb:35</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line35">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 34.9<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:142'>lib/smartdict/command.rb:142</a> : help_usage_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line142">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 15.6<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'>lib/smartdict/models/pronunciation.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)#gen_filename
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 75.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:28'>lib/smartdict/models/pronunciation.rb:28</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line28">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 22.3<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'>lib/smartdict/models/translation_source.rb</a> : TranslationSource
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_translation_source.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 13.6<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#register_command
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 75.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:190'>lib/smartdict/command.rb:190</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line190">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 22.0<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'>lib/smartdict/commands/help_command.rb</a> : HelpCommand
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 4 code smells<br/>
+          
+          <br/>
+          Flog: average complexity is 13.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'>lib/smartdict/core/log.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :Log)#root_log
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_log.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 66.7%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:142'>lib/smartdict/command.rb:142</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line142">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 15.6<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'>lib/smartdict/models/language.rb</a> : Language
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_language.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 13.4<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'>lib/smartdict/core/plugin_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :PluginManager)#plugin_file_path
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 66.7%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:133'>lib/smartdict/command.rb:133</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line133">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 15.6<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'>lib/smartdict/models/translation.rb</a> : Translation
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_translation.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 12.3<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'>lib/smartdict/commands/help_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :HelpCommand)#command_manager
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 66.7%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:24'>lib/smartdict.rb:24</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line24">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 14.0<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'>lib/smartdict.rb</a> : Smartdict
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 11 code smells<br/>
+          
+          <br/>
+          Flog: average complexity is 11.4<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#find_command
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 66.7%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:34'>lib/smartdict/models/pronunciation.rb:34</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line34">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 13.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb'>lib/smartdict/commands/hello_command.rb</a> : HelloCommand
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_hello_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: average complexity is 11.9<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'>lib/smartdict/models/pronunciation.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Models), :Pronunciation)#filepath
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 66.7%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:174'>lib/smartdict/command.rb:174</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line174">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 12.8<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb'>lib/smartdict/models/pronunciation.rb</a> : Pronunciation
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 2 code smells<br/>
+          
+          <br/>
+          Flog: average complexity is 11.0<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Core), :CommandManager)#run_command
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 66.7%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:205'>lib/smartdict/command.rb:205</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line205">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 12.4<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'>lib/smartdict/models/word.rb</a> : Word
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_word.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 11.4<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'>lib/smartdict.rb</a> : Smartdict#setup_dm
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 5 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 38.2<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb:17'>lib/smartdict/commands/help_command.rb:17</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html#line17">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 11.7<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : Command
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 6 code smells<br/>
+          
+          <br/>
+          Flog: average complexity is 10.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb'>lib/smartdict/commands/help_command.rb</a> : HelpCommand#help_commands_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 3 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 37.1<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb:14'>lib/smartdict/core/plugin_manager.rb:14</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html#line14">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 10.7<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'>lib/smartdict/commands/translate_command.rb</a> : TranslateCommand
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_translate_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 9.6<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'>lib/smartdict.rb</a> : Smartdict#init_config
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 4 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 34.9<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:60'>lib/smartdict.rb:60</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line60">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 8.4<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'>lib/smartdict/models/translation_query.rb</a> : TranslationQuery
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_translation_query.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 8.8<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : main#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 33.3<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:47'>lib/smartdict.rb:47</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line47">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 8.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:28'>lib/smartdict/models/pronunciation.rb:28</a> : before
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line28">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: average complexity is 9.0<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : Command#set_arguments!
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 2 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 22.0<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb:29'>lib/smartdict/commands/help_command.rb:29</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html#line29">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 8.1<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : WordClass
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 6.8<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : HelloCommand#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 18.3<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:126'>lib/smartdict/command.rb:126</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line126">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 6.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'>lib/smartdict/core/plugin_manager.rb</a> : PluginManager
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: average complexity is 6.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'>lib/smartdict.rb</a> : Smartdict#run
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 14.0<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb:4'>lib/smartdict/core/has_log.rb:4</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_has_log.rb.html#line4">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 6.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:126'>lib/smartdict/command.rb:126</a> : help_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line126">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 6.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : Pronunciation#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 13.9<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb:5'>lib/smartdict/core/plugin_manager.rb:5</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html#line5">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.8<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb:4'>lib/smartdict/core/has_log.rb:4</a> : included
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_has_log.rb.html#line4">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 6.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : TranslationSource#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 13.6<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:40'>lib/smartdict/models/pronunciation.rb:40</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line40">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:88'>lib/smartdict/command.rb:88</a> : options
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line88">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.8<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : Command#extract_arguments_and_options
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 4 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 12.8<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb:24'>lib/smartdict/commands/hello_command.rb:24</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_hello_command.rb.html#line24">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.4<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a> : CommandManager
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 3 code smells<br/>
+          
+          <br/>
+          Flog: average complexity is 4.0<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:34'>lib/smartdict/models/pronunciation.rb:34</a> : Pronunciation#filepath
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line34">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 13.5<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:20'>lib/smartdict/core/command_manager.rb:20</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line20">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb:4'>lib/smartdict/core/log.rb:4</a> : root_log
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_log.rb.html#line4">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.9<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : Language#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 13.4<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:166'>lib/smartdict/command.rb:166</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line166">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.1<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:69'>lib/smartdict/command.rb:69</a> : run
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line69">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: average complexity is 2.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:28'>lib/smartdict/models/pronunciation.rb:28</a> : before#save
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line28">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: average complexity is 12.4<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:88'>lib/smartdict/command.rb:88</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line88">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.8<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb:10'>lib/smartdict/core/has_log.rb:10</a> : InstanceAndClassMethods
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_has_log.rb.html#line10">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.3<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:205'>lib/smartdict/command.rb:205</a> : Command#set_options!
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line205">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 12.4<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:30'>lib/smartdict/core/command_manager.rb:30</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line30">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.7<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:121'>lib/smartdict/command.rb:121</a> : prog_name
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line121">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : Translation#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 12.3<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:31'>lib/smartdict.rb:31</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line31">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.4<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:94'>lib/smartdict/command.rb:94</a> : summary
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line94">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb:17'>lib/smartdict/commands/help_command.rb:17</a> : HelpCommand#execute
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html#line17">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 11.7<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb:25'>lib/smartdict/core/plugin_manager.rb:25</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html#line25">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:116'>lib/smartdict/command.rb:116</a> : usage
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line116">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : Smartdict#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 11.4<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:8'>lib/smartdict/core/command_manager.rb:8</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line8">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.1<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:104'>lib/smartdict/command.rb:104</a> : name
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line104">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : Word#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 11.4<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:73'>lib/smartdict.rb:73</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line73">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.0<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:110'>lib/smartdict/command.rb:110</a> : syntax
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line110">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb'>lib/smartdict/core/plugin_manager.rb</a> : PluginManager#load_plugin
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 10.7<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:69'>lib/smartdict.rb:69</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line69">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.0<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:74'>lib/smartdict/command.rb:74</a> : arguments
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line74">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : TranslateCommand#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 9.6<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:77'>lib/smartdict.rb:77</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line77">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.0<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:80'>lib/smartdict/command.rb:80</a> : default
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line80">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : Command#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 9.1<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:15'>lib/smartdict/core/command_manager.rb:15</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line15">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 3.7<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:99'>lib/smartdict/command.rb:99</a> : description
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line99">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : TranslationQuery#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 8.8<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb:4'>lib/smartdict/core/log.rb:4</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_log.rb.html#line4">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.9<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : Command#self
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 2 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:60'>lib/smartdict.rb:60</a> : Smartdict#env=
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line60">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 8.4<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:34'>lib/smartdict/core/command_manager.rb:34</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line34">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.8<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/log.rb'>lib/smartdict/core/log.rb</a> : Log
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_log.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:47'>lib/smartdict.rb:47</a> : Smartdict#user_dir
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line47">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 8.2<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:65'>lib/smartdict.rb:65</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line65">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.8<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/runner.rb'>lib/smartdict/runner.rb</a> : Runner
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_runner.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb:29'>lib/smartdict/commands/help_command.rb:29</a> : HelpCommand#help_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html#line29">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 8.1<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:69'>lib/smartdict/command.rb:69</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line69">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.6<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'>lib/smartdict.rb</a> : Error
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : HelpCommand#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 7.9<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb:14'>lib/smartdict/models/translation_query.rb:14</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_translation_query.rb.html#line14">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.5<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: average uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : WordClass#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 6.8<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/runner.rb:2'>lib/smartdict/runner.rb:2</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_runner.rb.html#line2">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.4<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'>lib/smartdict/commands/translate_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :TranslateCommand)
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_translate_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb:5'>lib/smartdict/core/plugin_manager.rb:5</a> : PluginManager#load_plugins!
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html#line5">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.8<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:32'>lib/smartdict/models/pronunciation.rb:32</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line32">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:40'>lib/smartdict/models/pronunciation.rb:40</a> : Pronunciation#gen_filename
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line40">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.5<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:55'>lib/smartdict.rb:55</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line55">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.9<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : PluginManager#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.5<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Roodi: found 3 design problems<br/>
+          
+          <br/>
+          Rcov: average uncovered code is 0.0%<br/>
+          
+          <br/>
+          Reek: found 8 code smells<br/>
+          
+          <br/>
+          Churn: detected high level of churn (changed 3 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/hello_command.rb:24'>lib/smartdict/commands/hello_command.rb:24</a> : HelloCommand#execute
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_hello_command.rb.html#line24">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.4<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:160'>lib/smartdict/command.rb:160</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line160">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.7<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:20'>lib/smartdict/core/command_manager.rb:20</a> : CommandManager#run
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line20">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.2<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'>lib/smartdict.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 12 code smells<br/>
+          
+          <br/>
+          Churn: detected high level of churn (changed 4 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:166'>lib/smartdict/command.rb:166</a> : Command#set_arguments_and_options!
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line166">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 5.1<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb:10'>lib/smartdict/core/has_log.rb:10</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_has_log.rb.html#line10">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.3<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:30'>lib/smartdict/core/command_manager.rb:30</a> : CommandManager#run_command
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line30">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.7<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:99'>lib/smartdict/command.rb:99</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line99">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:31'>lib/smartdict.rb:31</a> : Smartdict#plugin_manager
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line31">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.4<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:104'>lib/smartdict/command.rb:104</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line104">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/plugin_manager.rb:25'>lib/smartdict/core/plugin_manager.rb:25</a> : PluginManager#plugin_file_path
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_plugin_manager.rb.html#line25">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.2<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:74'>lib/smartdict/command.rb:74</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line74">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb'>lib/smartdict/core/command_manager.rb</a> : CommandManager#register_command
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 2 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 3.7<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:80'>lib/smartdict/command.rb:80</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line80">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:8'>lib/smartdict/core/command_manager.rb:8</a> : CommandManager#initialize
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line8">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.1<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:94'>lib/smartdict/command.rb:94</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line94">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:69'>lib/smartdict.rb:69</a> : Smartdict#log_path
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line69">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.0<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:116'>lib/smartdict/command.rb:116</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line116">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb'>lib/smartdict.rb</a> : Smartdict#root_dir
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          <br/>
+          Flog: complexity is 4.0<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb:35'>lib/smartdict/commands/help_command.rb:35</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html#line35">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:77'>lib/smartdict.rb:77</a> : Smartdict#plugins_dir
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line77">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 4.0<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:110'>lib/smartdict/command.rb:110</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line110">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href=''></a> : CommandManager#none
+        </b>
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 3.6<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:121'>lib/smartdict/command.rb:121</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line121">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/command_manager.rb:34'>lib/smartdict/core/command_manager.rb:34</a> : CommandManager#find_command
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_command_manager.rb.html#line34">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.8<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'>lib/smartdict/commands/translate_command.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_translate_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:65'>lib/smartdict.rb:65</a> : Smartdict#env
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line65">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.8<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation.rb'>lib/smartdict/models/translation.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_translation.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/pronunciation.rb:32'>lib/smartdict/models/pronunciation.rb:32</a> : before#valid?
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_pronunciation.rb.html#line32">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 2.2<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/Gemfile'>Gemfile</a>
+        </b>
+        
+          
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Churn: detected high level of churn (changed 5 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict.rb:55'>lib/smartdict.rb:55</a> : Smartdict#home_dir
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict.rb.html#line55">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.9<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/spec/models/word_spec.rb'>spec/models/word_spec.rb</a>
+        </b>
+        
+          
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Churn: detected high level of churn (changed 3 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb:160'>lib/smartdict/command.rb:160</a> : Command#initialize
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html#line160">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.7<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/Gemfile.lock'>Gemfile.lock</a>
+        </b>
+        
+          
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Churn: detected high level of churn (changed 5 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/core/has_log.rb:10'>lib/smartdict/core/has_log.rb:10</a> : InstanceAndClassMethods#log
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_core_has_log.rb.html#line10">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.3<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/spec/models/word_class_spec.rb'>spec/models/word_class_spec.rb</a>
+        </b>
+        
+          
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Churn: detected high level of churn (changed 3 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/help_command.rb:35'>lib/smartdict/commands/help_command.rb:35</a> : HelpCommand#command_manager
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_help_command.rb.html#line35">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Flog: complexity is 1.2<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/spec/models/pronunciation_spec.rb'>spec/models/pronunciation_spec.rb</a>
+        </b>
+        
+          
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Churn: detected high level of churn (changed 3 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : Command#self.help_syntax_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/spec/models/language_spec.rb'>spec/models/language_spec.rb</a>
+        </b>
+        
+          
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Churn: detected high level of churn (changed 3 times)<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : Command#self.help_usage_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_query.rb'>lib/smartdict/models/translation_query.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_translation_query.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#help_syntax_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/translation_source.rb'>lib/smartdict/models/translation_source.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_translation_source.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#options
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/word.rb'>lib/smartdict/models/word.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_word.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#extract_arguments_and_options
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/models/language.rb'>lib/smartdict/models/language.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_models_language.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#help_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/runner.rb'>lib/smartdict/runner.rb</a>
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_runner.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Reek: found 1 code smells<br/>
+          
+          </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#syntax
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#description
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/commands/translate_command.rb'>lib/smartdict/commands/translate_command.rb</a> : s(:colon2, s(:colon2, s(:const, :Smartdict), :Commands), :TranslateCommand)#execute
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_commands_translate_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#arguments
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#usage
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#set_options!
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#name
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#set_arguments!
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#initialize
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#inherited
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#run
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#summary
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#prog_name
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#help_usage_message
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#default
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+    <tr  valign="top">
+       
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+      <td> &nbsp; </td>
+      
+      
+       
+       
+       <td>
+       <b>
+          <a href='file:///home/blake/dev/my/smartdict_child/lib/smartdict/command.rb'>lib/smartdict/command.rb</a> : s(:colon2, s(:const, :Smartdict), :Command)#set_arguments_and_options!
+        </b>
+        
+          
+          
+            <small>&laquo;
+              <b><a href="lib_smartdict_command.rb.html">annotate</a></b>
+            &raquo;</small>
+          
+        
+        <br/><br/>
+        <!-- TODO HOTSPOTS for metric fu nice metric_link method -->
+        
+          <br/>
+          Rcov: uncovered code is 0.0%<br/>
+          
+          </td>
+      
+      
+      
+      </tr>
+    
+
+</table>
+
+
+
+<p>Generated on Tue Jan 24 00:59:17 +0200 2012</p>
+
+    </div>
+  </body>
+</html>
