@@ -12,6 +12,11 @@ class Smartdict::Commands::HelpCommand < Smartdict::Command
     smartdict --version
   SYNTAX
 
+  usage <<-SYNTAX
+    #{prog_name} translate
+    #{prog_name} list
+  SYNTAX
+
   def execute
     if cmd_name = @arguments[:command]
       if cmd_class = command_manager.find_command(cmd_name)
@@ -29,6 +34,7 @@ class Smartdict::Commands::HelpCommand < Smartdict::Command
     message << "#{self.class.help_syntax_message}\n"
     message << help_commands_message
   end
+
 
   def command_manager
     Smartdict::Core::CommandManager.instance
