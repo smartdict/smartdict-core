@@ -7,13 +7,13 @@ class Smartdict::Core::CommandManager
 
   def initialize
     @commands = {}
-    register_command :help     , Smartdict::Commands::HelpCommand
-    register_command :hello    , Smartdict::Commands::HelloCommand
-    register_command :translate, Smartdict::Commands::TranslateCommand
+    register_command Smartdict::Commands::HelpCommand
+    register_command Smartdict::Commands::HelloCommand
+    register_command Smartdict::Commands::TranslateCommand
   end
 
-  def register_command(name, klass)
-    @commands[name.to_s] = klass
+  def register_command(klass)
+    @commands[klass.command_name.to_s] = klass
   end
 
   def run(args)

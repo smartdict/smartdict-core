@@ -1,19 +1,26 @@
 require 'rubygems'
 
 require 'active_support/core_ext/class'
+require 'active_support/dependencies/autoload'
 
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 
 module Smartdict; end
 
 require 'configatron'
-require "smartdict/core"
-require "smartdict/commands"
 require "smartdict/models"
 
 
 module Smartdict
   class Error < ::Exception; end
+
+  extend ActiveSupport::Autoload
+
+  autoload :Core
+  autoload :Plugin
+  autoload :Commands
+  
+
 
   ENVIRONMENTS = [:user, :test, :cucumber]
 
