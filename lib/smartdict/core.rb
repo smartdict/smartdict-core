@@ -1,7 +1,8 @@
-module Smartdict::Core; end
+module Smartdict::Core
+  extend ActiveSupport::Autoload
 
-require 'smartdict/core/has_log'
-
-Dir.glob("#{File.dirname(__FILE__)}/core/*rb").each do |file|
-  require file
+  autoload :HasLog
+  autoload :Log
+  autoload :PluginManager
+  autoload :CommandManager
 end

@@ -1,5 +1,3 @@
-require 'smartdict/core/log'
-
 module Smartdict::Core::HasLog
   def self.included(base)
     base.extend         InstanceAndClassMethods

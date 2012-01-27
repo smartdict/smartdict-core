@@ -1,9 +1,7 @@
-
 module Smartdict::Commands
-end
+  extend ActiveSupport::Autoload
 
-require 'smartdict/command'
-
-Dir.glob("#{File.dirname(__FILE__)}/commands/*rb").each do |file|
-  require file
+  autoload :HelpCommand
+  autoload :TranslateCommand
+  autoload :HelloCommand
 end

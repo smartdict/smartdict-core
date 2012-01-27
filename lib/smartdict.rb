@@ -1,26 +1,24 @@
 require 'rubygems'
 
+require 'dm-core'          #, '1.0.2'
+require 'dm-validations'   #, '1.0.2'
+require 'dm-migrations'    #, '1.0.2'
+require 'dm-sqlite-adapter'#, '1.0.2'
 require 'active_support/core_ext/class'
 require 'active_support/dependencies/autoload'
-
-$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
-
-module Smartdict; end
-
 require 'configatron'
-require "smartdict/models"
 
 
 module Smartdict
-  class Error < ::Exception; end
-
   extend ActiveSupport::Autoload
 
   autoload :Core
   autoload :Plugin
   autoload :Commands
+  autoload :Command
+  autoload :Models
+  autoload :Error
   
-
 
   ENVIRONMENTS = [:user, :test, :cucumber]
 

@@ -1,5 +1,3 @@
-require 'singleton'
-
 class Smartdict::Core::CommandManager
   include Singleton 
 
