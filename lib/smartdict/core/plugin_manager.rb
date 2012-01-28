@@ -1,6 +1,6 @@
 class Smartdict::Core::PluginManager
   include Singleton 
-  include Smartdict::Core::HasLog
+  include Smartdict::Core::HasLogger
 
   def initialize
     @plugins = {}

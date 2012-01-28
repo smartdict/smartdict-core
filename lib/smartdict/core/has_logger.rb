@@ -1,4 +1,4 @@
-module Smartdict::Core::HasLog
+module Smartdict::Core::HasLogger
   def self.included(base)
     base.extend         Methods
     base.send :include, Methods
@@ -6,7 +6,7 @@ module Smartdict::Core::HasLog
 
   module Methods
     def logger
-      Smartdict::Core::HasLog::Logger.logger
+      Smartdict::Core::Logger.root_logger
     end
   end
 end

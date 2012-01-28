@@ -1,8 +1,8 @@
 module Smartdict::Core
   extend ActiveSupport::Autoload
 
-  autoload :HasLog
-  autoload :Log
+  autoload :HasLogger
+  autoload :Logger
   autoload :PluginManager
   autoload :CommandManager
 end
