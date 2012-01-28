@@ -6,26 +6,28 @@ class Smartdict::Core::CommandManager
   def initialize
     @commands = {}
     register_command Smartdict::Commands::HelpCommand
-    register_command Smartdict::Commands::HelloCommand
     register_command Smartdict::Commands::TranslateCommand
   end
 
   def register_command(klass)
-    @commands[klass.command_name.to_s] = klass
+    name = klass.command_name.to_s
+    raise Smartdict::Error.new("Command #{name} is already registered") if find_command(name)
+    @commands[name] = klass
   end
 
   def run(args)
-    cmd_name = args.shift
-    case cmd_name 
+    first_arg = args.shift
+    case first_arg
     when '-h', '--help', 'help'
       run_command :help, args
     else
+      cmd_name = find_command(first_arg) ? first_arg : :help
       run_command cmd_name, args
     end
   end
 
   def run_command(name, args = [])
-    @commands[name.to_s].run(args)
+    find_command(name).run(args)
   end
 
   def find_command(name)

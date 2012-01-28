@@ -1,9 +1,9 @@
 class Smartdict::Plugin
   extend ActiveSupport::Autoload
 
-  autoload :Initializer
+  autoload :InitializerContext
 
-  def self.initializer(name, &block)
-    Initializer.new.instance_eval &block
+  def self.initializer(name, options = {}, &block)
+    Smartdict::Core::PluginManager.instance.register_plugin(name, options, block)
   end
 end

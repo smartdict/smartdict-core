@@ -10,5 +10,6 @@ require 'smartdict/runner'
 Smartdict.env = :test
 
 args = ARGV.clone
+Smartdict.load_plugins
 Smartdict::Runner.run(args)
 #Smartdict.run
