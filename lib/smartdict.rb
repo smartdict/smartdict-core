@@ -1,9 +1,9 @@
 require 'rubygems'
 
-require 'dm-core'          #, '1.0.2'
-require 'dm-validations'   #, '1.0.2'
-require 'dm-migrations'    #, '1.0.2'
-require 'dm-sqlite-adapter'#, '1.0.2'
+require 'dm-core'
+require 'dm-validations'
+require 'dm-migrations'
+require 'dm-sqlite-adapter'
 require 'active_support/core_ext/class'
 require 'active_support/dependencies/autoload'
 require 'configatron'
@@ -41,9 +41,6 @@ module Smartdict
 
     config_file = File.join(user_dir, 'configuration.yml')
     configatron.configure_from_hash YAML.load_file(config_file)
-
-    configatron.plugins_dir = File.join(root_dir, 'plugins')
-    configatron.store.db = File.join(user_dir, 'database.sqlite')
   end
 
 
@@ -85,17 +82,11 @@ module Smartdict
   private
 
   def setup_dm
-    case configatron.store.adapter
-    when 'sqlite'
-      db = configatron.store.db
-      db_adapted = (db == 'memory') ? ":#{db}:" : "//#{db}"
-      DataMapper.setup(:default, "sqlite:#{db_adapted}")
-      if db == 'memory' or !File.exists?(db)
-        DataMapper.finalize
-        DataMapper.auto_migrate!
-      end
-    else
-      raise "Not supported adapter #{configatron.store.adapter}" 
+    store = (env == :test) ? ":memory:" : "//#{user_dir}/database.sqlite"
+    DataMapper.setup(:default, "sqlite:#{store}")
+    if store =~ /memory/ or !File.exists?(db)
+      DataMapper.finalize
+      DataMapper.auto_migrate!
     end
   end
 end

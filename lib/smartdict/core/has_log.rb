@@ -1,12 +1,12 @@
 module Smartdict::Core::HasLog
   def self.included(base)
-    base.extend         InstanceAndClassMethods
-    base.send :include, InstanceAndClassMethods
+    base.extend         Methods
+    base.send :include, Methods
   end
 
-  module InstanceAndClassMethods
-    def log
-      Smartdict::Core::Log.root_log
+  module Methods
+    def logger
+      Smartdict::Core::HasLog::Logger.logger
     end
   end
 end
