@@ -7,6 +7,7 @@ require 'dm-sqlite-adapter'
 require 'active_support/core_ext/class'
 require 'active_support/dependencies/autoload'
 require 'configatron'
+require 'net/http'
 
 
 module Smartdict
@@ -14,10 +15,12 @@ module Smartdict
   extend ActiveSupport::Autoload
 
   autoload :Core
+  autoload :Models
   autoload :Plugin
   autoload :Commands
   autoload :Command
-  autoload :Models
+  autoload :Drivers
+  autoload :Driver
   autoload :Error
   
   include Smartdict::Core

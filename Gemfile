@@ -30,6 +30,7 @@ group :development do
 
   gem 'dm-sweatshop'
   gem 'dm-rspec'
+  gem 'webmock'
 
   gem 'metrical'
 

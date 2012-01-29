@@ -1,6 +1,7 @@
 require 'rspec'
 require 'dm-rspec'
 require 'dm-sweatshop'
+require 'webmock/rspec'
 
 require 'smartdict'
 
