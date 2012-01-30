@@ -22,28 +22,29 @@ describe Smartdict::Drivers::GoogleTranslateDriver do
       it { should include_hash :word      => "hello" }
       it { should include_hash :from_lang => "en" }
       it { should include_hash :to_lang   => "ru" }
-      it { should have_key :translation }
+      it { should have_key :translated }
 
-      describe "translation" do
-        let (:translation) { @result[:translation] }
+      describe "translated" do
+        let (:translated) { @result[:translated] }
 
         it "undefined" do
-          translation['undefined'].should == ["Алло", "Здравствуйте."]
+          translated['undefined'].should == ["Алло", "Здравствуйте."]
         end
 
         it "noun" do
-          translation['noun'].should == ["приветствие", "приветственный возглас", "возглас удивления"]
+          translated['noun'].should == ["приветствие", "приветственный возглас", "возглас удивления"]
         end
 
         it "verb" do
-          translation['verb'].should == ["здороваться", "звать", "окликать"]
+          translated['verb'].should == ["здороваться", "звать", "окликать"]
         end
 
         it "interjection" do
-          translation['interjection'].should == ["привет", "здравствуйте", "алло"]
+          translated['interjection'].should == ["привет", "здравствуйте", "алло"]
         end
       end
 
     end
   end
 end
+
