@@ -15,10 +15,11 @@ class Smartdict::Driver
   end
 
   def build_translation
-    { :word        => word,
-      :from_lang   => from_lang,
-      :to_lang     => to_lang,
-      :translated  => translated }
+    { :word          => word,
+      :from_lang     => from_lang,
+      :to_lang       => to_lang,
+      :translated    => translated,
+      :transcription => transcription }
   end
 
 end

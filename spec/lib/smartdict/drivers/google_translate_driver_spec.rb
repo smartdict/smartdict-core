@@ -19,9 +19,10 @@ describe Smartdict::Drivers::GoogleTranslateDriver do
 
       subject { @result }
 
-      it { should include_hash :word      => "hello" }
-      it { should include_hash :from_lang => "en" }
-      it { should include_hash :to_lang   => "ru" }
+      it { should include_hash :word          => "hello" }
+      it { should include_hash :from_lang     => "en" }
+      it { should include_hash :to_lang       => "ru" }
+      it { should include_hash :transcription => nil }
       it { should have_key :translated }
 
       describe "translated" do
