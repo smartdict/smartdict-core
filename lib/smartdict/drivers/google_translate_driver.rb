@@ -26,18 +26,14 @@ class Smartdict::Drivers::GoogleTranslateDriver < Smartdict::Driver
   end
 
   def get_response
-    http_request(http_path)
+    host = 'translate.google.com'
+    http = Net::HTTP.new(host, 80)
+    request = Net::HTTP::Get.new(http_path, {"User-Agent" => USER_AGENT})
+    http.request(request).read_body
   end
 
   def http_path
     w = word.gsub(' ', '+')
     "/translate_a/t?client=t&text=#{w}&hl=en&sl=#{from_lang}&tl=#{to_lang}&multires=1&otf=1&rom=1&ssel=0&tsel=0&sc=1"
-  end
-
-  def http_request(path)
-    host = 'translate.google.com'
-    http = Net::HTTP.new(host, 80)
-    request = Net::HTTP::Get.new(path, {"User-Agent" => USER_AGENT})
-    http.request(request).read_body
   end
 end
