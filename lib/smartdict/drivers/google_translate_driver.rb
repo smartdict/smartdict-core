@@ -7,6 +7,8 @@ class Smartdict::Drivers::GoogleTranslateDriver < Smartdict::Driver
   # Host of Google Translate service.  
   HOST = "translate.google.com"
 
+  name "google_translator"
+
   # Sets translation and transcription. GoogleTranslate doesn't provide
   # transcription, so it's nil.
   def translate
