@@ -6,6 +6,6 @@ class Smartdict::Models::Word
   property :transcription, String
 
   belongs_to :language, :required  => true
-  has n, :translations, :child_key => :source_id
+  has n, :translations
   has n, :pronunciations
 end

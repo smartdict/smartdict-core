@@ -9,6 +9,9 @@ require 'active_support/dependencies/autoload'
 require 'configatron'
 require 'net/http'
 
+require 'smartdict/models'
+
+
 
 module Smartdict
   extend self
@@ -22,6 +25,8 @@ module Smartdict
   autoload :Drivers
   autoload :Driver
   autoload :Error
+  autoload :Translator
+  autoload :Seeder
   
   include Smartdict::Core
 
@@ -85,11 +90,16 @@ module Smartdict
   private
 
   def setup_dm
-    store = (env == :test) ? ":memory:" : "//#{user_dir}/database.sqlite"
+    store = (env == :test) ? ":memory:" : "//#{db_file}"
     DataMapper.setup(:default, "sqlite:#{store}")
-    if store =~ /memory/ or !File.exists?(db)
+    if store =~ /memory/ or !File.exists?(db_file)
       DataMapper.finalize
       DataMapper.auto_migrate!
     end
+    Seeder.seed!
+  end
+
+  def db_file
+   "#{user_dir}/database.sqlite"
   end
 end

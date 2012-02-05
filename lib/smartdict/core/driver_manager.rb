@@ -7,6 +7,7 @@ class Smartdict::Core::DriverManager
 
   def initialize
     @drivers = {}
+    register_driver Smartdict::Drivers::GoogleTranslateDriver
   end
 
   # Registers a new driver.
@@ -15,5 +16,9 @@ class Smartdict::Core::DriverManager
     name = driver_class.driver_name
     raise Smartdict::Error.new("Driver #{name} is already registed") if @drivers[name]
     @drivers[name] = driver_class 
+  end
+
+  def find_driver(name)
+    @drivers[name.to_s]
   end
 end

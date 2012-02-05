@@ -9,7 +9,45 @@ class Smartdict::Commands::TranslateCommand < Smartdict::Command
     #{prog_name} again --to ru
   USAGE
 
-  def execute
+  arguments :word
 
+  options :from => "en",
+          :to   => "ru"
+
+  def execute
+    Smartdict::Translator.from_lang_code = @options[:from]
+    Smartdict::Translator.to_lang_code   = @options[:to]
+
+    translation = Smartdict::Translator.translate(@arguments[:word])
+
+    puts view(translation)
   end
+
+  def view(translation)
+    tr = translation
+    result = ""
+
+    result << "#{word_color tr[:word]}"
+    result << transcription_color(" [#{tr[:transcription]}]") if tr[:transcription]
+    result << "\n"
+    
+    tr[:translated].each do |word_class, meanings|
+      result << "  #{word_class_color word_class}\n"
+      meanings.each do |meaning|
+        result << "    #{meaning}\n"
+      end
+    end
+    
+    result
+  end
+
+
+  def colorize(text, color_code)
+    "\e[#{color_code}m#{text}\e[0m"
+  end
+
+  def word_color(text); colorize(text, "1;32"); end
+  def word_class_color(text); colorize(text, 1); end
+  def transcription_color(text); colorize(text, 32); end
+
 end
