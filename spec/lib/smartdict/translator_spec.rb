@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Smartdict::Translator do
-  describe ".trasnalte" do
+  describe ".translate" do
     context "when translation doesn't exist in storage" do
       before :all do
         stub_request(:get, "http://translate.google.com/translate_a/t?client=t&hl=en&multires=1&otf=1&rom=1&sc=1&sl=en&ssel=0&text=today&tl=ru&tsel=0").
@@ -12,24 +12,26 @@ describe Smartdict::Translator do
       describe "returned translation" do
         subject { @translation }
 
-        its(:from_lang) { should == "en" }
-        its(:to_lang  ) { should == "ru" }
-        its(:word     ) { should == "today" }
+        it("from_lang") { @translation.from_lang.code == "en"}
+        it("to_lang")   { @translation.to_lang.code == "ru" }
+        it("word")      { @translation.word.name == "today" }
 
-        describe "translated" do
+        describe "translated words" do
+          let(:word_classes) { @translation.translated_words.group_by {|tw| tw.word_class.name} }
+
           describe "noun" do
-            subject { @translation.translated["noun"] }
+            subject { word_classes["noun"].map{|tw| tw.word.name } }
             it { should include "segodnya" }
             it { should include "nashi dni" }
           end
 
           describe "adverb" do
-            subject { @translation.translated["adverb"] }
+            subject { word_classes["adverb"].map{|tw| tw.word.name } }
             it { should include "v nashi dni" }
           end
         end
-
       end
+
 
       describe "translation from storage" do
         before :all do
@@ -48,13 +50,17 @@ describe Smartdict::Translator do
 
         subject { @translation }
 
-        its(:from_lang) { should == "en" }
-        its(:to_lang  ) { should == "ru" }
-        its(:word     ) { should == "give" }
+        it { should be_instance_of Smartdict::Models::Translation }
 
-        describe "translated" do
+        it("from_lang") { @translation.from_lang.code == "en"}
+        it("to_lang")   { @translation.to_lang.code == "ru" }
+        it("word")      { @translation.word.name == "give" }
+
+        describe "translated words" do
+          let(:word_classes) { @translation.translated_words.group_by {|tw| tw.word_class.name} }
+
           describe "verb" do
-            subject { @translation.translated["verb"] }
+            subject { word_classes["verb"].map{|tw| tw.word.name } }
             it { should include "davat" }
             it { should include "day" }
           end

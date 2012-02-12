@@ -6,4 +6,5 @@ module Smartdict::Core
   autoload :PluginManager
   autoload :CommandManager
   autoload :DriverManager
+  autoload :FormatManager
 end

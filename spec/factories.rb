@@ -13,19 +13,13 @@ Smartdict::Models::WordClass.fixture {{
   #:translations => 5.of {
 }}
 
-#Smartdict::Models::TranslationSource.fixture {{
-#  :name => /\w{10}/.gen,
-#}}
-
 Smartdict::Models::Translation.fixture {{
-  :source             => Smartdict::Models::Word.gen,
-  :target             => Smartdict::Models::Word.gen,
-  :word_class         => Smartdict::Models::WordClass.gen,
-  :translation_source => Smartdict::Models::TranslationSource.gen,
+  :from_lang => Smartdict::Models::Language.gen,
+  :to_lang   => Smartdict::Models::Language.gen,
+  :word      => Smartdict::Models::Word.gen
 }}
 
 Smartdict::Models::TranslationQuery.fixture {{
-  :word            => Smartdict::Models::Word.gen,
-  :target_language => Smartdict::Models::Language.gen,
-  :created_at      => Time.now
+  :translation => Smartdict::Models::Translation.gen,
+  :created_at  => Time.now
 }}

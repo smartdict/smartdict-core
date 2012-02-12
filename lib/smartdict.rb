@@ -5,10 +5,12 @@ require 'dm-validations'
 require 'dm-migrations'
 require 'dm-sqlite-adapter'
 require 'active_support/core_ext/class'
+require 'active_support/core_ext/object'
 require 'active_support/dependencies/autoload'
 require 'configatron'
 require 'net/http'
 
+require 'smartdict/errors'
 require 'smartdict/models'
 
 
@@ -21,12 +23,10 @@ module Smartdict
   autoload :Models
   autoload :Plugin
   autoload :Commands
-  autoload :Command
   autoload :Drivers
-  autoload :Driver
-  autoload :Error
   autoload :Translator
   autoload :Seeder
+  autoload :Formats
 
   include Smartdict::Core
 
@@ -118,6 +118,4 @@ module Smartdict
   def db_file
     "#{user_dir}/database.sqlite"
   end
-
-
 end

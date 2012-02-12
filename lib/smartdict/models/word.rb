@@ -8,4 +8,6 @@ class Smartdict::Models::Word
 
   belongs_to :language, :required  => true
   has n, :translations
+
+  validates_presence_of :language_id
 end

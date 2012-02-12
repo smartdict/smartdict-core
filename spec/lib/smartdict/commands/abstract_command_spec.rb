@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Smartdict::Command do
-  let(:command_class) do 
-    Class.new(Smartdict::Command) do
+describe Smartdict::Commands::AbstractCommand do
+  let(:command_class) do
+    Class.new(Smartdict::Commands::AbstractCommand) do
       arguments :arg1, :arg2
       syntax <<-SYNTAX
         cmd ARG
@@ -34,7 +34,7 @@ describe Smartdict::Command do
 
     describe '.options' do
       it 'raises Smartdict::Error if other than hash is passed' do
-        expect {Smartdict::Command.options "string"}.to raise_error Smartdict::Error
+        expect {Smartdict::Commands::AbstractCommand.options "string"}.to raise_error Smartdict::Error
       end
     end
 
@@ -73,18 +73,18 @@ describe Smartdict::Command do
         command_class.help_usage_message.should == expected
       end
     end
-  end 
+  end
 
   describe 'subclass' do
     before :all do
-      @subclass = Class.new(Smartdict::Command) do
+      @subclass = Class.new(Smartdict::Commands::AbstractCommand) do
         arguments :arg1, :arg2
         default :arg2 => "default arg2"
         options :opt1 => "default", :opt2 => lambda { "default in block" }
         summary "subclass"
       end
 
-      @another_subclass =Class.new(Smartdict::Command) do
+      @another_subclass =Class.new(Smartdict::Commands::AbstractCommand) do
         arguments :one, :two
         options :opt_one => 1
         summary "another subclass"

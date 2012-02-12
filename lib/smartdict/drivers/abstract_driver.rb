@@ -21,7 +21,7 @@
 #       self.transcription = "he'leu"
 #     end
 #   end
-class Smartdict::Driver
+class Smartdict::Drivers::AbstractDriver
 
   attr_reader :word, :from_lang, :to_lang
   attr_accessor :translated, :transcription

@@ -1,5 +1,5 @@
 module HelloWorld
-  class HelloCommand < Smartdict::Command
+  class HelloCommand < Smartdict::Commands::AbstractCommand
     # arguments and their default values
     arguments :name
     default   :name => "world"
@@ -14,7 +14,7 @@ module HelloWorld
     description "Demonstrates how Command class works"
     syntax      "#{prog_name} NAME [--greating GREATING] [--today DAY]"
     usage <<-USAGE
-      #{prog_name}         
+      #{prog_name}
       #{prog_name} Sergey
       #{prog_name} --today Friday
     USAGE

@@ -2,27 +2,21 @@ class Smartdict::Models::Translation
   include DataMapper::Resource
   include Smartdict::Models
 
-  property :id, Serial
-  property :word_id     , Integer  # , :key => true
-  property :from_lang_id, Integer  # , :key => true
-  property :to_lang_id  , Integer  # , :key => true
+  property :id          , Serial
+  property :word_id     , Integer  #, :key => true
+  property :from_lang_id, Integer  #, :key => true
+  property :to_lang_id  , Integer  #, :key => true
 
   belongs_to :word
   belongs_to :from_lang, 'Language'
   belongs_to :to_lang  , 'Language'
   has n, :translated_words
 
-  # TODO: it's a hack. Remove.
-  def initialize(*args)
-    self.class.finalize
-    self.word_class_id = 1
-    super(*args)
-  end
 
-
-  def self.init_from_hash(hash)
+  # Create {Translation} from hash returned by {Smartdict::Driver#translate}.
+  def self.create_from_hash(hash)
     from_lang = Language.first(:code => hash[:from_lang])
-    to_lang = Language.first(:code => hash[:to_lang])
+    to_lang   = Language.first(:code => hash[:to_lang])
 
     word = Word.first_or_create(:name => hash[:word], :language_id => from_lang.id)
     word.transcription = hash[:transcription] if word.transcription.blank?
@@ -41,29 +35,28 @@ class Smartdict::Models::Translation
     translation
   end
 
-  def self.try_to_find(word, from_lang_code, to_lang_code)
-    from_lang = Smartdict::Models::Language.first(:code => from_lang_code)
-    to_lang   = Smartdict::Models::Language.first(:code => to_lang_code)
-
-    word = Smartdict::Models::Word.first(:name => word, :language_id => from_lang.id)
-    if word && tr = Smartdict::Models::Translation.first(:from_lang => from_lang, :to_lang => to_lang, :word => word)
-      tr
-    else
-      nil
-    end
+  def self.find(word, from_lang_code, to_lang_code)
+    from_lang = Language.first(:code => from_lang_code)
+    to_lang   = Language.first(:code => to_lang_code)
+    word = Word.first(:name => word, :language_id => from_lang.id)
+    self.first(:from_lang => from_lang, :to_lang => to_lang, :word => word)
   end
 
 
+  # TODO: it's a hack. Remove.
+  def initialize(*args)
+    self.class.finalize
+    self.word_class_id = 1
+    super(*args)
+  end
+
   def transcription
-    word && word.transcription
+    word.try(:transcription)
   end
 
   def each_word_class(&block)
-    collection = {}
-    translated_words.each do |word|
-      arr = collection[word.word_class.name] ||= []
-      arr << word.word.name
-    end
-    collection.each(&block)
+    grouped = translated_words.group_by{ |w| w.word_class.name }
+    grouped.each{ |word_class, twords| twords.map!{|w| w.word.name}}
+    grouped.each(&block)
   end
 end

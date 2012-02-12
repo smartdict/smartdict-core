@@ -1,42 +1,42 @@
 # Basic class for all command classes.
 #
 # == Usage:
-#   class Smartdict::Commands::HelloCommand < Smartdict::Command
+#   class Smartdict::Commands::HelloCommand < Smartdict::Commands::AbstractCommand
 #     # arguments and their default values
 #     arguments :name
 #     default   :name => "world"
-#   
+#
 #     # options and their default values.
 #     options :greating => "Hello",
 #             :today => lambda { Time.now.strftime("%A") }
-#   
+#
 #     # Other helpful information about the command
 #     name        "hello"
 #     summary     "Summary for the hello command"
 #     description "Demonstrates how Command class works"
 #     syntax      "#{prog_name} NAME [--greating GREATING] [--today DAY]"
 #     usage <<-USAGE
-#       #{prog_name}         
+#       #{prog_name}
 #       #{prog_name} Sergey
 #       #{prog_name} --today Friday
 #     USAGE
-#   
+#
 #     # This method runs when command executes.
 #     def execute
 #       puts "#{@options[:greating]} #{@arguments[:name]}! Today is #{@options[:today]}."
 #     end
 #   end
-#   
+#
 #   # == Output:
 #   # smartdict hello
 #   # Hello world! Today is Monday.
 #   #
 #   # smartdict hello Sergey
 #   # Hello Sergey! Today is Monday.
-#   # 
+#   #
 #   # smartdict hello Sergey --today Friday
 #   # Hello Sergey! Today is Friday.
-class Smartdict::Command
+class Smartdict::Commands::AbstractCommand
   # Number of spaces for indent.
   INDENT_SIZE = 2
 
@@ -67,10 +67,16 @@ class Smartdict::Command
   # Runs command.
   # @param [Array] args arguments passed from the command line
   def self.run(args)
-    self.new(args).execute
+    if ['--help', '-h'].include?(args.first)
+      puts help_message
+    else
+      self.new(args).execute
+    end
+  rescue Smartdict::Error => err
+    puts err.message
   end
 
-  # Defines available arguments and their order. 
+  # Defines available arguments and their order.
   def self.arguments(*argument_names)
     self.known_arguments = argument_names
   end
@@ -124,8 +130,8 @@ class Smartdict::Command
 
   # @return [String] help message for the command to be displayed.
   def self.help_message
-    message = "#{description_message}\n\n" 
-    message << "#{help_syntax_message}\n" 
+    message = "#{description_message}\n\n"
+    message << "#{help_syntax_message}\n"
     message << "#{help_usage_message}\n"
   end
 
