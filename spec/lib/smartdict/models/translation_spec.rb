@@ -5,7 +5,6 @@ describe Smartdict::Models::Translation do
     it { should     have_property :word_id      }
     it { should     have_property :from_lang_id }
     it { should     have_property :to_lang_id   }
-    it { should_not have_property :id           }
   end
 
   describe 'associations' do

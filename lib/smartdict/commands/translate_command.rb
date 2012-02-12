@@ -18,6 +18,7 @@ class Smartdict::Commands::TranslateCommand < Smartdict::Command
     Smartdict::Translator.from_lang_code = @options[:from]
     Smartdict::Translator.to_lang_code   = @options[:to]
 
+    translation = nil
     translation = Smartdict::Translator.translate(@arguments[:word])
 
     puts view(translation)
@@ -27,17 +28,17 @@ class Smartdict::Commands::TranslateCommand < Smartdict::Command
     tr = translation
     result = ""
 
-    result << "#{word_color tr[:word]}"
-    result << transcription_color(" [#{tr[:transcription]}]") if tr[:transcription]
+    result << "#{word_color tr.word.name}"
+    result << transcription_color(" [#{tr.transcription}]") if tr.transcription
     result << "\n"
-    
-    tr[:translated].each do |word_class, meanings|
+
+    tr.each_word_class do |word_class, meanings|
       result << "  #{word_class_color word_class}\n"
       meanings.each do |meaning|
         result << "    #{meaning}\n"
       end
     end
-    
+
     result
   end
 

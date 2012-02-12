@@ -13,9 +13,9 @@ Smartdict::Models::WordClass.fixture {{
   #:translations => 5.of {
 }}
 
-Smartdict::Models::TranslationSource.fixture {{
-  :name => /\w{10}/.gen,
-}}
+#Smartdict::Models::TranslationSource.fixture {{
+#  :name => /\w{10}/.gen,
+#}}
 
 Smartdict::Models::Translation.fixture {{
   :source             => Smartdict::Models::Word.gen,

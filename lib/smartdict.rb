@@ -27,7 +27,7 @@ module Smartdict
   autoload :Error
   autoload :Translator
   autoload :Seeder
-  
+
   include Smartdict::Core
 
   ENVIRONMENTS = [:user, :test, :cucumber]
@@ -39,7 +39,7 @@ module Smartdict
 
   def run
     init_config
-    Dir.mkdir user_dir unless File.exists?(user_dir) 
+    Dir.mkdir user_dir unless File.exists?(user_dir)
     setup_dm
   end
 
@@ -55,9 +55,9 @@ module Smartdict
   def user_dir
     dirname = {
       :user     => '.smartdict',
-      :test     => '.smartdict_test', 
+      :test     => '.smartdict_test',
       :cucumber => '.smartdict_test' }[env]
-    File.join(home_dir, dirname) 
+    File.join(home_dir, dirname)
   end
 
   def home_dir
@@ -89,17 +89,35 @@ module Smartdict
 
   private
 
+
   def setup_dm
-    store = (env == :test) ? ":memory:" : "//#{db_file}"
-    DataMapper.setup(:default, "sqlite:#{store}")
-    if store =~ /memory/ or !File.exists?(db_file)
-      DataMapper.finalize
-      DataMapper.auto_migrate!
-    end
+      setup_sqlite
+    #if env == :test
+    #else
+    #  setup_pg
+    #end
+  end
+
+  def setup_pg
+    DataMapper.setup(:default, "postgres://postgres:secret@localhost/smartdict")
+    DataMapper.finalize
+    DataMapper.auto_migrate!
     Seeder.seed!
   end
 
-  def db_file
-   "#{user_dir}/database.sqlite"
+  def setup_sqlite
+    store = (env == :test) ? ":memory:" : "//#{db_file}"
+    DataMapper.setup(:default, "sqlite:#{store}")
+    DataMapper.finalize
+    if store =~ /memory/ or !File.exists?(db_file)
+      DataMapper.auto_migrate!
+      Seeder.seed!
+    end
   end
+
+  def db_file
+    "#{user_dir}/database.sqlite"
+  end
+
+
 end

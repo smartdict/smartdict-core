@@ -6,10 +6,12 @@ source "http://rubygems.org"
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 
-gem 'dm-core'          
-gem 'dm-validations'   
-gem 'dm-migrations'    
+gem 'dm-core'
+gem 'dm-validations'
+gem 'dm-migrations'
 gem 'dm-sqlite-adapter'
+gem 'dm-postgres-adapter'
+
 gem 'configatron'
 
 gem 'activesupport'

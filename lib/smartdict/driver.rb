@@ -1,7 +1,7 @@
 # Translation driver provides an ability to translate words using external
 # data sources. It can be data from local disk, database or remote services
 # like Google Translate.
-# Every driver must inherit {Smartdict::Driver} and have implementation of 
+# Every driver must inherit {Smartdict::Driver} and have implementation of
 # {#translate} method. This method should sets translated and transcription
 # properties. For examples you can see #{Smartdict::Driver::GoogleTranslateDriver}.
 #
@@ -47,8 +47,8 @@ class Smartdict::Driver
 
   def build_translation
     { :word          => word,
-      :from_lang     => from_lang,
-      :to_lang       => to_lang,
+      :from_lang     => from_lang.to_s,
+      :to_lang       => to_lang.to_s,
       :translated    => translated,
       :transcription => transcription }
   end

@@ -11,16 +11,16 @@ module Smartdict::Seeder
 
   def seed_languages
     seeds = { "en" => "English",
-              "ru" => "Russian"} 
+              "ru" => "Russian"}
     seeds.each do |code, name|
-      Smartdict::Models::Language.create(:code => code, :name => name)
+      Smartdict::Models::Language.create!(:code => code, :name => name)
     end
   end
 
   def seed_word_classes
-    names = %(noun adjective verb adverb preposition numeral interjection abbreviation undefined)
+    names = %w(noun adjective verb adverb preposition numeral interjection abbreviation undefined)
     names.each do |name|
-      Smartdict::Models::WordClass.create(:name => name)
+      Smartdict::Models::WordClass.create!(:name => name)
     end
   end
 end
