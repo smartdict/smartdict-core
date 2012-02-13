@@ -27,15 +27,15 @@ class Smartdict::Drivers::AbstractDriver
   attr_accessor :translated, :transcription
 
   # Is used to identify a driver
-  cattr_accessor :driver_name
+  cattr_accessor :name
 
   def self.translate(*args)
     self.new(*args).build_translation
   end
 
   # Sets driver name
-  def self.name(driver_name)
-    self.driver_name = driver_name.to_s
+  def self.set_name(name)
+    self.name = name.to_s
   end
 
   def initialize(word, from_lang, to_lang)
@@ -50,7 +50,8 @@ class Smartdict::Drivers::AbstractDriver
       :from_lang     => from_lang.to_s,
       :to_lang       => to_lang.to_s,
       :translated    => translated,
-      :transcription => transcription }
+      :transcription => transcription,
+      :driver        => self.name }
   end
 
 end

@@ -13,7 +13,7 @@ class Smartdict::Core::DriverManager
   # Registers a new driver.
   # @param [Smartdict::Driver] driver_class subclass of {Smartdict::Driver}
   def register_driver(driver_class)
-    name = driver_class.driver_name
+    name = driver_class.name.to_s
     raise Smartdict::Error.new("Driver #{name} is already registed") if find_driver(name)
     @drivers[name] = driver_class
   end

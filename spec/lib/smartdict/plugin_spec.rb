@@ -5,7 +5,7 @@ describe Smartdict::Plugin do
 
     describe "register_command" do
       it "registers a command" do
-        command_class = stub(:command_class, :command_name => :test_cmd)
+        command_class = stub(:command_class, :name => :test_cmd)
 
         plugin = Class.new(Smartdict::Plugin) do
           initializer "test" do
