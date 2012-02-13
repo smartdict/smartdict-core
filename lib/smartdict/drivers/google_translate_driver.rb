@@ -8,7 +8,7 @@ module Smartdict::Drivers
     # Host of Google Translate service.
     HOST = "translate.google.com"
 
-    set_name "google_translator"
+    set_name "google_translate"
 
     # Sets translation and transcription. GoogleTranslate doesn't provide
     # transcription, so it's nil.

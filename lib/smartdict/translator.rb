@@ -2,7 +2,7 @@ class Smartdict::Translator
   include Smartdict::Models
 
   class_attribute :driver_name
-  self.driver_name = :google_translator
+  self.driver_name = :google_translate
 
   class_attribute :from_lang_code
   self.from_lang_code = :en

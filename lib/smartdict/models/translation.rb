@@ -6,23 +6,36 @@ class Smartdict::Models::Translation
   property :word_id     , Integer  #, :key => true
   property :from_lang_id, Integer  #, :key => true
   property :to_lang_id  , Integer  #, :key => true
+  property :driver_id   , Integer  #, :key => true
 
   belongs_to :word
+  belongs_to :driver
   belongs_to :from_lang, 'Language'
   belongs_to :to_lang  , 'Language'
   has n, :translated_words
+
+  validates_presence_of :word
+  validates_presence_of :driver
+  validates_presence_of :from_lang_id
+  validates_presence_of :to_lang_id
 
 
   # Create {Translation} from hash returned by {Smartdict::Driver#translate}.
   def self.create_from_hash(hash)
     from_lang = Language.first(:code => hash[:from_lang])
     to_lang   = Language.first(:code => hash[:to_lang])
+    driver    = Driver.first(:name => hash[:driver])
 
     word = Word.first_or_create(:name => hash[:word], :language_id => from_lang.id)
     word.transcription = hash[:transcription] if word.transcription.blank?
     word.save!
 
-    translation = self.create(:word => word, :from_lang => from_lang, :to_lang => to_lang)
+    translation = self.create(
+      :word      => word,
+      :driver    => driver,
+      :from_lang => from_lang,
+      :to_lang   => to_lang
+    )
 
     hash[:translated].each do |word_class_name, meanings|
       meanings.each do |meaning|

@@ -4,6 +4,7 @@ module Smartdict::Seeder
   def seed!
     seed_languages
     seed_word_classes
+    seed_drivers
   end
 
 
@@ -21,6 +22,13 @@ module Smartdict::Seeder
     names = %w(noun adjective verb adverb preposition numeral interjection abbreviation undefined)
     names.each do |name|
       Smartdict::Models::WordClass.create!(:name => name)
+    end
+  end
+
+  def seed_drivers
+    names = %w(google_translate)
+    names.each do |name|
+      Smartdict::Models::Driver.create!(:name => name)
     end
   end
 end
