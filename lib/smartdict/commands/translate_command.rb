@@ -1,10 +1,10 @@
 module Smartdict::Commands
   class TranslateCommand < AbstractCommand
-    name        "translate"
-    summary     "Translate a word"
-    description "Translate a word"
-    syntax       "#{prog_name} <WORD> [--from LANGUAGE] [--to LANGUAGE] [--format FORMAT]"
-    usage <<-USAGE
+    set_name        "translate"
+    set_summary     "Translate a word"
+    set_description "Translate a word"
+    set_syntax       "#{prog_name} <WORD> [--from LANGUAGE] [--to LANGUAGE] [--format FORMAT]"
+    set_usage <<-USAGE
       #{prog_name} hello
       #{prog_name} again --from en --to ru
       #{prog_name} again --format text

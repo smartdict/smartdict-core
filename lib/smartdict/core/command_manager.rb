@@ -1,5 +1,5 @@
 class Smartdict::Core::CommandManager
-  include Singleton 
+  include Singleton
 
   attr_reader :commands
 
@@ -9,10 +9,10 @@ class Smartdict::Core::CommandManager
     register_command Smartdict::Commands::TranslateCommand
   end
 
-  def register_command(klass)
-    name = klass.command_name.to_s
+  def register_command(command_class)
+    name = command_class.name.to_s
     raise Smartdict::Error.new("Command #{name} is already registered") if find_command(name)
-    @commands[name] = klass
+    @commands[name] = command_class
   end
 
   def run(args)

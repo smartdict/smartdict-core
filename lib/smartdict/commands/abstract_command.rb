@@ -11,11 +11,11 @@
 #             :today => lambda { Time.now.strftime("%A") }
 #
 #     # Other helpful information about the command
-#     name        "hello"
-#     summary     "Summary for the hello command"
-#     description "Demonstrates how Command class works"
-#     syntax      "#{prog_name} NAME [--greating GREATING] [--today DAY]"
-#     usage <<-USAGE
+#     set_name        "hello"
+#     set_summary     "Summary for the hello command"
+#     set_description "Demonstrates how Command class works"
+#     set_syntax      "#{prog_name} NAME [--greating GREATING] [--today DAY]"
+#     set_usage <<-USAGE
 #       #{prog_name}
 #       #{prog_name} Sergey
 #       #{prog_name} --today Friday
@@ -50,19 +50,19 @@ class Smartdict::Commands::AbstractCommand
   class_attribute :known_options
 
   # short summary message for a command
-  class_attribute :summary_message
+  class_attribute :summary
 
   # command description
-  class_attribute :description_message
+  class_attribute :description
 
   # command name
-  class_attribute :command_name
+  class_attribute :name
 
   # multi line text with syntax format
-  class_attribute :syntax_message
+  class_attribute :syntax
 
   # multi line text with usage example
-  class_attribute :usage_message
+  class_attribute :usage
 
   # Runs command.
   # @param [Array] args arguments passed from the command line
@@ -97,40 +97,40 @@ class Smartdict::Commands::AbstractCommand
   end
 
   # Sets summary message for a command.
-  def self.summary(summary)
-    self.summary_message = summary
+  def self.set_summary(summary)
+    self.summary = summary
   end
 
   # Sets description message for a command.
-  def self.description(description)
-    self.description_message = description
+  def self.set_description(description)
+    self.description = description
   end
 
   # Defines name of a command.
-  def self.name(name)
-    self.command_name = name
+  def self.set_name(name)
+    self.name = name
   end
 
   # Sets syntax message.
   # @param [String] syntax multi line text with number of syntax examples
-  def self.syntax(syntax)
-    self.syntax_message = syntax
+  def self.set_syntax(syntax)
+    self.syntax = syntax
   end
 
   # Sets usage examples
   # @param [String] usage multi line text with number of usage examples.
-  def self.usage(usage)
-    self.usage_message = usage
+  def self.set_usage(usage)
+    self.usage = usage
   end
 
   # @return [String] program name. It's meant to be used in usage examples.
   def self.prog_name
-    "smartdict #{command_name}"
+    "smartdict #{name}"
   end
 
   # @return [String] help message for the command to be displayed.
   def self.help_message
-    message = "#{description_message}\n\n"
+    message = "#{description}\n\n"
     message << "#{help_syntax_message}\n"
     message << "#{help_usage_message}\n"
   end
@@ -138,7 +138,7 @@ class Smartdict::Commands::AbstractCommand
   # @return [String] syntax part of the help message.
   def self.help_syntax_message
     result = " " * INDENT_SIZE + "Syntax:\n"
-    syntax_message.split("\n").map do |line|
+    syntax.split("\n").map do |line|
       result << " " * INDENT_SIZE * 2 + "#{line.strip}\n"
     end
     result
@@ -147,7 +147,7 @@ class Smartdict::Commands::AbstractCommand
   # @return [String] usage part of the help message.
   def self.help_usage_message
     result = " " * INDENT_SIZE + "Usage:\n"
-    usage_message.split("\n").map do |line|
+    usage.split("\n").map do |line|
       result << " " * INDENT_SIZE * 2 + "#{line.strip}\n"
     end
     result

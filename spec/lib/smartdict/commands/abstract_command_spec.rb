@@ -4,11 +4,11 @@ describe Smartdict::Commands::AbstractCommand do
   let(:command_class) do
     Class.new(Smartdict::Commands::AbstractCommand) do
       arguments :arg1, :arg2
-      syntax <<-SYNTAX
+      set_syntax <<-SYNTAX
         cmd ARG
         cmd ARG1 ARG2
       SYNTAX
-      usage <<-USAGE
+      set_usage <<-USAGE
         cmd 1
         cmd 10 50
       USAGE
@@ -49,7 +49,7 @@ describe Smartdict::Commands::AbstractCommand do
 
     describe ".help_message" do
       it "returns help message" do
-        command_class.should_receive(:description_message).and_return("DESC")
+        command_class.should_receive(:description).and_return("DESC")
         command_class.should_receive(:help_syntax_message).and_return("SYNTAX")
         command_class.should_receive(:help_usage_message).and_return("USAGE")
         command_class.help_message.should == "DESC\n\nSYNTAX\nUSAGE\n"
@@ -81,20 +81,20 @@ describe Smartdict::Commands::AbstractCommand do
         arguments :arg1, :arg2
         default :arg2 => "default arg2"
         options :opt1 => "default", :opt2 => lambda { "default in block" }
-        summary "subclass"
+        set_summary "subclass"
       end
 
       @another_subclass =Class.new(Smartdict::Commands::AbstractCommand) do
         arguments :one, :two
         options :opt_one => 1
-        summary "another subclass"
+        set_summary "another subclass"
       end
     end
 
-    describe "summary_message" do
+    describe "summary" do
       it "is not overalped" do
-        @subclass.summary_message.should == "subclass"
-        @another_subclass.summary_message.should == "another subclass"
+        @subclass.summary.should == "subclass"
+        @another_subclass.summary.should == "another subclass"
       end
     end
 

@@ -9,11 +9,11 @@ module HelloWorld
             :today => lambda { Time.now.strftime("%A") }
 
     # Other helpful information about the command
-    name        "hello"
-    summary     "Summary for the hello command"
-    description "Demonstrates how Command class works"
-    syntax      "#{prog_name} NAME [--greating GREATING] [--today DAY]"
-    usage <<-USAGE
+    set_name        "hello"
+    set_summary     "Summary for the hello command"
+    set_description "Demonstrates how Command class works"
+    set_syntax      "#{prog_name} NAME [--greating GREATING] [--today DAY]"
+    set_usage <<-USAGE
       #{prog_name}
       #{prog_name} Sergey
       #{prog_name} --today Friday

@@ -3,17 +3,17 @@ module Smartdict::Commands
     arguments :command
     default   :command => nil
 
-    name        "help"
-    summary     "Show help message"
-    description "Smartdict is a dictionary designed to improve you knowledge of foreign languages."
-    syntax <<-SYNTAX
+    set_name        "help"
+    set_summary     "Show help message"
+    set_description "Smartdict is a dictionary designed to improve you knowledge of foreign languages."
+    set_syntax <<-SYNTAX
       smartdict COMMAND [arguments...] [options...]
       #{prog_name} COMMAND
       smartdict --help
       smartdict --version
     SYNTAX
 
-    usage <<-SYNTAX
+    set_usage <<-SYNTAX
       #{prog_name} translate
       #{prog_name} list
     SYNTAX
