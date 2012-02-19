@@ -4,14 +4,14 @@ class Smartdict::Formats::TextColorFormat < Smartdict::Formats::AbstractFormat
 
   # :nodoc:
   def format_translation(translation)
-    result = "#{bold_green(translation.word.name)}"
+    result = "#{bold_green(translation.word)}"
     result << green(" [#{translation.transcription}]") if translation.transcription
     result << "\n"
 
-    translation.each_word_class do |word_class, meanings|
+    translation.translated.each do |word_class, words|
       result << "  #{bold(word_class)}\n"
-      meanings.each do |meaning|
-        result << "    #{meaning}\n"
+      words.each do |word|
+        result << "    #{word}\n"
       end
     end
 
@@ -22,12 +22,11 @@ class Smartdict::Formats::TextColorFormat < Smartdict::Formats::AbstractFormat
   def format_list(translations)
     result = ""
     translations.each do |translation|
-      grouped = translation.translated_words.group_by(&:word_class)
-      translated_words = grouped.values.map{|arr| arr.first(3)}.flatten
+      translated_words = translation.translated.values.map{|words| words.first(3)}.flatten
 
-      result << green(translation.word.name)
+      result << green(translation.word)
       result << " - "
-      result << translated_words.map{|tw| tw.word.name}.join(", ")
+      result << translated_words.join(", ")
       result << "\n"
     end
     result

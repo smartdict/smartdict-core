@@ -27,6 +27,7 @@ module Smartdict
   autoload :Translator
   autoload :Seeder
   autoload :Formats
+  autoload :Translation
 
   include Smartdict::Core
 

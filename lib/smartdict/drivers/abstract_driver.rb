@@ -46,12 +46,17 @@ class Smartdict::Drivers::AbstractDriver
   end
 
   def build_translation
-    { :word          => word,
+    translation = Smartdict::Translation.new(
+      :word          => word,
       :from_lang     => from_lang.to_s,
       :to_lang       => to_lang.to_s,
-      :translated    => translated,
       :transcription => transcription,
-      :driver        => self.name }
+      :driver        => self.name
+    )
+    translated.each do |word_class, words|
+      translation.translated[word_class] = words
+    end
+    translation
   end
 
 end

@@ -21,14 +21,14 @@ class Smartdict::Models::Translation
   validates_presence_of :to_lang_id
 
 
-  # Create {Translation} from hash returned by {Smartdict::Driver#translate}.
-  def self.create_from_hash(hash)
-    from_lang = Language.first(:code => hash[:from_lang])
-    to_lang   = Language.first(:code => hash[:to_lang])
-    driver    = Driver.first(:name => hash[:driver])
+  # Create {Smartdict::Models::Translation} from {Smartdict::Translation}.
+  def self.create_from_struct(struct)
+    from_lang = Language.first(:code => struct.from_lang)
+    to_lang   = Language.first(:code => struct.to_lang)
+    driver    = Driver.first(:name => struct.driver)
 
-    word = Word.first_or_create(:name => hash[:word], :language_id => from_lang.id)
-    word.transcription = hash[:transcription] if word.transcription.blank?
+    word = Word.first_or_create(:name => struct.word, :language_id => from_lang.id)
+    word.transcription = struct.transcription if word.transcription.blank?
     word.save!
 
     translation = self.create(
@@ -38,7 +38,7 @@ class Smartdict::Models::Translation
       :to_lang   => to_lang
     )
 
-    hash[:translated].each do |word_class_name, meanings|
+    struct.translated.each do |word_class_name, meanings|
       meanings.each do |meaning|
         w = Word.first_or_create(:name => meaning, :language => to_lang)
         word_class = WordClass.first(:name => word_class_name)
@@ -49,11 +49,12 @@ class Smartdict::Models::Translation
     translation
   end
 
-  def self.find(word, from_lang_code, to_lang_code)
+  def self.find(word, from_lang_code, to_lang_code, driver_name)
     from_lang = Language.first(:code => from_lang_code)
     to_lang   = Language.first(:code => to_lang_code)
+    driver    = Driver.first(:name => driver_name)
     word = Word.first(:name => word, :language_id => from_lang.id)
-    self.first(:from_lang => from_lang, :to_lang => to_lang, :word => word)
+    self.first(:from_lang => from_lang, :to_lang => to_lang, :word => word, :driver => driver)
   end
 
 
@@ -64,13 +65,18 @@ class Smartdict::Models::Translation
     super(*args)
   end
 
-  def transcription
-    word.try(:transcription)
+  def to_struct
+    struct = Smartdict::Translation.new(
+      :word          => word.name,
+      :transcription => word.transcription,
+      :from_lang     => from_lang.code,
+      :to_lang       => to_lang.code,
+      :driver        => driver.name
+    )
+    translated_words.each do |tw|
+      struct[tw.word_class.name] << tw.word.name
+    end
+    struct
   end
 
-  def each_word_class(&block)
-    grouped = translated_words.group_by{ |w| w.word_class.name }
-    grouped.each{ |word_class, twords| twords.map!{|w| w.word.name}}
-    grouped.each(&block)
-  end
 end

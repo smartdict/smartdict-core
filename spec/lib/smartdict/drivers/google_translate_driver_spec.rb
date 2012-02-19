@@ -19,14 +19,14 @@ describe Smartdict::Drivers::GoogleTranslateDriver do
 
       subject { @result }
 
-      it { should include_hash :word          => "hello" }
-      it { should include_hash :from_lang     => "en" }
-      it { should include_hash :to_lang       => "ru" }
-      it { should include_hash :transcription => nil }
-      it { should have_key :translated }
+      its(:word)          { should == "hello" }
+      its(:from_lang)     { should == "en" }
+      its(:to_lang)       { should == "ru" }
+      its(:transcription) { should be_nil }
+      its(:translated)    { should_not be_empty }
 
       describe "translated" do
-        let (:translated) { @result[:translated] }
+        let (:translated) { @result.translated }
 
         it "undefined" do
           translated['undefined'].should == ["Алло", "Здравствуйте."]

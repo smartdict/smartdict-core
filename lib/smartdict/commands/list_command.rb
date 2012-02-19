@@ -29,7 +29,7 @@ module Smartdict::Commands
       query = query.all(Translation.to_lang_id => to_lang.id) if to_lang
       query = query.all(Translation.from_lang_id => from_lang.id) if from_lang
 
-      translations = query
+      translations = query.map(&:to_struct)
       puts format.format_list(translations)
     end
 
