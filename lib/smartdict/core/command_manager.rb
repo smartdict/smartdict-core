@@ -1,12 +1,14 @@
 class Smartdict::Core::CommandManager
   include Singleton
+  include Smartdict::Commands
 
   attr_reader :commands
 
   def initialize
     @commands = {}
-    register_command Smartdict::Commands::HelpCommand
-    register_command Smartdict::Commands::TranslateCommand
+    register_command HelpCommand
+    register_command TranslateCommand
+    register_command ListCommand
   end
 
   def register_command(command_class)

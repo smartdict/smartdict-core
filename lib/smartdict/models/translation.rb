@@ -13,6 +13,7 @@ class Smartdict::Models::Translation
   belongs_to :from_lang, 'Language'
   belongs_to :to_lang  , 'Language'
   has n, :translated_words
+  has n, :translation_queries
 
   validates_presence_of :word
   validates_presence_of :driver

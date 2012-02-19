@@ -31,7 +31,7 @@ module Smartdict::Commands
     end
 
     def help_message
-      message = "#{description_message}\n\n"
+      message = "#{description}\n\n"
       message << "#{self.class.help_syntax_message}\n"
       message << help_commands_message
     end
@@ -46,7 +46,7 @@ module Smartdict::Commands
       result = " " * INDENT_SIZE + "Commands:\n"
       command_manager.commands.each do |command_name, command_class|
         result << " " * 2 * INDENT_SIZE + "#{command_name.ljust(width)}"
-        result << "    #{command_class.summary_message}\n"
+        result << "    #{command_class.summary}\n"
       end
       result
     end

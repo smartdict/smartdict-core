@@ -3,3 +3,8 @@ plugins:
 
 store:
   adapter: sqlite
+
+common:
+  from_lang: en
+  to_lang: ru
+  format: text_color

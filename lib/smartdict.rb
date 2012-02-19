@@ -48,7 +48,11 @@ module Smartdict
     configatron.configure_from_hash YAML.load_file(default_config_file)
 
     config_file = File.join(user_dir, 'configuration.yml')
-    configatron.configure_from_hash YAML.load_file(config_file)
+    if File.exists?(config_file)
+      configatron.configure_from_hash YAML.load_file(config_file)
+    else
+      FileUtils.cp default_config_file, config_file
+    end
   end
 
 
@@ -91,7 +95,8 @@ module Smartdict
 
 
   def setup_dm
-      setup_sqlite
+    DataMapper::Logger.new(STDOUT, :debug)
+    setup_sqlite
     #if env == :test
     #else
     #  setup_pg

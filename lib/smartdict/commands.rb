@@ -4,5 +4,5 @@ module Smartdict::Commands
   autoload :AbstractCommand
   autoload :HelpCommand
   autoload :TranslateCommand
-  autoload :HelloCommand
+  autoload :ListCommand
 end
