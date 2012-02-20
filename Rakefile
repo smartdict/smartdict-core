@@ -14,8 +14,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "smartdict"
-  gem.homepage = "http://github.com/greyblake/smartdict"
+  gem.name = "smartdict-core"
+  gem.homepage = "http://github.com/greyblake/smartdict-core"
   gem.license = "GNU GPL v2"
   gem.summary = "CLI and GUI dictionary"
   gem.description = "CLI and GUI dictionary created to help you to learn foreign languages."

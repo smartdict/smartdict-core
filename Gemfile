@@ -10,7 +10,6 @@ gem 'dm-core'
 gem 'dm-validations'
 gem 'dm-migrations'
 gem 'dm-sqlite-adapter'
-gem 'dm-postgres-adapter'
 
 gem 'configatron'
 
@@ -35,7 +34,7 @@ group :development do
 
   gem 'metrical'
 
-  gem 'ruby-debug' if RUBY_VERSION =~ /^1.8/
-  gem 'ruby-debug19' if RUBY_VERSION =~ /^1.9/
+  #gem 'ruby-debug' if RUBY_VERSION =~ /^1.8/
+  #gem 'ruby-debug19' if RUBY_VERSION =~ /^1.9/
 end
 
