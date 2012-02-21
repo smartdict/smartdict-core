@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'rubygems'
+
+require 'smartdict'
+require 'smartdict/runner'
+
+Smartdict.env = :user
+
+args = ARGV.clone
+
+Smartdict.load_plugins
+
+# TODO :mode Smartdict.run to Runner.run
+Smartdict.run
+
+
+
+def translate(word)
+  Smartdict::Translator.translate(word)
+rescue Smartdict::TranslationNotFound
+end
+
+def translate_words(words, from_lang, to_lang)
+  words.each_with_index do |word, index|
+    translate word
+    if index % 10 == 0
+      print "#{index}/#{words.size} = %2.2f%" % [index.to_f/words.size * 100]
+      puts "  #{from_lang.name} -> #{to_lang.name}"
+    end
+  end
+end
+
+from_lang = Smartdict::Models::Language.first(:code => 'en')
+to_lang   = Smartdict::Models::Language.first(:code => 'ru')
+
+
+while(true)
+  Smartdict::Translator.from_lang_code = from_lang.code
+  Smartdict::Translator.to_lang_code = to_lang.code
+
+  words = Smartdict::Models::Word.all(:language_id => from_lang.id).map(&:name)
+  translate_words(words, from_lang, to_lang)
+
+  from_lang, to_lang = to_lang, from_lang
+end
+
+
+

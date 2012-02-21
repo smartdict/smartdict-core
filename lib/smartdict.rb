@@ -96,7 +96,7 @@ module Smartdict
 
 
   def setup_dm
-    DataMapper::Logger.new(STDOUT, :debug)
+    #DataMapper::Logger.new(STDOUT, :debug)
     setup_sqlite
     #if env == :test
     #else
