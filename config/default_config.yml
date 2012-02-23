@@ -4,7 +4,11 @@ plugins:
 store:
   adapter: sqlite
 
-common:
+default:
   from_lang: en
   to_lang: ru
   format: text_color
+  langs:
+    - en
+    - ru
+    - de
