@@ -28,10 +28,12 @@ module Smartdict
   autoload :Seeder
   autoload :Formats
   autoload :Translation
+  autoload :ListBuilder
 
   include Smartdict::Core
 
   ENVIRONMENTS = [:user, :test, :cucumber]
+  VERSION = "0.0.0"
 
 
   def load_plugins
@@ -98,17 +100,6 @@ module Smartdict
   def setup_dm
     #DataMapper::Logger.new(STDOUT, :debug)
     setup_sqlite
-    #if env == :test
-    #else
-    #  setup_pg
-    #end
-  end
-
-  def setup_pg
-    DataMapper.setup(:default, "postgres://postgres:secret@localhost/smartdict")
-    DataMapper.finalize
-    DataMapper.auto_migrate!
-    Seeder.seed!
   end
 
   def setup_sqlite

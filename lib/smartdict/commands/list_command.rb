@@ -15,21 +15,21 @@ module Smartdict::Commands
       #{prog_name} --from de --to en --format text
     SYNTAX
 
-    options :format => lambda { configatron.common.format },
+    options :format => lambda { configatron.default.format },
             :since  => lambda { Date.today },
             :till   => lambda { Time.now },
             :from   => nil,
             :to     => nil
 
     def execute
-      query = Translation.all(
-        Translation.translation_queries.created_at.gte => @options[:since],
-        Translation.translation_queries.created_at.lte => @options[:till]
-      )
-      query = query.all(Translation.to_lang_id => to_lang.id) if to_lang
-      query = query.all(Translation.from_lang_id => from_lang.id) if from_lang
-
-      translations = query.map(&:to_struct)
+      list_opts = {
+        :since     => @options[:since],
+        :till      => @options[:till],
+        :from_lang => @options[:from],
+        :to_lang   => @options[:to]
+        #:driver => @options
+      }
+      translations = Smartdict::ListBuilder.build(list_opts)
       puts format.format_list(translations)
     end
 
@@ -39,13 +39,13 @@ module Smartdict::Commands
       format
     end
 
-    def from_lang
-      @from_lang ||= Language.first(:code => @options[:from])
-    end
+    #def from_lang
+    #  @from_lang ||= Language.first(:code => @options[:from])
+    #end
 
-    def to_lang
-      @to_lang ||= Language.first(:code => @options[:to])
-    end
+    #def to_lang
+    #  @to_lang ||= Language.first(:code => @options[:to])
+    #end
 
   end
 end

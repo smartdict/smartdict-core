@@ -5,7 +5,6 @@ class Smartdict::Models::Driver
   property :id  , Serial
   property :name, String
 
-
   has n, :translations
 
   validates_presence_of :name

@@ -20,16 +20,19 @@ class Smartdict::Core::CommandManager
   def run(args)
     first_arg = args.shift
     case first_arg
-    when '-h', '--help', 'help'
+    when nil, '-h', '--help', 'help'
       run_command :help, args
     else
-      cmd_name = find_command(first_arg) ? first_arg : :help
-      run_command cmd_name, args
+      run_command(first_arg, args)
     end
   end
 
   def run_command(name, args = [])
-    find_command(name).run(args)
+    if command = find_command(name)
+      command.run(args)
+    else
+      abort "Unknown command: #{name}"
+    end
   end
 
   def find_command(name)

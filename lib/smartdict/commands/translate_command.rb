@@ -12,9 +12,9 @@ module Smartdict::Commands
 
     arguments :word
 
-    options :from   => lambda { configatron.common.from_lang },
-            :to     => lambda { configatron.common.to_lang },
-            :format => lambda { configatron.common.format }
+    options :from   => lambda { configatron.default.from_lang },
+            :to     => lambda { configatron.default.to_lang },
+            :format => lambda { configatron.default.format }
 
     def self.help_message
       super << formats_help_message

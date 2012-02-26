@@ -21,6 +21,7 @@ group :development do
   gem 'libnotify'
   gem 'guard-rspec'
   gem 'rb-readline'
+  gem 'pry'
 
   gem "rspec"
   gem "yard", "~> 0.6.0"
