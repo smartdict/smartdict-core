@@ -37,15 +37,15 @@ class Smartdict::ListBuilder
   end
 
   def from_lang
-    Language.first(:code => @options[:from_lang])
+    Language[@options[:from_lang]]
   end
 
   def to_lang
-    Language.first(:code => @options[:to_lang])
+    Language[@options[:to_lang]]
   end
 
   def driver
-    Language.first(:name => @options[:driver])
+    Driver[@options[:driver]]
   end
 
 end

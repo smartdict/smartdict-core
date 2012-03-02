@@ -1,6 +1,9 @@
 class Smartdict::Models::Language
   include DataMapper::Resource
   include DataMapper::Validations
+  include DataMapper::Enum
+
+  acts_as_enumerated :name_property => :code
 
   property :id  , Serial
   property :name, String

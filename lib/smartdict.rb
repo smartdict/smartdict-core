@@ -2,6 +2,7 @@ require 'rubygems'
 
 require 'dm-core'
 require 'dm-validations'
+require 'dm-enum'
 require 'dm-migrations'
 require 'dm-sqlite-adapter'
 require 'active_support/core_ext/class'
@@ -110,6 +111,10 @@ module Smartdict
       DataMapper.auto_migrate!
       Seeder.seed!
     end
+
+    Models::Language.update_enums_cache!
+    Models::Driver.update_enums_cache!
+    Models::WordClass.update_enums_cache!
   end
 
   def db_file

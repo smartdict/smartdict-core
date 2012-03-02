@@ -23,9 +23,9 @@ class Smartdict::Models::Translation
 
   # Create {Smartdict::Models::Translation} from {Smartdict::Translation}.
   def self.create_from_struct(struct)
-    from_lang = Language.first(:code => struct.from_lang)
-    to_lang   = Language.first(:code => struct.to_lang)
-    driver    = Driver.first(:name => struct.driver)
+    from_lang = Language[struct.from_lang]
+    to_lang   = Language[struct.to_lang]
+    driver    = Driver[struct.driver]
 
     word = Word.first_or_create(:name => struct.word, :language_id => from_lang.id)
     word.transcription = struct.transcription if word.transcription.blank?
@@ -34,13 +34,13 @@ class Smartdict::Models::Translation
     translation = self.create(
       :word      => word,
       :driver    => driver,
-      :from_lang => from_lang,
-      :to_lang   => to_lang
+      :from_lang_id => from_lang.id,
+      :to_lang_id   => to_lang.id
     )
 
     struct.translated.each do |word_class_name, meanings|
       meanings.each do |meaning|
-        w = Word.first_or_create(:name => meaning, :language => to_lang)
+        w = Word.first_or_create(:name => meaning, :language_id => to_lang.id)
         word_class = WordClass.first(:name => word_class_name)
         TranslatedWord.create(:word => w, :word_class => word_class, :translation => translation)
       end
@@ -50,9 +50,10 @@ class Smartdict::Models::Translation
   end
 
   def self.find(word, from_lang_code, to_lang_code, driver_name)
-    from_lang = Language.first(:code => from_lang_code)
-    to_lang   = Language.first(:code => to_lang_code)
-    driver    = Driver.first(:name => driver_name)
+    from_lang = Language[from_lang_code]
+    to_lang   = Language[to_lang_code]
+    driver    = Driver[driver_name]
+
     word = Word.first(:name => word, :language_id => from_lang.id)
     self.first(:from_lang => from_lang, :to_lang => to_lang, :word => word, :driver => driver)
   end

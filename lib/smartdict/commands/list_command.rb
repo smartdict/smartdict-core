@@ -39,13 +39,5 @@ module Smartdict::Commands
       format
     end
 
-    #def from_lang
-    #  @from_lang ||= Language.first(:code => @options[:from])
-    #end
-
-    #def to_lang
-    #  @to_lang ||= Language.first(:code => @options[:to])
-    #end
-
   end
 end
