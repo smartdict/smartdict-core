@@ -2,8 +2,9 @@ require 'rspec'
 require 'dm-rspec'
 require 'dm-sweatshop'
 require 'webmock/rspec'
-
 require 'pry'
+load File.expand_path("../../.simplecov", __FILE__)
+
 require 'smartdict'
 
 require File.join(File.dirname(__FILE__), 'factories')

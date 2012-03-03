@@ -13,10 +13,9 @@ gem 'dm-migrations'
 gem 'dm-sqlite-adapter'
 
 gem 'configatron'
-
 gem 'activesupport'
 
-group :development do
+group :development, :test do
 
   gem 'guard'
   gem 'libnotify'
@@ -34,8 +33,7 @@ group :development do
   gem 'dm-rspec'
   gem 'webmock'
 
-  gem 'metrical'
-  #gem 'ruby-debug' if RUBY_VERSION =~ /^1.8/
-  #gem 'ruby-debug19' if RUBY_VERSION =~ /^1.9/
+  gem 'simplecov', :require => false
+  gem 'simplecov-vim', :require => false
 end
 
