@@ -30,7 +30,6 @@ module Smartdict
   autoload :Commands
   autoload :Drivers
   autoload :Translator
-  autoload :Seeder
   autoload :Formats
   autoload :Translation
   autoload :ListBuilder
