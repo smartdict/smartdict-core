@@ -14,8 +14,8 @@ Smartdict::Models::WordClass.fixture {{
 }}
 
 Smartdict::Models::Translation.fixture {{
-  :from_lang => Smartdict::Models::Language.gen,
-  :to_lang   => Smartdict::Models::Language.gen,
+  :from_lang => Smartdict::Models::Language[:en],
+  :to_lang   => Smartdict::Models::Language[:ru],
   :word      => Smartdict::Models::Word.gen,
   :driver    => Smartdict::Models::Driver.first
 }}

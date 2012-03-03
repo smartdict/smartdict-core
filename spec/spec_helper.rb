@@ -3,6 +3,7 @@ require 'dm-rspec'
 require 'dm-sweatshop'
 require 'webmock/rspec'
 
+require 'pry'
 require 'smartdict'
 
 require File.join(File.dirname(__FILE__), 'factories')

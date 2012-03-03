@@ -12,19 +12,19 @@ class Smartdict::ListBuilder
   #
   # @return [Array] array of {Smartdict::Translation}.
   def self.build(options = {})
-    new(options).build
+    new(options).send(:build)
   end
 
-
-  def build
-    fetch_translations.map(&:to_struct)
-  end
 
   private
 
   def initialize(options)
     @options = options
     @options[:till] ||= Time.now
+  end
+
+  def build
+    fetch_translations.map(&:to_struct)
   end
 
   def fetch_translations
