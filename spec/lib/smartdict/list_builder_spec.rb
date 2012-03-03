@@ -90,6 +90,5 @@ describe Smartdict::ListBuilder do
     # TODO: when there are more than 1 driver
     it ":driver option"
 
-
   end
 end

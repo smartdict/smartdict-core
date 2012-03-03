@@ -5,9 +5,12 @@ require 'dm-validations'
 require 'dm-enum'
 require 'dm-migrations'
 require 'dm-sqlite-adapter'
+
 require 'active_support/core_ext/class'
-require 'active_support/core_ext/object'
 require 'active_support/dependencies/autoload'
+require 'active_support/core_ext/object'
+require 'active_support/inflector'
+
 require 'configatron'
 require 'net/http'
 
@@ -21,6 +24,7 @@ module Smartdict
   extend ActiveSupport::Autoload
 
   autoload :Core
+  autoload :Storage
   autoload :Models
   autoload :Plugin
   autoload :Commands
@@ -42,9 +46,9 @@ module Smartdict
   end
 
   def run
-    init_config
     Dir.mkdir user_dir unless File.exists?(user_dir)
-    setup_dm
+    init_config
+    Storage.prepare!
   end
 
   def init_config
@@ -94,30 +98,4 @@ module Smartdict
     ENV['SMARTDICT_PLUGINS_DIR'] or File.join(root_dir, 'plugins')
   end
 
-
-  private
-
-
-  def setup_dm
-    #DataMapper::Logger.new(STDOUT, :debug)
-    setup_sqlite
-  end
-
-  def setup_sqlite
-    store = (env == :test) ? ":memory:" : "//#{db_file}"
-    DataMapper.setup(:default, "sqlite:#{store}")
-    DataMapper.finalize
-    if store =~ /memory/ or !File.exists?(db_file)
-      DataMapper.auto_migrate!
-      Seeder.seed!
-    end
-
-    Models::Language.update_enums_cache!
-    Models::Driver.update_enums_cache!
-    Models::WordClass.update_enums_cache!
-  end
-
-  def db_file
-    "#{user_dir}/database.sqlite"
-  end
 end
