@@ -41,7 +41,7 @@ class Smartdict::Models::Translation
     struct.translated.each do |word_class_name, meanings|
       meanings.each do |meaning|
         w = Word.first_or_create(:name => meaning, :language_id => to_lang.id)
-        word_class = WordClass.first(:name => word_class_name)
+        word_class = WordClass[word_class_name]
         TranslatedWord.create(:word => w, :word_class => word_class, :translation => translation)
       end
     end
