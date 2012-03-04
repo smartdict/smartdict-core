@@ -1,11 +1,6 @@
-Smartdict::Models::Language.fixture {{
-  :name => 'lang_name_' + /\w{10}/.gen,
-  :code => 'lang_code_' + /\w{10}/.gen,
-}}
-
 Smartdict::Models::Word.fixture {{
   :name => /\w{10}/.gen,
-  :language => Smartdict::Models::Language.gen
+  :language => Smartdict::Models::Language[:en]
 }}
 
 Smartdict::Models::WordClass.fixture {{

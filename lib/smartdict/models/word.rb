@@ -2,12 +2,12 @@ class Smartdict::Models::Word
   include DataMapper::Resource
 
   property :id           , Serial
-  property :name         , String , :required => true
+  property :name         , String, :unique_index => :index_word
+  property :language_id  , Integer, :unique_index => :index_word
   property :transcription, String
-  property :language_id  , Integer
 
-  belongs_to :language, :required  => true
+  belongs_to :language
   has n, :translations
 
-  validates_presence_of :language_id
+  validates_presence_of :language_id, :name
 end

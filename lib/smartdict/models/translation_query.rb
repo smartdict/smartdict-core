@@ -5,7 +5,7 @@ class Smartdict::Models::TranslationQuery
   property :created_at    , DateTime
   property :translation_id, Integer
 
-  belongs_to :translation, :key => true
+  belongs_to :translation
 
   before :save do
     self.created_at = Time.now

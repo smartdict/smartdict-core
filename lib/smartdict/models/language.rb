@@ -7,11 +7,10 @@ class Smartdict::Models::Language
 
   property :id  , Serial
   property :name, String
-  property :code, String #, :length => 2
+  property :code, String, :unique_index => true, :length => 2
 
   has n, :words
 
-  validates_presence_of :name
-  validates_presence_of :code
+  validates_presence_of   :name, :code
   validates_uniqueness_of :name, :code
 end

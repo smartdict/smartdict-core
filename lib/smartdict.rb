@@ -75,7 +75,6 @@ module Smartdict
     ENV['HOME']
   end
 
-
   def env=(environment)
     @env = environment.to_sym
     raise "env must be one of #{ENVIRONMENTS.inspect}" unless ENVIRONMENTS.include?(@env)
@@ -96,5 +95,4 @@ module Smartdict
   def plugins_dir
     ENV['SMARTDICT_PLUGINS_DIR'] or File.join(root_dir, 'plugins')
   end
-
 end

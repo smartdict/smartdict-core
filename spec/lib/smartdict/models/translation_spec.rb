@@ -13,7 +13,7 @@ describe Smartdict::Models::Translation do
     it { should belong_to :from_lang }
     it { should belong_to :to_lang   }
     it { should belong_to :driver    }
-    it { should have_many :translated_words }
+    it { should have_many :translated_words    }
     it { should have_many :translation_queries }
   end
 

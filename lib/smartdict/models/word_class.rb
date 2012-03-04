@@ -1,4 +1,4 @@
-# Word class is the same what is type of speech and lexical class
+# Word class is the same what type of speech is (noun, verb, etc.)
 class Smartdict::Models::WordClass
   include DataMapper::Resource
   include DataMapper::Enum
@@ -6,7 +6,9 @@ class Smartdict::Models::WordClass
   acts_as_enumerated
 
   property :id,   Serial
-  property :name, String, :required => true
+  property :name, String
 
   has n, :translations
+
+  validates_presence_of :name
 end

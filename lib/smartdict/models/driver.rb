@@ -6,7 +6,7 @@ class Smartdict::Models::Driver
   acts_as_enumerated
 
   property :id  , Serial
-  property :name, String
+  property :name, String, :unique_index => true
 
   has n, :translations
 

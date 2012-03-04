@@ -19,15 +19,16 @@ module Smartdict::Commands
             :since  => lambda { Date.today },
             :till   => lambda { Time.now },
             :from   => nil,
-            :to     => nil
+            :to     => nil,
+            :driver => nil
 
     def execute
       list_opts = {
         :since     => @options[:since],
         :till      => @options[:till],
         :from_lang => @options[:from],
-        :to_lang   => @options[:to]
-        #:driver => @options
+        :to_lang   => @options[:to],
+        :driver    => @options[:driver]
       }
       translations = Smartdict::ListBuilder.build(list_opts)
       puts format.format_list(translations)

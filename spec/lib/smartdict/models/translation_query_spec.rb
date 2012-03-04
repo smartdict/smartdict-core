@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Smartdict::Models::TranslationQuery do
   describe 'properties' do
-    it { should have_property :id }
-    it { should have_property :created_at }
+    it { should have_property :id             }
+    it { should have_property :created_at     }
     it { should have_property :translation_id }
   end
 
@@ -16,5 +16,4 @@ describe Smartdict::Models::TranslationQuery do
     query.save
     query.created_at.should_not be_blank
   end
-
 end

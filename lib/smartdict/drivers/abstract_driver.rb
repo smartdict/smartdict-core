@@ -58,5 +58,4 @@ class Smartdict::Drivers::AbstractDriver
     end
     translation
   end
-
 end

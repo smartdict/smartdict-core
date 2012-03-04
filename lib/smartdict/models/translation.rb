@@ -3,10 +3,10 @@ class Smartdict::Models::Translation
   include Smartdict::Models
 
   property :id          , Serial
-  property :word_id     , Integer  #, :key => true
-  property :from_lang_id, Integer  #, :key => true
-  property :to_lang_id  , Integer  #, :key => true
-  property :driver_id   , Integer  #, :key => true
+  property :word_id     , Integer, :unique_index => :index_translation
+  property :from_lang_id, Integer, :unique_index => :index_translation
+  property :to_lang_id  , Integer, :unique_index => :index_translation
+  property :driver_id   , Integer, :unique_index => :index_translation
 
   belongs_to :word
   belongs_to :driver
