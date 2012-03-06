@@ -15,6 +15,9 @@ gem 'dm-sqlite-adapter'
 gem 'configatron'
 gem 'activesupport'
 
+gem "builder"
+
+
 group :development, :test do
 
   gem 'guard'

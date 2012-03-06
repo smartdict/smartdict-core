@@ -9,6 +9,7 @@ class Smartdict::Core::FormatManager
     @formats = {}
     register_format TextFormat
     register_format TextColorFormat
+    register_format Fb2Format
   end
 
   def register_format(format_class)

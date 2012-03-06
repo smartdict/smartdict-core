@@ -13,4 +13,10 @@ describe Smartdict::Models::TranslatedWord do
     it { should belong_to :word_class  }
     it { should belong_to :word        }
   end
+
+  describe "validations" do
+    it { should validate_presence_of :translation_id }
+    it { should validate_presence_of :word_class_id  }
+    it { should validate_presence_of :word_id        }
+  end
 end

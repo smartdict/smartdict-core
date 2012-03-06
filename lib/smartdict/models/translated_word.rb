@@ -9,4 +9,6 @@ class Smartdict::Models::TranslatedWord
   belongs_to :translation
   belongs_to :word_class
   belongs_to :word
+
+  validates_presence_of :translation_id, :word_class_id, :word_id
 end

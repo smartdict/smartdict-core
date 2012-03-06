@@ -4,4 +4,5 @@ module Smartdict::Formats
   autoload :AbstractFormat
   autoload :TextFormat
   autoload :TextColorFormat
+  autoload :Fb2Format
 end
