@@ -101,6 +101,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  builder
   bundler (~> 1.0.0)
   configatron
   cucumber

@@ -1,5 +1,6 @@
 module Smartdict::Commands
   class ListCommand < AbstractCommand
+    include HasFormatList
     include Smartdict::Models
 
     set_name        "list"

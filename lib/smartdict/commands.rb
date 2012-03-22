@@ -5,4 +5,6 @@ module Smartdict::Commands
   autoload :HelpCommand
   autoload :TranslateCommand
   autoload :ListCommand
+
+  autoload :HasFormatList
 end

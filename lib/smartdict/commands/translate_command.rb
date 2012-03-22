@@ -1,5 +1,7 @@
 module Smartdict::Commands
   class TranslateCommand < AbstractCommand
+    include HasFormatList
+
     set_name        "translate"
     set_summary     "Translate a word"
     set_description "Translate a word"
@@ -15,23 +17,6 @@ module Smartdict::Commands
     options :from   => lambda { configatron.default.from_lang },
             :to     => lambda { configatron.default.to_lang },
             :format => lambda { configatron.default.format }
-
-    def self.help_message
-      super << formats_help_message
-    end
-
-    def self.formats_help_message
-      formats = Smartdict::Core::FormatManager.instance.formats
-      width = formats.values.map{|f| f.name.size}.max
-      result = " " * INDENT_SIZE + "Formats:\n"
-      formats.each do |name, format|
-        result << " " * 2 * INDENT_SIZE
-        result << format.name.ljust(width) + "    "
-        result << "#{format.description}\n"
-      end
-      result
-    end
-
 
     def execute
       Smartdict::Translator.from_lang_code = @options[:from]
