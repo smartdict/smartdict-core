@@ -1,5 +1,4 @@
 class Smartdict::Formats::TextColorFormat < Smartdict::Formats::AbstractFormat
-  set_name "text_color"
   set_description "Displays translation with ASCII highlight"
 
   # :nodoc:

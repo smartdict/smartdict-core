@@ -3,6 +3,8 @@ module Smartdict::Core
 
   autoload :HasLogger
   autoload :Logger
+  autoload :IsManager
+
   autoload :PluginManager
   autoload :CommandManager
   autoload :DriverManager

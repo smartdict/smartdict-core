@@ -1,12 +1,7 @@
 class Smartdict::Formats::AbstractFormat
   include Singleton
 
-  class_attribute :name
   class_attribute :description
-
-  def self.set_name(name)
-    self.name = name.to_s
-  end
 
   def self.set_description(description)
     self.description = description

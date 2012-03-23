@@ -11,7 +11,7 @@ module Smartdict::Commands::HasFormatList
 
   module ClassMethods
     def help_message_with_formats
-      formats = Smartdict::Core::FormatManager.instance.formats
+      formats = Smartdict::Core::FormatManager.all
       width = formats.values.map{|f| f.name.size}.max
       indent = Smartdict::Commands::AbstractCommand::INDENT_SIZE
 

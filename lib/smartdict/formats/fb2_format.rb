@@ -1,7 +1,6 @@
 require 'builder'
 
 class Smartdict::Formats::Fb2Format < Smartdict::Formats::AbstractFormat
-  set_name "fb2"
   set_description "Displays translation in fiction book format."
 
 
