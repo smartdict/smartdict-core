@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Smartdict::Core::FormatManager do
-  describe '.[]' do
+  describe '.find' do
     it 'returns instance of format class' do
       described_class.find("text").should == Smartdict::Formats::TextFormat
       described_class.find(:text).should == Smartdict::Formats::TextFormat

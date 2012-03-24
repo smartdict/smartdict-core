@@ -31,7 +31,7 @@ module Smartdict
     private
 
     def self.driver
-      Smartdict::Core::DriverManager.instance.find_driver(driver_name)
+      Smartdict::Core::DriverManager.find(driver_name)
     end
 
   end

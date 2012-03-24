@@ -41,7 +41,7 @@ module Smartdict
 
 
   def load_plugins
-    Core::PluginManager.instance.load_plugins
+    Core::PluginManager.load_plugins
   end
 
   def run

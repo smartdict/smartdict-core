@@ -2,23 +2,8 @@
 # Similar to {Smartdict::Core::CommandManager} it registers drivers
 # and provides interfaces to find them by name.
 class Smartdict::Core::DriverManager
-  include Singleton
-  include Smartdict::Core::HasLogger
+  include Smartdict::Core::IsManager
+  include Smartdict::Drivers
 
-  def initialize
-    @drivers = {}
-    register_driver Smartdict::Drivers::GoogleTranslateDriver
-  end
-
-  # Registers a new driver.
-  # @param [Smartdict::Driver] driver_class subclass of {Smartdict::Driver}
-  def register_driver(driver_class)
-    name = driver_class.name.to_s
-    raise Smartdict::Error.new("Driver #{name} is already registed") if find_driver(name)
-    @drivers[name] = driver_class
-  end
-
-  def find_driver(name)
-    @drivers[name.to_s]
-  end
+  register 'google_translate', GoogleTranslateDriver
 end

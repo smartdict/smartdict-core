@@ -4,6 +4,6 @@ class Smartdict::Plugin
   autoload :InitializerContext
 
   def self.initializer(name, options = {}, &block)
-    Smartdict::Core::PluginManager.instance.register_plugin(name, options, block)
+    Smartdict::Core::PluginManager.register(name, :options => options, :block => block)
   end
 end
