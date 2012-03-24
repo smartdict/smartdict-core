@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Smartdict::Core::FormatManager do
   describe '.[]' do
     it 'returns instance of format class' do
-      described_class["text"].should == Smartdict::Formats::TextFormat
-      described_class[:text].should == Smartdict::Formats::TextFormat
+      described_class.find("text").should == Smartdict::Formats::TextFormat
+      described_class.find(:text).should == Smartdict::Formats::TextFormat
     end
   end
 
@@ -12,7 +12,7 @@ describe Smartdict::Core::FormatManager do
     it 'registers new format' do
       paper_book_format = stub(:paper_book_format)
       described_class.register "paper_book", paper_book_format
-      described_class["paper_book"].should == paper_book_format
+      described_class.find("paper_book").should == paper_book_format
     end
 
     it "raises error when format already is registered" do
@@ -38,7 +38,7 @@ describe Smartdict::Core::FormatManager do
       "fb2"        => Smartdict::Formats::Fb2Format
     }
     formats.each do |name, klass|
-      it("#{name}") { described_class[name].should == klass }
+      it("#{name}") { described_class.find(name).should == klass }
     end
   end
 end

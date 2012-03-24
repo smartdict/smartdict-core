@@ -36,7 +36,7 @@ module Smartdict::Commands
     end
 
     def format
-      format = Smartdict::FormatManager[@options[:format]]
+      format = Smartdict::FormatManager.find(@options[:format])
       raise Smartdict::Error.new("Wrong format: #{@options[:format]}") unless format
       format
     end

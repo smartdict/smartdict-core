@@ -6,11 +6,11 @@ module Smartdict::Core::IsManager
 
   module ClassMethods
     def register(name, klass)
-      raise Smartdict::Error.new("`#{name}` is already registered") if self[name]
+      raise Smartdict::Error.new("`#{name}` is already registered") if find(name)
       @entities[name.to_s] = klass
     end
 
-    def [](name)
+    def find(name)
       @entities[name.to_s]
     end
 

@@ -14,7 +14,7 @@ describe Smartdict::Plugin do
         end
 
         Smartdict::Core::PluginManager.instance.load_plugins
-        Smartdict::Core::CommandManager["test_cmd"].should == command_class
+        Smartdict::Core::CommandManager.find("test_cmd").should == command_class
       end
     end
 

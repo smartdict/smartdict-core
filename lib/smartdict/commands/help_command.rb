@@ -22,7 +22,7 @@ module Smartdict::Commands
 
     def execute
       if cmd_name = @arguments[:command]
-        if cmd_class = CommandManager[cmd_name]
+        if cmd_class = CommandManager.find(cmd_name)
           puts cmd_class.help_message
         else
           abort "Uknown command: #{cmd_name}"

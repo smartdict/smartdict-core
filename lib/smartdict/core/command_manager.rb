@@ -18,7 +18,7 @@ class Smartdict::Core::CommandManager
   end
 
   def self.run_command(name, args = [])
-    if command = self[name]
+    if command = find(name)
       command.run(args)
     else
       abort "Unknown command: #{name}"
