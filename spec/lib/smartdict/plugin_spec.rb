@@ -5,17 +5,16 @@ describe Smartdict::Plugin do
 
     describe "register_command" do
       it "registers a command" do
-        command_class = stub(:command_class, :name => :test_cmd)
+        command_class = stub(:command_class)
 
         plugin = Class.new(Smartdict::Plugin) do
           initializer "test" do
-            register_command command_class
+            register_command("test_cmd", command_class)
           end
         end
 
         Smartdict::Core::PluginManager.instance.load_plugins
-        cmd_manager = Smartdict::Core::CommandManager.instance
-        cmd_manager.find_command("test_cmd").should == command_class
+        Smartdict::Core::CommandManager["test_cmd"].should == command_class
       end
     end
 

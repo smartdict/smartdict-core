@@ -1,5 +1,7 @@
 module Smartdict::Commands
   class HelpCommand < AbstractCommand
+    include Smartdict::Core
+
     arguments :command
     default   :command => nil
 
@@ -20,7 +22,7 @@ module Smartdict::Commands
 
     def execute
       if cmd_name = @arguments[:command]
-        if cmd_class = command_manager.find_command(cmd_name)
+        if cmd_class = CommandManager[cmd_name]
           puts cmd_class.help_message
         else
           abort "Uknown command: #{cmd_name}"
@@ -37,14 +39,10 @@ module Smartdict::Commands
     end
 
 
-    def command_manager
-      Smartdict::Core::CommandManager.instance
-    end
-
     def help_commands_message
-      width = command_manager.commands.keys.map(&:size).max
+      width = CommandManager.all.keys.map(&:size).max
       result = " " * INDENT_SIZE + "Commands:\n"
-      command_manager.commands.each do |command_name, command_class|
+      CommandManager.all.each do |command_name, command_class|
         result << " " * 2 * INDENT_SIZE + "#{command_name.ljust(width)}"
         result << "    #{command_class.summary}\n"
       end

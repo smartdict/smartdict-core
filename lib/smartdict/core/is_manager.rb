@@ -6,6 +6,7 @@ module Smartdict::Core::IsManager
 
   module ClassMethods
     def register(name, klass)
+      raise Smartdict::Error.new("`#{name}` is already registered") if self[name]
       @entities[name.to_s] = klass
     end
 

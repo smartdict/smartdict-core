@@ -14,6 +14,13 @@ describe Smartdict::Core::FormatManager do
       described_class.register "paper_book", paper_book_format
       described_class["paper_book"].should == paper_book_format
     end
+
+    it "raises error when format already is registered" do
+      wall = stub(:wall)
+      described_class.register('wall', wall)
+      expect { described_class.register('wall', wall) }.
+        to raise_error(Smartdict::Error, "`wall` is already registered")
+    end
   end
 
   describe '.all' do
