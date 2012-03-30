@@ -11,3 +11,6 @@ $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../../lib')
 require 'smartdict'
 
 require 'rspec/expectations'
+require 'aruba/cucumber'
+
+ENV['PATH'] = "#{Smartdict.root_dir}/bin:" + ENV['PATH']

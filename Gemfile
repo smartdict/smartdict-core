@@ -26,9 +26,10 @@ group :development, :test do
   gem 'rb-readline'
   gem 'pry'
 
-  gem "rspec"
   gem "yard", "~> 0.6.0"
-  gem "cucumber", ">= 0"
+  gem "rspec"
+  gem "aruba"
+
   gem "bundler", "~> 1.1.2"
   gem "jeweler", "~> 1.6.4"
 

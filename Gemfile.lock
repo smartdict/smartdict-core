@@ -11,7 +11,14 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.7)
+    aruba (0.4.11)
+      childprocess (>= 0.2.3)
+      cucumber (>= 1.1.1)
+      ffi (>= 1.0.11)
+      rspec (>= 2.7.0)
     builder (3.0.0)
+    childprocess (0.3.1)
+      ffi (~> 1.0.6)
     coderay (1.0.5)
     configatron (2.9.0)
       yamler (>= 0.1.0)
@@ -49,7 +56,7 @@ GEM
     do_sqlite3 (0.10.8)
       data_objects (= 0.10.8)
     ffi (1.0.11)
-    gherkin (2.9.0)
+    gherkin (2.9.3)
       json (>= 1.4.6)
     git (1.2.5)
     guard (1.0.0)
@@ -62,7 +69,7 @@ GEM
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    json (1.6.1)
+    json (1.6.6)
     libnotify (0.7.2)
     method_source (0.7.1)
     multi_json (1.1.0)
@@ -101,10 +108,10 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  aruba
   builder
   bundler (~> 1.1.2)
   configatron
-  cucumber
   dm-core
   dm-enum
   dm-migrations
