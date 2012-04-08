@@ -18,7 +18,7 @@ module Smartdict::Commands::HasFormatList
       message  = " " * indent + "Formats:\n"
       formats.each do |name, format|
         message << " " * 2 * indent
-        message << format.name.ljust(width) + "    "
+        message << name.ljust(width) + "    "
         message << "#{format.description}\n"
       end
 
