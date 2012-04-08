@@ -20,7 +20,6 @@ To get a help on specific command:
 
 ```
 smartdict help <COMMAND>
-
 ```
 
 ### Translate words:
@@ -62,6 +61,7 @@ smartdict --since 2012-01-13 --from en --to ru --format fb2 > ./words.fb2
 ## How to configure?
 
 See file `$HOME/.smartdict/configuration.yml`.
+
 NOTE: currently not all options listed there have an effect.
 
 
