@@ -7,7 +7,7 @@ require 'smartdict'
 require 'smartdict/runner'
 
 # TODO: remove before release
-require 'pry'
+# require 'pry'
 
 Smartdict.env = :user
 

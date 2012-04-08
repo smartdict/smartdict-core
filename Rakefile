@@ -13,15 +13,16 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "smartdict-core"
-  gem.homepage = "http://github.com/greyblake/smartdict-core"
-  gem.license = "GNU GPL v2"
-  gem.summary = "CLI and GUI dictionary"
-  gem.description = "CLI and GUI dictionary created to help you to learn foreign languages."
-  gem.email = "blake131313@gmail.com"
-  gem.authors = ["Potapov Sergey"]
-  # dependencies defined in Gemfile
+  gem.name        = "smartdict-core"
+  gem.homepage    = "http://github.com/smartdict/smartdict-core"
+  gem.license     = "GNU GPL v2"
+  gem.summary     = "CLI dictionary"
+  gem.description = "CLI dictionary created to help you to learn foreign languages."
+  gem.email       = "blake131313@gmail.com"
+  gem.authors     = ["Potapov Sergey"]
+
+  gem.files = Dir.glob('./lib/**/*')
+  gem.files += ['./bin/smartdict', 'config/default_config.yml']
 end
 Jeweler::RubygemsDotOrgTasks.new
 

@@ -9,93 +9,67 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Potapov Sergey"]
-  s.date = "2012-02-19"
-  s.description = "CLI and GUI dictionary created to help you to learn foreign languages."
+  s.date = "2012-04-08"
+  s.description = "CLI dictionary created to help you to learn foreign languages."
   s.email = "blake131313@gmail.com"
-  s.executables = ["smartdict"]
+  s.executables = ["smartdict", "smartdict-populator"]
   s.extra_rdoc_files = [
-    "README.rdoc"
+    "README.markdown"
   ]
   s.files = [
-    ".document",
-    ".rspec",
-    ".rvmrc",
-    "GPL-LICENSE.txt",
-    "Gemfile",
-    "Gemfile.lock",
-    "Guardfile",
-    "README.rdoc",
-    "Rakefile",
-    "TODO.md",
-    "VERSION",
-    "bin/smartdict",
-    "config/default_config.yml",
-    "config/environment.rb",
-    "features/smartdict.feature",
-    "features/step_definitions/smartdict_steps.rb",
-    "features/support/env.rb",
-    "lib/smartdict.rb",
-    "lib/smartdict/commands.rb",
-    "lib/smartdict/commands/abstract_command.rb",
-    "lib/smartdict/commands/help_command.rb",
-    "lib/smartdict/commands/list_command.rb",
-    "lib/smartdict/commands/translate_command.rb",
-    "lib/smartdict/core.rb",
-    "lib/smartdict/core/command_manager.rb",
-    "lib/smartdict/core/driver_manager.rb",
-    "lib/smartdict/core/format_manager.rb",
-    "lib/smartdict/core/has_logger.rb",
-    "lib/smartdict/core/logger.rb",
-    "lib/smartdict/core/plugin_manager.rb",
-    "lib/smartdict/drivers.rb",
-    "lib/smartdict/drivers/abstract_driver.rb",
-    "lib/smartdict/drivers/google_translate_driver.rb",
-    "lib/smartdict/errors.rb",
-    "lib/smartdict/formats.rb",
-    "lib/smartdict/formats/abstract_format.rb",
-    "lib/smartdict/formats/text_color_format.rb",
-    "lib/smartdict/formats/text_format.rb",
-    "lib/smartdict/models.rb",
-    "lib/smartdict/models/driver.rb",
-    "lib/smartdict/models/language.rb",
-    "lib/smartdict/models/translated_word.rb",
-    "lib/smartdict/models/translation.rb",
-    "lib/smartdict/models/translation_query.rb",
-    "lib/smartdict/models/translation_source.rb",
-    "lib/smartdict/models/word.rb",
-    "lib/smartdict/models/word_class.rb",
-    "lib/smartdict/plugin.rb",
-    "lib/smartdict/plugin/initializer_context.rb",
-    "lib/smartdict/runner.rb",
-    "lib/smartdict/seeder.rb",
-    "lib/smartdict/translation.rb",
-    "lib/smartdict/translator.rb",
-    "plugins/hello_world/lib/hello_world.rb",
-    "plugins/hello_world/lib/hello_world/hello_command.rb",
-    "plugins/hello_world/lib/hello_world/plugin.rb",
-    "plugins/smartdict_google_translate/lib/smartdict_google_translate.rb",
-    "spec/factories.rb",
-    "spec/lib/smartdict/commands/abstract_command_spec.rb",
-    "spec/lib/smartdict/commands/help_command_spec.rb",
-    "spec/lib/smartdict/drivers/google_translate_driver_spec.rb",
-    "spec/lib/smartdict/models/driver_spec.rb",
-    "spec/lib/smartdict/models/language_spec.rb",
-    "spec/lib/smartdict/models/translation_query_spec.rb",
-    "spec/lib/smartdict/models/translation_spec.rb",
-    "spec/lib/smartdict/models/word_class_spec.rb",
-    "spec/lib/smartdict/models/word_spec.rb",
-    "spec/lib/smartdict/plugin_spec.rb",
-    "spec/lib/smartdict/translator_spec.rb",
-    "spec/lib/smartdict_spec.rb",
-    "spec/spec_helper.rb",
-    "spec/support/matchers/include_hash_matcher.rb",
-    "spec/support/shared_examples/command.rb"
+    "./bin/smartdict",
+    "./lib/smartdict-core.rb",
+    "./lib/smartdict.rb",
+    "./lib/smartdict/commands.rb",
+    "./lib/smartdict/commands/abstract_command.rb",
+    "./lib/smartdict/commands/has_format_list.rb",
+    "./lib/smartdict/commands/help_command.rb",
+    "./lib/smartdict/commands/list_command.rb",
+    "./lib/smartdict/commands/translate_command.rb",
+    "./lib/smartdict/core.rb",
+    "./lib/smartdict/core/command_manager.rb",
+    "./lib/smartdict/core/driver_manager.rb",
+    "./lib/smartdict/core/format_manager.rb",
+    "./lib/smartdict/core/has_logger.rb",
+    "./lib/smartdict/core/is_manager.rb",
+    "./lib/smartdict/core/logger.rb",
+    "./lib/smartdict/core/plugin_manager.rb",
+    "./lib/smartdict/drivers.rb",
+    "./lib/smartdict/drivers/abstract_driver.rb",
+    "./lib/smartdict/drivers/google_translate_driver.rb",
+    "./lib/smartdict/errors.rb",
+    "./lib/smartdict/formats.rb",
+    "./lib/smartdict/formats/abstract_format.rb",
+    "./lib/smartdict/formats/fb2_format.rb",
+    "./lib/smartdict/formats/text_color_format.rb",
+    "./lib/smartdict/formats/text_format.rb",
+    "./lib/smartdict/list_builder.rb",
+    "./lib/smartdict/models.rb",
+    "./lib/smartdict/models/driver.rb",
+    "./lib/smartdict/models/language.rb",
+    "./lib/smartdict/models/translated_word.rb",
+    "./lib/smartdict/models/translation.rb",
+    "./lib/smartdict/models/translation_query.rb",
+    "./lib/smartdict/models/word.rb",
+    "./lib/smartdict/models/word_class.rb",
+    "./lib/smartdict/plugin.rb",
+    "./lib/smartdict/plugin/initializer_context.rb",
+    "./lib/smartdict/runner.rb",
+    "./lib/smartdict/storage.rb",
+    "./lib/smartdict/storage/seeder.rb",
+    "./lib/smartdict/storage/seeds/drivers.csv",
+    "./lib/smartdict/storage/seeds/languages.csv",
+    "./lib/smartdict/storage/seeds/word_classes.csv",
+    "./lib/smartdict/translation.rb",
+    "./lib/smartdict/translator.rb",
+    "./lib/smartdict/version.rb",
+    "config/default_config.yml"
   ]
-  s.homepage = "http://github.com/greyblake/smartdict-core"
+  s.homepage = "http://github.com/smartdict/smartdict-core"
   s.licenses = ["GNU GPL v2"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.15"
-  s.summary = "CLI and GUI dictionary"
+  s.summary = "CLI dictionary"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
@@ -103,64 +77,76 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<dm-core>, [">= 0"])
       s.add_runtime_dependency(%q<dm-validations>, [">= 0"])
+      s.add_runtime_dependency(%q<dm-enum>, [">= 0"])
       s.add_runtime_dependency(%q<dm-migrations>, [">= 0"])
       s.add_runtime_dependency(%q<dm-sqlite-adapter>, [">= 0"])
       s.add_runtime_dependency(%q<configatron>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
+      s.add_runtime_dependency(%q<builder>, [">= 0"])
       s.add_development_dependency(%q<guard>, [">= 0"])
       s.add_development_dependency(%q<libnotify>, [">= 0"])
       s.add_development_dependency(%q<guard-rspec>, [">= 0"])
       s.add_development_dependency(%q<rb-readline>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_development_dependency(%q<pry>, [">= 0"])
       s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
-      s.add_development_dependency(%q<cucumber>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_development_dependency(%q<aruba>, [">= 0"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.1.2"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<dm-sweatshop>, [">= 0"])
       s.add_development_dependency(%q<dm-rspec>, [">= 0"])
       s.add_development_dependency(%q<webmock>, [">= 0"])
-      s.add_development_dependency(%q<metrical>, [">= 0"])
+      s.add_development_dependency(%q<simplecov>, [">= 0"])
+      s.add_development_dependency(%q<simplecov-vim>, [">= 0"])
     else
       s.add_dependency(%q<dm-core>, [">= 0"])
       s.add_dependency(%q<dm-validations>, [">= 0"])
+      s.add_dependency(%q<dm-enum>, [">= 0"])
       s.add_dependency(%q<dm-migrations>, [">= 0"])
       s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
       s.add_dependency(%q<configatron>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
+      s.add_dependency(%q<builder>, [">= 0"])
       s.add_dependency(%q<guard>, [">= 0"])
       s.add_dependency(%q<libnotify>, [">= 0"])
       s.add_dependency(%q<guard-rspec>, [">= 0"])
       s.add_dependency(%q<rb-readline>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 0"])
+      s.add_dependency(%q<pry>, [">= 0"])
       s.add_dependency(%q<yard>, ["~> 0.6.0"])
-      s.add_dependency(%q<cucumber>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_dependency(%q<rspec>, [">= 0"])
+      s.add_dependency(%q<aruba>, [">= 0"])
+      s.add_dependency(%q<bundler>, ["~> 1.1.2"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<dm-sweatshop>, [">= 0"])
       s.add_dependency(%q<dm-rspec>, [">= 0"])
       s.add_dependency(%q<webmock>, [">= 0"])
-      s.add_dependency(%q<metrical>, [">= 0"])
+      s.add_dependency(%q<simplecov>, [">= 0"])
+      s.add_dependency(%q<simplecov-vim>, [">= 0"])
     end
   else
     s.add_dependency(%q<dm-core>, [">= 0"])
     s.add_dependency(%q<dm-validations>, [">= 0"])
+    s.add_dependency(%q<dm-enum>, [">= 0"])
     s.add_dependency(%q<dm-migrations>, [">= 0"])
     s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
     s.add_dependency(%q<configatron>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 0"])
+    s.add_dependency(%q<builder>, [">= 0"])
     s.add_dependency(%q<guard>, [">= 0"])
     s.add_dependency(%q<libnotify>, [">= 0"])
     s.add_dependency(%q<guard-rspec>, [">= 0"])
     s.add_dependency(%q<rb-readline>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 0"])
+    s.add_dependency(%q<pry>, [">= 0"])
     s.add_dependency(%q<yard>, ["~> 0.6.0"])
-    s.add_dependency(%q<cucumber>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+    s.add_dependency(%q<rspec>, [">= 0"])
+    s.add_dependency(%q<aruba>, [">= 0"])
+    s.add_dependency(%q<bundler>, ["~> 1.1.2"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<dm-sweatshop>, [">= 0"])
     s.add_dependency(%q<dm-rspec>, [">= 0"])
     s.add_dependency(%q<webmock>, [">= 0"])
-    s.add_dependency(%q<metrical>, [">= 0"])
+    s.add_dependency(%q<simplecov>, [">= 0"])
+    s.add_dependency(%q<simplecov-vim>, [">= 0"])
   end
 end
 
