@@ -23,6 +23,7 @@ module Smartdict
   extend self
   extend ActiveSupport::Autoload
 
+  autoload :VERSION, 'smartdict/version'
   autoload :Core
   autoload :Storage
   autoload :Models
@@ -37,8 +38,6 @@ module Smartdict
   include Smartdict::Core
 
   ENVIRONMENTS = [:user, :test, :cucumber]
-  VERSION = "0.0.0"
-
 
   def load_plugins
     Core::PluginManager.load_plugins
