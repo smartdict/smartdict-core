@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "smartdict-core"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Potapov Sergey"]
-  s.date = "2012-04-08"
+  s.date = "2012-04-09"
   s.description = "CLI dictionary created to help you to learn foreign languages."
   s.email = "blake131313@gmail.com"
   s.executables = ["smartdict", "smartdict-populator"]
@@ -63,6 +63,8 @@ Gem::Specification.new do |s|
     "./lib/smartdict/translation.rb",
     "./lib/smartdict/translator.rb",
     "./lib/smartdict/version.rb",
+    "GPL-LICENSE.txt",
+    "VERSION",
     "config/default_config.yml"
   ]
   s.homepage = "http://github.com/smartdict/smartdict-core"
