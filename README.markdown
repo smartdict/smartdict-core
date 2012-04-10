@@ -1,6 +1,9 @@
-# Smartdict
+# smartdict-core [![Build Status](https://secure.travis-ci.org/smartdict/smartdict-core.png)](http://travis-ci.org/smartdict/smartdict-core)
 
-Simple dictionary.
+By [Sergey Potapov](https://github.com/greyblake)
+
+
+Core of [Smartdict dictionary](https://github.com/smartdict/smartdict).
 
 ## Installation
 
