@@ -9,6 +9,7 @@ class Smartdict::ListBuilder
   # * +:from_lang+
   # * +:to_lang+
   # * +:driver+
+  # * +:limit+
   #
   # @return [Array] array of {Smartdict::Translation}.
   def self.build(options = {})
@@ -33,6 +34,7 @@ class Smartdict::ListBuilder
     query = query.all(Translation.to_lang_id   => to_lang.id)   if to_lang
     query = query.all(Translation.from_lang_id => from_lang.id) if from_lang
     query = query.all(Translation.driver_id    => driver.id)    if driver
+    query = query.all(:limit => @options[:limit]) if @options[:limit]
     query
   end
 

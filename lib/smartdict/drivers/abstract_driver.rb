@@ -40,8 +40,8 @@ class Smartdict::Drivers::AbstractDriver
 
   def initialize(word, from_lang, to_lang)
     @word      = word
-    @from_lang = from_lang
-    @to_lang   = to_lang
+    @from_lang = from_lang.to_s
+    @to_lang   = to_lang.to_s
     translate
   end
 

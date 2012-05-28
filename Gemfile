@@ -13,10 +13,10 @@ gem 'configatron'
 gem 'activesupport'
 
 gem "builder"
+gem "nokogiri"
 
 
 group :development, :test do
-
   gem 'guard'
   gem 'libnotify'
   gem 'guard-rspec'
