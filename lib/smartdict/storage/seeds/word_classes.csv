@@ -7,4 +7,6 @@ id,name
 6,numeral
 7,interjection
 8,abbreviation
-9,other
+9,pronoun
+10,conjunction
+11,other
