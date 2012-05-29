@@ -16,12 +16,19 @@ module Smartdict::Commands
 
     options :from   => lambda { configatron.default.from_lang },
             :to     => lambda { configatron.default.to_lang },
-            :format => lambda { configatron.default.format }
+            :format => lambda { configatron.default.format },
+            :driver => nil
 
     def execute
-      Smartdict::Translator.from_lang_code = @options[:from]
-      Smartdict::Translator.to_lang_code   = @options[:to]
-      translation = Smartdict::Translator.translate(@arguments[:word])
+      translator_opts = {
+        :from_lang => @options[:from],
+        :to_lang   => @options[:to],
+        :log       => true
+      }
+      translator_opts[:driver] = @options[:driver] if @options[:driver]
+
+      translator = Smartdict::Translator.new(translator_opts)
+      translation = translator.translate(@arguments[:word])
       puts format.format_translation(translation)
     end
 

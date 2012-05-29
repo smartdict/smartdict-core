@@ -1,8 +1,8 @@
-Feature: smartdict
+Feature: help command
 
-    In order to start using smartdict
+    In order to see help message
     As a user
-    I want to use "smartdict" command
+    I want to use "smartdict help" command
 
     Scenario Outline: see help message
         When I run `<command>`
@@ -19,3 +19,4 @@ Feature: smartdict
             |smartdict       |
             |smartdict -h    |
             |smartdict --help|
+            |smartdict help  |

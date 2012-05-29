@@ -27,7 +27,7 @@ class Smartdict::Drivers::AbstractDriver
   attr_accessor :translated, :transcription
 
   # Is used to identify a driver
-  cattr_accessor :name
+  class_attribute :name
 
   def self.translate(*args)
     self.new(*args).build_translation
