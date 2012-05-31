@@ -43,6 +43,7 @@ class Smartdict::Drivers::AbstractDriver
     @from_lang = from_lang.to_s
     @to_lang   = to_lang.to_s
     translate
+    raise Smartdict::TranslationNotFound if(translated.nil? || translated.empty?)
   end
 
   def build_translation

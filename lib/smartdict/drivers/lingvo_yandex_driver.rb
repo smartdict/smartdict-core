@@ -16,7 +16,22 @@ module Smartdict::Drivers
     # Host of Lingvo service.
     HOST = "lingvo.yandex.ru"
 
+    # Mapping for word classes. Default is "other"
+    WORD_CLASSES = {
+      "имя существительное"     => "noun",
+      "имя прилагательное"      => "adjective",
+      "глагол"                  => "verb",
+      "наречие"                 => "adverb",
+      "предлог"                 => "preposition",
+      "имя числительное"        => "numeral",
+      "междометие (часть речи)" => "interjection",
+      "сокращение"              => "abbreviation",
+      "местоимение"             => "pronoun",
+      "союз (часть речи)"       => "conjunction"
+    }.tap{ |hash| hash.default = "other" }
+
     set_name "lingvo_yandex"
+
 
 
     # TODO: refactor
@@ -46,7 +61,7 @@ module Smartdict::Drivers
       return unless acronym
 
       ru_word_class = acronym["title"]
-      word_class = translate_word_class(ru_word_class)
+      word_class = WORD_CLASSES[ru_word_class]
       translations = []
 
       html_element.css("ul > li").each do |tr|
@@ -55,7 +70,7 @@ module Smartdict::Drivers
 
         # use strong tag as an anchor
         strong = tr.css("strong").first
-        if strong && strong.text =~ /\d+\)/
+        if strong && strong.text =~ /\d+|[а-я]+\)/
           node = strong
           while(node = node.next_sibling)
             if node.text? || node.name == "a"
@@ -68,19 +83,22 @@ module Smartdict::Drivers
             end
           end
         end
-        translations += line.split(/,|;/).map(&:strip).reject(&:empty?)
+        translations += words_from_line(line)
       end
+
 
       # sometimes there is only one meaning
       if translations.empty?
-        if span = html_element.css("span > a").first
+        if a_tag = html_element.css("span > a").first
+          line = a_tag.text
+        elsif span = html_element.css("span").first
           line = span.text
         elsif i_tag = html_element.xpath("i[2]")
           line = i_tag.text
         else
           return nil
         end
-        translations = line.split(/,|;/).map(&:strip).reject(&:empty?)
+        translations = words_from_line(line)
       end
 
       self.translated[word_class] = translations.uniq
@@ -108,21 +126,11 @@ module Smartdict::Drivers
       CGI.escape(str)
     end
 
-    def translate_word_class(ru_name)
-      mapping = {
-        "имя существительное"     => "noun",
-        "имя прилагательное"      => "adjective",
-        "глагол"                  => "verb",
-        "наречие"                 => "adverb",
-        "предлог"                 => "preposition",
-        "имя числительное"        => "numeral",
-        "междометие (часть речи)" => "interjection",
-        "сокращение"              => "abbreviation",
-        "местоимение"             => "pronoun",
-        "союз (часть речи)"       => "conjunction"
-      }
-      mapping[ru_name] || 'other'
-      #raise("Unknown word class \"#{ru_name}\"")
+
+    private
+
+    def words_from_line(line)
+      line.split(/,|;/).map(&:strip).reject(&:empty?)
     end
 
   end
