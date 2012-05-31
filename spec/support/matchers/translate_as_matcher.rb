@@ -4,7 +4,8 @@ RSpec::Matchers.define :translate_as do |word_class|
   end
 
   match do |translation|
-    translation.translated[word_class.to_s] == @words
+    @actual_words = translation.translated[word_class.to_s]
+    @actual_words == @words
   end
 
   match_for_should_not do |model|
@@ -16,6 +17,7 @@ RSpec::Matchers.define :translate_as do |word_class|
   end
 
   failure_message_for_should do |model|
-    "should not translates as #{word_class} with words: #{@words.inspect}"
+    "it should translate as #{word_class} with words: #{@words.inspect}\n" \
+    "but actually got: #{@actual_words.inspect}"
   end
 end

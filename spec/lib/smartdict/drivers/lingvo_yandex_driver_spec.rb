@@ -31,7 +31,7 @@ describe Smartdict::Drivers::LingvoYandexDriver do
 
 
       it { should translate_as(:numeral).with("один", "номер один", "первый") }
-      it { should translate_as(:noun).with("единица", "один", "одиночка", "час", "однодолларовая купюра купюра достоинством один фунт стерлингов") }
+      it { should translate_as(:noun).with("единица", "один", "одиночка", "час", "однодолларовая купюра купюра достоинством один фунт стерлингов", "история", "анекдот", "байка") }
       it { should translate_as(:pronoun).with("кто-то", "некий", "некто") }
       it { should translate_as(:adjective).with("единственный", "уникальный", "определённый", "единственный в своём роде", "одинаковый", "такой же", "какой-то", "некий", "неопределённый", "очень", "крайне") }
     end
@@ -78,6 +78,47 @@ describe Smartdict::Drivers::LingvoYandexDriver do
     end
 
 
+    describe "word 'obsolete'" do
+      before :all do
+        stub_request(:get, "http://lingvo.yandex.ru/obsolete/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
+          to_return(:body => test_data("obsolete", :en, :ru))
+        @result = Smartdict::Drivers::LingvoYandexDriver.translate("obsolete", "en", "ru")
+      end
+
+      subject { @result }
+
+      its(:word)          { should == "obsolete" }
+      its(:driver)        { should == "lingvo_yandex" }
+      its(:from_lang)     { should == "en" }
+      its(:to_lang)       { should == "ru" }
+      its(:transcription) { should == "'ɔbs(ə)liːt" }
+      its(:translated)    { should_not be_empty }
+
+      it { should translate_as(:adjective).with("устарелый", "вышедший из употребления", "старомодный", "исчезающий", "остаточный", "рудиментарный") }
+    end
+
+
+    describe "word 'sing'" do
+      before :all do
+        stub_request(:get, "http://lingvo.yandex.ru/sing/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
+          to_return(:body => test_data("sing", :en, :ru))
+        @result = Smartdict::Drivers::LingvoYandexDriver.translate("sing", "en", "ru")
+      end
+
+      subject { @result }
+
+      its(:word)          { should == "sing" }
+      its(:driver)        { should == "lingvo_yandex" }
+      its(:from_lang)     { should == "en" }
+      its(:to_lang)       { should == "ru" }
+      its(:transcription) { should == "sɪŋ" }
+      its(:translated)    { should_not be_empty }
+
+      it { should translate_as(:verb).with("петь", "напевать", "издавать трели", "заливаться", "кукарекать", "каркатькричать", "квакать", "сверчать", "трещать", "звенеть", "стрекотать", "издавать звуки при игре", "стучать", "доносить", "гудетьсвистеть", "звенеть в ушах", "испытывать звон в ушах", "воспевать", "прославлять", "ликовать", "читать нараспев", "сопровождать пением") }
+      it { should translate_as(:noun).with("свист", "шумзвон", "стрекотаниезвон", "пение", "пение хором в своей компании", "спевка") }
+    end
+
+
     describe "when there is no translation" do
       it "raises TranslationNotFound error" do
         stub_request(:get, "http://lingvo.yandex.ru/doesntexist/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
@@ -90,4 +131,3 @@ describe Smartdict::Drivers::LingvoYandexDriver do
 
   end
 end
-

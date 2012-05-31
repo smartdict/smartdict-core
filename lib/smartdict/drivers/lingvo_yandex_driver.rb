@@ -37,19 +37,31 @@ module Smartdict::Drivers
     # TODO: refactor
     def translate
       doc = Nokogiri::HTML(get_response)
-      main_div = doc.css("div.b-translate").first
 
-      if span = main_div.css("h1.b-translate__word > span").first
-        self.transcription = span.text
+      # TODO: transription in another element!
+      if main_div = doc.css("div.b-translate > div.b-translate__value > ul > li#I").first
+        translate__value = main_div
+        if span = main_div.css("span.b-translate__tr").first
+          self.transcription = span.text
+        end
+      else
+        main_div = doc.css("div.b-translate").first
+        translate__value = main_div.css("div.b-translate__value")
+        if span = main_div.css("h1.b-translate__word > span").first
+          self.transcription = span.text
+        end
       end
+
       self.translated = {}
 
-      translate__value = main_div.css("div.b-translate__value")
-      lis = main_div.css("div.b-translate__value > ul > li")
-
-      lis.each do |li|
-        grep_meanings(li)
+      if translate__value.xpath("i/acronym").empty?
+        translate__value.xpath("ul/li").each do |li|
+          grep_meanings(li)
+        end
+      else
+        grep_meanings(translate__value)
       end
+
       if self.translated.empty?
         grep_meanings(translate__value)
       end
@@ -76,7 +88,7 @@ module Smartdict::Drivers
             if node.text? || node.name == "a"
               text = node.text
               line << text unless text =~ /\(|\)/
-            elsif node.name == "em"
+            elsif ["em", "acronym"].include? node.name
               next
             else
               break
