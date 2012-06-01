@@ -74,6 +74,13 @@ describe Smartdict::ListBuilder do
         it { should =~ %w(mir) }
       end
     end
+    
+    context "sql options" do
+      describe ":limit" do
+        let(:options) {{ :limit => 2 }}
+        its(:size) { should == 2 }
+      end
+    end
 
     context "more options together" do
       describe "nothing to return" do

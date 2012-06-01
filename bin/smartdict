@@ -9,7 +9,8 @@ require 'smartdict/runner'
 # TODO: remove before release
 # require 'pry'
 
-Smartdict.env = :user
+env = ENV["SMARTDICT_ENV"] ? ENV["SMARTDICT_ENV"].to_sym : :user
+Smartdict.env = env
 
 args = ARGV.clone
 

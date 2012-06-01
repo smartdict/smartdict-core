@@ -1,38 +1,32 @@
 module Smartdict
   class Translator
+    extend ActiveSupport::Autoload
 
-    class_attribute :driver_name
-    self.driver_name = :google_translate
+    autoload :DriverConfiguration
+    autoload :Base
 
-    class_attribute :from_lang_code
-    self.from_lang_code = :en
+    attr_reader :default_opts
 
-    class_attribute :to_lang_code
-    self.to_lang_code = :ru
-
-    class_attribute :log_queries
-    self.log_queries = true
-
-
-    def self.translate(word)
-      unless translation_model = Models::Translation.find(word, from_lang_code, to_lang_code, driver_name)
-        translation = driver.translate(word, from_lang_code, to_lang_code)
-        translation_model = Models::Translation.create_from_struct(translation)
-      end
-      log_query(translation_model) if log_queries
-      translation_model.to_struct
+    def initialize(default_opts = {})
+      @default_opts = default_opts
+      @middleware_classes = [Base, DriverConfiguration]
+      @middleware = build_middleware
     end
 
-    def self.log_query(translation)
-      Models::TranslationQuery.create(:translation => translation)
+    def translate(word, opts = {})
+      opts.reverse_merge!(default_opts)
+      @middleware.last.call(word, opts)
     end
 
 
     private
 
-    def self.driver
-      Smartdict::Core::DriverManager.find(driver_name)
+    def build_middleware
+      hooks = []
+      @middleware_classes.each do |klass|
+        hooks << klass.new(hooks.last)
+      end
+      hooks
     end
-
   end
 end

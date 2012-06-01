@@ -73,6 +73,7 @@ GEM
     libnotify (0.7.2)
     method_source (0.7.1)
     multi_json (1.2.0)
+    nokogiri (1.5.2)
     pry (0.9.8.4)
       coderay (~> 1.0.5)
       method_source (~> 0.7.1)
@@ -123,6 +124,7 @@ DEPENDENCIES
   guard-rspec
   jeweler (~> 1.6.4)
   libnotify
+  nokogiri
   pry
   rb-readline
   rspec

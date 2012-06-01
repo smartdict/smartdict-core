@@ -3,4 +3,5 @@ module Smartdict::Drivers
 
   autoload :AbstractDriver
   autoload :GoogleTranslateDriver
+  autoload :LingvoYandexDriver
 end

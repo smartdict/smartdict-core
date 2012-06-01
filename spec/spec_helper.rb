@@ -3,7 +3,8 @@ require 'dm-rspec'
 require 'dm-sweatshop'
 require 'webmock/rspec'
 require 'pry'
-load File.expand_path("../../.simplecov", __FILE__)
+
+load File.expand_path("../../.simplecov", __FILE__) if RUBY_VERSION =~ /^1\.9/
 
 require 'smartdict'
 

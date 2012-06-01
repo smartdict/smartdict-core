@@ -1,10 +1,7 @@
 source "http://rubygems.org"
-# Add dependencies required to use your gem here.
-# Example:
-#   gem "activesupport", ">= 2.3.5"
 
-# Add dependencies to develop your gem here.
-# Include everything needed to run rake, tests, features, etc.
+def ruby18?; RUBY_VERSION =~ /^1\.8/ ; end
+def ruby19?; RUBY_VERSION =~ /^1\.9/ ; end
 
 gem 'dm-core'
 gem 'dm-validations'
@@ -16,10 +13,10 @@ gem 'configatron'
 gem 'activesupport'
 
 gem "builder"
+gem "nokogiri"
 
 
 group :development, :test do
-
   gem 'guard'
   gem 'libnotify'
   gem 'guard-rspec'
@@ -37,7 +34,8 @@ group :development, :test do
   gem 'dm-rspec'
   gem 'webmock'
 
-  gem 'simplecov', :require => false
-  gem 'simplecov-vim', :require => false
+  if ruby19?
+    gem 'simplecov'    , :require => false
+    gem 'simplecov-vim', :require => false
+  end
 end
-

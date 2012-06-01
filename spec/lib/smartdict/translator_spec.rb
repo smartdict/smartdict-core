@@ -1,12 +1,22 @@
 require 'spec_helper'
 
 describe Smartdict::Translator do
-  describe ".translate" do
+  let(:translator) do
+    Smartdict::Translator.new(
+      :from_lang => :en,
+      :to_lang   => :ru,
+      :driver    => :google_translate,
+      :log       => true
+    )
+  end
+
+  describe "#translate" do
+
     context "when translation doesn't exist in storage" do
       before :all do
         stub_request(:get, "http://translate.google.com/translate_a/t?client=t&hl=en&multires=1&otf=1&rom=1&sc=1&sl=en&ssel=0&text=today&tl=ru&tsel=0").
           to_return(:body => %Q{[[["segodnya","today","segodnya",""]],[["noun",["segodnya","nashi dni"]],["adverb",["v nashi dni"]]],"en",,[["segodnya",[5],1,0,1000,0,1,0]],[["today",4,,,""],["today",5,[["segodnya",1000,1,0],["segodnyashnee",0,1,0],["segodnyashney",0,1,0],["segodnyashnem",0,1,0],["segodnyashnego",0,1,0]],[[0,5]],"today"]],,,[["en"]],85]})
-        @translation = Smartdict::Translator.translate("today")
+        @translation = translator.translate("today")
       end
 
       describe "returned translation" do
@@ -44,7 +54,7 @@ describe Smartdict::Translator do
           Smartdict::Models::TranslatedWord.create!(:word_class => verb, :translation => tr, :word => davat)
           Smartdict::Models::TranslatedWord.create!(:word_class => verb, :translation => tr, :word => day)
 
-          @translation = Smartdict::Translator.translate("give")
+          @translation = translator.translate("give")
         end
 
         subject { @translation }

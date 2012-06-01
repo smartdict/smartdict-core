@@ -27,7 +27,7 @@ class Smartdict::Drivers::AbstractDriver
   attr_accessor :translated, :transcription
 
   # Is used to identify a driver
-  cattr_accessor :name
+  class_attribute :name
 
   def self.translate(*args)
     self.new(*args).build_translation
@@ -40,9 +40,10 @@ class Smartdict::Drivers::AbstractDriver
 
   def initialize(word, from_lang, to_lang)
     @word      = word
-    @from_lang = from_lang
-    @to_lang   = to_lang
+    @from_lang = from_lang.to_s
+    @to_lang   = to_lang.to_s
     translate
+    raise Smartdict::TranslationNotFound if(translated.nil? || translated.empty?)
   end
 
   def build_translation

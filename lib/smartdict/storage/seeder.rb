@@ -19,8 +19,11 @@ module Smartdict::Storage::Seeder
 
   def seed_from(csv_file)
     model = csv_file_to_model(csv_file)
-    CSV.read(csv_file, :headers => true).each do |row|
-      model.create(row.to_hash)
+    csv = CSV.open(csv_file, 'r')
+    headers = csv.shift
+    while(row = csv.shift and not row.empty?)
+      attrs = Hash[headers.zip(row)]
+      model.create(attrs)
     end
   end
 

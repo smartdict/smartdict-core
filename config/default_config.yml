@@ -13,3 +13,7 @@ default:
     - de
     - es
     - fr
+
+drivers:
+  default: google_translate
+  en-ru: lingvo_yandex

@@ -6,4 +6,5 @@ class Smartdict::Core::DriverManager
   include Smartdict::Drivers
 
   register 'google_translate', GoogleTranslateDriver
+  register 'lingvo_yandex'   , LingvoYandexDriver
 end
