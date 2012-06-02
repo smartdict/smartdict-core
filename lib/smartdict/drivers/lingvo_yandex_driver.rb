@@ -3,15 +3,16 @@
 require 'cgi'
 require 'nokogiri'
 
-# DISCLAIMER:
-# It's was written when I had one hand broken. Refactoring costs a lot of
-# movements so that I've left it as it was. I'm gonna refactor it soon.
-# -- Sergey Potapov
-#
-# TODO:
-#   * Refactor
 module Smartdict::Drivers
   # The translation driver for Google Translate service.
+  #
+  # DISCLAIMER:
+  # It's was written when I had one hand broken. Refactoring costs a lot of
+  # movements so that I've left it as it was. I'm gonna refactor it soon.
+  # -- Sergey Potapov
+  #
+  # TODO:
+  #   * Refactor
   class LingvoYandexDriver < AbstractDriver
 
     # Pretend being Firefox :)
