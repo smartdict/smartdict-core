@@ -3,8 +3,12 @@
 require 'cgi'
 require 'nokogiri'
 
+# DISCLAIMER:
+# It's was written when I had one hand broken. Refactoring costs a lot of
+# movements so that I've left it as it was. I'm gonna refactor it soon.
+# -- Sergey Potapov
+#
 # TODO:
-#   * Write tests
 #   * Refactor
 module Smartdict::Drivers
   # The translation driver for Google Translate service.
@@ -38,32 +42,24 @@ module Smartdict::Drivers
     def translate
       doc = Nokogiri::HTML(get_response)
 
-      # TODO: transription in another element!
       if main_div = doc.css("div.b-translate > div.b-translate__value > ul > li#I").first
         translate__value = main_div
-        if span = main_div.css("span.b-translate__tr").first
-          self.transcription = span.text
-        end
       else
         main_div = doc.css("div.b-translate").first
         translate__value = main_div.css("div.b-translate__value")
-        if span = main_div.css("h1.b-translate__word > span").first
-          self.transcription = span.text
-        end
       end
+
+      # Fetch transcription
+      self.transcription = main_div.xpath('(.//span[@class="b-translate__tr"])[1]').try(:text)
 
       self.translated = {}
 
-      if translate__value.xpath("i/acronym").empty?
-        translate__value.xpath("ul/li").each do |li|
+      if translate__value.xpath("./i/acronym").any?
+        grep_meanings(translate__value)
+      else
+        translate__value.xpath("./ul/li").each do |li|
           grep_meanings(li)
         end
-      else
-        grep_meanings(translate__value)
-      end
-
-      if self.translated.empty?
-        grep_meanings(translate__value)
       end
     end
 
