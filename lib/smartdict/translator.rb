@@ -2,14 +2,15 @@ module Smartdict
   class Translator
     extend ActiveSupport::Autoload
 
-    autoload :DriverConfiguration
     autoload :Base
+    autoload :DriverConfiguration
+    autoload :LanguageDetector
 
     attr_reader :default_opts
 
     def initialize(default_opts = {})
       @default_opts = default_opts
-      @middleware_classes = [Base, DriverConfiguration]
+      @middleware_classes = [Base, DriverConfiguration, LanguageDetector]
       @middleware = build_middleware
     end
 
