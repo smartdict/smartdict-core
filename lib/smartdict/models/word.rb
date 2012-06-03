@@ -4,7 +4,6 @@ class Smartdict::Models::Word
   property :id           , Serial
   property :name         , String, :unique_index => :index_word
   property :language_id  , Integer, :unique_index => :index_word
-  property :transcription, String
 
   belongs_to :language
   has n, :translations
