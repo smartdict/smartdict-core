@@ -11,6 +11,8 @@
 #   # It delegates call to translator like this:
 #   #   translator.call("groß", :from_lang => :de, :to_lang => :en)
 #   # Because in English there is no character "ß" but it exists in German.
+#
+# NOTE: It doesn't support Ruby 1.8
 class Smartdict::Translator::LanguageDetector
 
   CHARS = {
@@ -33,7 +35,7 @@ class Smartdict::Translator::LanguageDetector
   end
 
   def call(word, opts)
-    if exchange?(word, opts[:from_lang], opts[:to_lang])
+    if exchange?(word, opts[:from_lang], opts[:to_lang]) && !ruby18?
       opts[:to_lang], opts[:from_lang] = opts[:from_lang], opts[:to_lang]
     end
     @translator.call(word, opts)
@@ -47,6 +49,10 @@ class Smartdict::Translator::LanguageDetector
     to_matcher   = @matchers[to_lang.to_sym]
     return false unless [from_matcher, to_matcher].all?
     to_matcher.match?(word) && !from_matcher.match?(word)
+  end
+
+  def ruby18?
+    RUBY_VERSION =~ /^1\.8/
   end
 
 
