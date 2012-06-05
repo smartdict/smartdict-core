@@ -2,11 +2,12 @@ class Smartdict::Models::Translation
   include DataMapper::Resource
   include Smartdict::Models
 
-  property :id          , Serial
-  property :word_id     , Integer, :unique_index => :index_translation
-  property :from_lang_id, Integer, :unique_index => :index_translation
-  property :to_lang_id  , Integer, :unique_index => :index_translation
-  property :driver_id   , Integer, :unique_index => :index_translation
+  property :id           , Serial
+  property :word_id      , Integer, :unique_index => :index_translation
+  property :from_lang_id , Integer, :unique_index => :index_translation
+  property :to_lang_id   , Integer, :unique_index => :index_translation
+  property :driver_id    , Integer, :unique_index => :index_translation
+  property :transcription, String
 
   belongs_to :word
   belongs_to :driver
@@ -28,14 +29,14 @@ class Smartdict::Models::Translation
     driver    = Driver[struct.driver]
 
     word = Word.first_or_create(:name => struct.word, :language_id => from_lang.id)
-    word.transcription = struct.transcription if word.transcription.blank?
     word.save!
 
     translation = self.create(
-      :word      => word,
-      :driver    => driver,
-      :from_lang_id => from_lang.id,
-      :to_lang_id   => to_lang.id
+      :word          => word,
+      :driver        => driver,
+      :from_lang_id  => from_lang.id,
+      :to_lang_id    => to_lang.id,
+      :transcription => struct.transcription
     )
 
     struct.translated.each do |word_class_name, meanings|
@@ -59,7 +60,7 @@ class Smartdict::Models::Translation
   end
 
 
-  # TODO: it's a hack. Remove.
+  # TODO: it's a hack which necessary because of weird DM bugs.
   def initialize(*args)
     self.class.finalize
     self.word_class_id = 1
@@ -69,7 +70,7 @@ class Smartdict::Models::Translation
   def to_struct
     struct = Smartdict::Translation.new(
       :word          => word.name,
-      :transcription => word.transcription,
+      :transcription => self.transcription,
       :from_lang     => from_lang.code,
       :to_lang       => to_lang.code,
       :driver        => driver.name

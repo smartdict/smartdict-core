@@ -4,7 +4,6 @@ describe Smartdict::Models::Word do
   describe 'properties' do
     it { should have_property :id            }
     it { should have_property :name          }
-    it { should have_property :transcription }
     it { should have_property :language_id   }
   end
 
