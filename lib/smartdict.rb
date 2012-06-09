@@ -47,6 +47,7 @@ module Smartdict
     Dir.mkdir user_dir unless File.exists?(user_dir)
     init_config
     Storage.prepare!
+    File.open("/tmp/smartdict_log.txt", "w") { |f| f.puts  env}
   end
 
   def init_config

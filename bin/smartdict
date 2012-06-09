@@ -5,9 +5,6 @@ require 'rubygems'
 
 require 'smartdict'
 
-# TODO: remove before release
-# require 'pry'
-
 env = ENV["SMARTDICT_ENV"] ? ENV["SMARTDICT_ENV"].to_sym : :user
 Smartdict.env = env
 
