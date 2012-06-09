@@ -3,6 +3,7 @@ module Smartdict::Commands
 
   autoload :AbstractCommand
   autoload :HelpCommand
+  autoload :VersionCommand
   autoload :TranslateCommand
   autoload :ListCommand
 
