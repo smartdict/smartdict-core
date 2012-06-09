@@ -4,7 +4,6 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'rubygems'
 
 require 'smartdict'
-require 'smartdict/runner'
 
 # TODO: remove before release
 # require 'pry'
@@ -16,6 +15,5 @@ args = ARGV.clone
 
 Smartdict.load_plugins
 
-# TODO :move Smartdict.run to Runner.run
 Smartdict.run
-Smartdict::Runner.run(args)
+Smartdict::Core::CommandManager.run(args)
