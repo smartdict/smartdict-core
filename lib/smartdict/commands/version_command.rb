@@ -20,11 +20,10 @@ module Smartdict::Commands
 
     # :nodoc:
     def execute
-      msg = "\n" \
-      "Smartdict #{Smartdict::VERSION}\n" \
-      "Author: Sergey Potapov (blake131313 at gmail)\n" \
-      "URL: http://smartdict.net\n\n"
-      puts msg
+      info = Smartdict.info
+      puts "Smartdict core v#{info.version}\n" \
+           "Author: #{info.author} (#{info.email})\n" \
+           "URL: #{info.url}"
     end
   end
 end

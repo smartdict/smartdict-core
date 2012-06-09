@@ -34,6 +34,7 @@ module Smartdict
   autoload :Formats
   autoload :Translation
   autoload :ListBuilder
+  autoload :Info
 
   include Smartdict::Core
 
@@ -47,7 +48,6 @@ module Smartdict
     Dir.mkdir user_dir unless File.exists?(user_dir)
     init_config
     Storage.prepare!
-    File.open("/tmp/smartdict_log.txt", "w") { |f| f.puts  env}
   end
 
   def init_config
@@ -94,5 +94,9 @@ module Smartdict
 
   def plugins_dir
     ENV['SMARTDICT_PLUGINS_DIR'] or File.join(root_dir, 'plugins')
+  end
+
+  def info
+    Info.instance
   end
 end

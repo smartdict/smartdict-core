@@ -5,3 +5,4 @@
 * Language auto detection.
 * DB schema changes: move transcription property to Translation from Word.
 * Version command for inspect information about the program.
+* Smartdict.info - API to inspect information about the program.
