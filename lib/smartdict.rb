@@ -33,7 +33,7 @@ module Smartdict
   autoload :Translator
   autoload :Formats
   autoload :Translation
-  autoload :ListBuilder
+  autoload :Log
   autoload :Info
 
   include Smartdict::Core

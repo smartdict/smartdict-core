@@ -1,6 +1,4 @@
-# TODO: tests
-
-class Smartdict::ListBuilder
+class Smartdict::Log
   include Smartdict::Models
 
   # Options:
@@ -14,8 +12,8 @@ class Smartdict::ListBuilder
   # * +:unique+
   #
   # @return [Array] array of {Smartdict::Translation}.
-  def self.build(options = {})
-    new(options).send(:build)
+  def self.fetch(options = {})
+    new(options).send(:fetch)
   end
 
 
@@ -25,7 +23,7 @@ class Smartdict::ListBuilder
     @options = options
   end
 
-  def build
+  def fetch
     fetch_translations.map(&:to_struct)
   end
 
@@ -48,13 +46,15 @@ class Smartdict::ListBuilder
       sql << " WHERE "
 
       if @options[:till]
-        sql << " #{queries_table}.created_at < \"#{@options[:till].to_s(:db)}\" "
+        till = @options[:till].is_a?(String) ? Date.parse(@options[:till]) : @options[:till]
+        sql << " #{queries_table}.created_at < \"#{till.to_s(:db)}\" "
         where = true
       end
 
       if @options[:since]
         sql << " AND " if where
-        sql << " #{queries_table}.created_at >  \"#{@options[:since].to_s(:db)}\" "
+        since = @options[:since].is_a?(String) ? Date.parse(@options[:since]) : @options[:since]
+        sql << " #{queries_table}.created_at >  \"#{since.to_s(:db)}\" "
         where = true
       end
 
@@ -91,7 +91,8 @@ class Smartdict::ListBuilder
 
     result = []
     translation_structs.each do |struct|
-      result << Translation.new(Hash[struct.each_pair.to_a])
+      translation = Translation.first(:id => struct.id)
+      result << translation
     end
 
     return result

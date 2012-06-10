@@ -24,14 +24,14 @@ module Smartdict::Commands
             :driver => nil
 
     def execute
-      list_opts = {
+      fetch_opts = {
         :since     => @options[:since],
         :till      => @options[:till],
         :from_lang => @options[:from],
         :to_lang   => @options[:to],
         :driver    => @options[:driver]
       }
-      translations = Smartdict::ListBuilder.build(list_opts)
+      translations = Smartdict::Log.fetch(fetch_opts)
       puts format.format_list(translations)
     end
 

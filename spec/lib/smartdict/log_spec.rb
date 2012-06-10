@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Smartdict::ListBuilder do
+describe Smartdict::Log do
 
   def create_query(word, from_lang, to_lang, driver, created_at)
     from_lang = Smartdict::Models::Language[from_lang]
@@ -32,12 +32,12 @@ describe Smartdict::ListBuilder do
   after(:all) { clean_storage! }
 
 
-  describe '.build' do
-    subject { Smartdict::ListBuilder.build(options).map(&:word) }
+  describe '.fetch' do
+    subject { described_class.fetch(options).map(&:word) }
 
     context 'without options' do
       it 'returns all translations' do
-        word_names = Smartdict::ListBuilder.build.map(&:word)
+        word_names = Smartdict::Log.fetch.map(&:word)
         word_names.should =~ %w(struna hello privet hallo mir)
       end
     end
@@ -91,6 +91,8 @@ describe Smartdict::ListBuilder do
         let(:options) {{ :order_desc => true, :limit => 3 }}
         it { should == %w(hallo mir privet) }
       end
+
+      # TODO: test for unique option
     end
 
     context "more options together" do
