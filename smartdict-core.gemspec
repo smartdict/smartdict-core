@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "smartdict-core"
-  s.version = "0.0.2"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Potapov Sergey"]
-  s.date = "2012-04-09"
+  s.date = "2012-06-10"
   s.description = "CLI dictionary created to help you to learn foreign languages."
   s.email = "blake131313@gmail.com"
   s.executables = ["smartdict", "smartdict-populator"]
@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
     "README.markdown"
   ]
   s.files = [
-    "./bin/smartdict",
     "./lib/smartdict-core.rb",
     "./lib/smartdict.rb",
     "./lib/smartdict/commands.rb",
@@ -26,6 +25,7 @@ Gem::Specification.new do |s|
     "./lib/smartdict/commands/help_command.rb",
     "./lib/smartdict/commands/list_command.rb",
     "./lib/smartdict/commands/translate_command.rb",
+    "./lib/smartdict/commands/version_command.rb",
     "./lib/smartdict/core.rb",
     "./lib/smartdict/core/command_manager.rb",
     "./lib/smartdict/core/driver_manager.rb",
@@ -37,13 +37,15 @@ Gem::Specification.new do |s|
     "./lib/smartdict/drivers.rb",
     "./lib/smartdict/drivers/abstract_driver.rb",
     "./lib/smartdict/drivers/google_translate_driver.rb",
+    "./lib/smartdict/drivers/lingvo_yandex_driver.rb",
     "./lib/smartdict/errors.rb",
     "./lib/smartdict/formats.rb",
     "./lib/smartdict/formats/abstract_format.rb",
     "./lib/smartdict/formats/fb2_format.rb",
     "./lib/smartdict/formats/text_color_format.rb",
     "./lib/smartdict/formats/text_format.rb",
-    "./lib/smartdict/list_builder.rb",
+    "./lib/smartdict/info.rb",
+    "./lib/smartdict/log.rb",
     "./lib/smartdict/models.rb",
     "./lib/smartdict/models/driver.rb",
     "./lib/smartdict/models/language.rb",
@@ -54,7 +56,6 @@ Gem::Specification.new do |s|
     "./lib/smartdict/models/word_class.rb",
     "./lib/smartdict/plugin.rb",
     "./lib/smartdict/plugin/initializer_context.rb",
-    "./lib/smartdict/runner.rb",
     "./lib/smartdict/storage.rb",
     "./lib/smartdict/storage/seeder.rb",
     "./lib/smartdict/storage/seeds/drivers.csv",
@@ -62,15 +63,19 @@ Gem::Specification.new do |s|
     "./lib/smartdict/storage/seeds/word_classes.csv",
     "./lib/smartdict/translation.rb",
     "./lib/smartdict/translator.rb",
+    "./lib/smartdict/translator/base.rb",
+    "./lib/smartdict/translator/driver_configuration.rb",
+    "./lib/smartdict/translator/language_detector.rb",
     "./lib/smartdict/version.rb",
     "GPL-LICENSE.txt",
     "VERSION",
+    "bin/smartdict",
     "config/default_config.yml"
   ]
   s.homepage = "http://github.com/smartdict/smartdict-core"
   s.licenses = ["GNU GPL v2"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.21"
+  s.rubygems_version = "1.8.24"
   s.summary = "CLI dictionary"
 
   if s.respond_to? :specification_version then
@@ -85,6 +90,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<configatron>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_runtime_dependency(%q<builder>, [">= 0"])
+      s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
       s.add_development_dependency(%q<guard>, [">= 0"])
       s.add_development_dependency(%q<libnotify>, [">= 0"])
       s.add_development_dependency(%q<guard-rspec>, [">= 0"])
@@ -109,6 +115,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<configatron>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<builder>, [">= 0"])
+      s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<guard>, [">= 0"])
       s.add_dependency(%q<libnotify>, [">= 0"])
       s.add_dependency(%q<guard-rspec>, [">= 0"])
@@ -134,6 +141,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<configatron>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<builder>, [">= 0"])
+    s.add_dependency(%q<nokogiri>, [">= 0"])
     s.add_dependency(%q<guard>, [">= 0"])
     s.add_dependency(%q<libnotify>, [">= 0"])
     s.add_dependency(%q<guard-rspec>, [">= 0"])
