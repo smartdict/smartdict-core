@@ -37,7 +37,7 @@ class Smartdict::Log
     translations_table = Translation.storage_name
     queries_table = TranslationQuery.storage_name
 
-    sql = "SELECT #{'DISTINCT' if @options[:unique]} #{translations_table}.* \n" \
+    sql = "SELECT #{'DISTINCT' if @options[:unique]} #{translations_table}.id \n" \
           "FROM #{translations_table} \n" \
           "INNER JOIN #{queries_table} ON \n" \
           "  #{queries_table}.translation_id == #{translations_table}.id"
@@ -87,15 +87,10 @@ class Smartdict::Log
       sql << " LIMIT #{@options[:limit]} "
     end
 
-    translation_structs = adapter.select(sql)
-
-    result = []
-    translation_structs.each do |struct|
-      translation = Translation.first(:id => struct.id)
-      result << translation
-    end
-
-    return result
+    ids = adapter.select(sql)
+    trs = Translation.all(:id => ids)
+    # Sort manually, since database doesn't guaranty required order
+    trs.sort! { |a, b| ids.index(a.id) <=> ids.index(b.id) }
   end
 
   def from_lang
