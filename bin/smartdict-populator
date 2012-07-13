@@ -15,11 +15,14 @@ Smartdict.load_plugins
 # TODO :mode Smartdict.run to Runner.run
 Smartdict.run
 
+$translator = Smartdict::Translator.new
 
 
 def translate(word)
-  Smartdict::Translator.translate(word)
+  $translator.translate(word, :log => true)
 rescue Smartdict::TranslationNotFound
+rescue NoMethodError => err
+  puts "Trouble word: #{word}"
 end
 
 def translate_words(words, from_lang, to_lang)
@@ -37,8 +40,8 @@ to_lang   = Smartdict::Models::Language.first(:code => 'ru')
 
 
 while(true)
-  Smartdict::Translator.from_lang_code = from_lang.code
-  Smartdict::Translator.to_lang_code = to_lang.code
+  $translator.default_opts[:from_lang] = from_lang.code
+  $translator.default_opts[:to_lang] = to_lang.code
 
   words = Smartdict::Models::Word.all(:language_id => from_lang.id).map(&:name)
   translate_words(words, from_lang, to_lang)

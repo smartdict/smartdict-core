@@ -33,7 +33,8 @@ module Smartdict
   autoload :Translator
   autoload :Formats
   autoload :Translation
-  autoload :ListBuilder
+  autoload :Log
+  autoload :Info
 
   include Smartdict::Core
 
@@ -93,5 +94,9 @@ module Smartdict
 
   def plugins_dir
     ENV['SMARTDICT_PLUGINS_DIR'] or File.join(root_dir, 'plugins')
+  end
+
+  def info
+    Info.instance
   end
 end

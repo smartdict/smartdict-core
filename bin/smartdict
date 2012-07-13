@@ -4,10 +4,6 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'rubygems'
 
 require 'smartdict'
-require 'smartdict/runner'
-
-# TODO: remove before release
-# require 'pry'
 
 env = ENV["SMARTDICT_ENV"] ? ENV["SMARTDICT_ENV"].to_sym : :user
 Smartdict.env = env
@@ -16,6 +12,5 @@ args = ARGV.clone
 
 Smartdict.load_plugins
 
-# TODO :move Smartdict.run to Runner.run
 Smartdict.run
-Smartdict::Runner.run(args)
+Smartdict::Core::CommandManager.run(args)

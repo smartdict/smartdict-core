@@ -3,6 +3,7 @@ class Smartdict::Core::CommandManager
   include Smartdict::Commands
 
   register 'help'     , HelpCommand
+  register 'version'  , VersionCommand
   register 'translate', TranslateCommand
   register 'list'     , ListCommand
 
@@ -12,6 +13,8 @@ class Smartdict::Core::CommandManager
     case first_arg
     when nil, '-h', '--help', 'help'
       run_command :help, args
+    when nil, '-v', '--version', 'version'
+      run_command :version, args
     else
       run_command(first_arg, args)
     end

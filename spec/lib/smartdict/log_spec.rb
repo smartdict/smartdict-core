@@ -1,15 +1,16 @@
 require 'spec_helper'
 
-describe Smartdict::ListBuilder do
+describe Smartdict::Log do
 
-  def create_query(word, options = {})
-    from_lang = Smartdict::Models::Language[options[:from]]
-    to_lang = Smartdict::Models::Language[options[:to]]
+  def create_query(word, from_lang, to_lang, driver, created_at)
+    from_lang = Smartdict::Models::Language[from_lang]
+    to_lang   = Smartdict::Models::Language[to_lang]
+    driver    = Smartdict::Models::Driver[driver]
 
     word = Smartdict::Models::Word.gen(:name => word, :language => from_lang)
-    translation = Smartdict::Models::Translation.gen(:word => word, :from_lang => from_lang, :to_lang => to_lang)
+    translation = Smartdict::Models::Translation.gen(:word => word, :from_lang => from_lang, :to_lang => to_lang, :driver => driver)
     query = Smartdict::Models::TranslationQuery.gen(:translation => translation)
-    query.update!(:created_at => options[:created_at])
+    query.update!(:created_at => created_at)
   end
 
 
@@ -21,22 +22,22 @@ describe Smartdict::ListBuilder do
 
   before :all do
     clean_storage!
-    create_query("struna", :from => :ru, :to => :de, :created_at => 10.days.ago)
-    create_query("hello" , :from => :en, :to => :ru, :created_at => 10.days.ago)
-    create_query("privet", :from => :ru, :to => :de, :created_at => 5.days.ago)
-    create_query("mir"   , :from => :ru, :to => :en, :created_at => Time.now)
-    create_query("hallo" , :from => :de, :to => :en, :created_at => Time.now)
+    create_query("struna", :ru, :de, :lingvo_yandex   , 10.days.ago)
+    create_query("hello" , :en, :ru, :google_translate, 10.days.ago)
+    create_query("privet", :ru, :de, :google_translate, 5.days.ago)
+    create_query("mir"   , :ru, :en, :google_translate, 1.second.ago)
+    create_query("hallo" , :de, :en, :lingvo_yandex   , Time.now)
   end
 
   after(:all) { clean_storage! }
 
 
-  describe '.build' do
-    subject { Smartdict::ListBuilder.build(options).map(&:word) }
+  describe '.fetch' do
+    subject { described_class.fetch(options).map(&:word) }
 
     context 'without options' do
       it 'returns all translations' do
-        word_names = Smartdict::ListBuilder.build.map(&:word)
+        word_names = Smartdict::Log.fetch.map(&:word)
         word_names.should =~ %w(struna hello privet hallo mir)
       end
     end
@@ -74,12 +75,24 @@ describe Smartdict::ListBuilder do
         it { should =~ %w(mir) }
       end
     end
-    
+
+    describe ":driver option" do
+      let(:options) {{ :driver => :google_translate }}
+      it { should =~ %w(hello privet mir) }
+    end
+
     context "sql options" do
       describe ":limit" do
         let(:options) {{ :limit => 2 }}
         its(:size) { should == 2 }
       end
+
+      describe ":order_desc" do
+        let(:options) {{ :order_desc => true, :limit => 3 }}
+        it { should == %w(hallo mir privet) }
+      end
+
+      # TODO: test for unique option
     end
 
     context "more options together" do
@@ -89,13 +102,15 @@ describe Smartdict::ListBuilder do
       end
 
       describe ":since and :from_lang" do
-        let(:options) {{ :since => 7.days.ago, :till => Time.now, :from_lang => :ru }}
+        let(:options) {{ :since => 7.days.ago, :from_lang => :ru }}
         it { should =~ %w(privet mir) }
       end
-    end
 
-    # TODO: when there are more than 1 driver
-    it ":driver option"
+      describe ":till, :driver and :order_desc" do
+        let(:options) {{ :since => 7.days.ago, :driver => :google_translate, :order_desc => true }}
+        it { should == %w(mir privet) }
+      end
+    end
 
   end
 end

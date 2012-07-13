@@ -13,4 +13,12 @@ require 'smartdict'
 require 'rspec/expectations'
 require 'aruba/cucumber'
 
+ENV["SMARTDICT_ENV"] = 'cucumber'
 ENV['PATH'] = "#{Smartdict.root_dir}/bin:" + ENV['PATH']
+
+Smartdict.env = :cucumber
+FileUtils.rm_rf(Smartdict.user_dir)
+
+Before do
+  @aruba_timeout_seconds = 10
+end

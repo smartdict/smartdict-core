@@ -22,7 +22,7 @@ Jeweler::Tasks.new do |gem|
   gem.authors     = ["Potapov Sergey"]
 
   gem.files = Dir.glob('./lib/**/*')
-  gem.files += ['./bin/smartdict', 'config/default_config.yml', 'GPL-LICENSE.txt', 'VERSION']
+  gem.files += ['bin/smartdict', 'config/default_config.yml', 'GPL-LICENSE.txt', 'VERSION']
 end
 Jeweler::RubygemsDotOrgTasks.new
 
