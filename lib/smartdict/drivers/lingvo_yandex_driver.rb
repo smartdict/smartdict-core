@@ -19,7 +19,7 @@ module Smartdict::Drivers
     USER_AGENT = "Mozilla/5.0 (X11; U; Linux x86_64; ru; rv:1.9.1.16) Gecko/20110429 Iceweasel/3.5.16 (like Firefox/3.5.1623123)"
 
     # Host of Lingvo service.
-    HOST = "lingvo.yandex.ru"
+    HOST = "slovari.yandex.ru"
 
     # Mapping for word classes. Default is "other"
     WORD_CLASSES = {
@@ -116,19 +116,21 @@ module Smartdict::Drivers
     def get_response
       http = Net::HTTP.new(HOST, 80)
       request = Net::HTTP::Get.new(http_path, { "User-Agent" => USER_AGENT })
-      http.request(request).read_body
+      puts res = http.request(request).read_body
+      res
     end
 
     # @return [String] http path for request to translate word.
     def http_path
       phrase = case [from_lang, to_lang]
-      when ["en", "ru"] then "с английского"
-      # ru -> en does not seem to be good and it's not trivial to parse
-      # when ["ru", "en"] then "по-английски"
+      when ["en", "ru"] then "en-ru"
+      when ["ru", "en"] then "ru-en"
       else raise Smartdict::TranslationNotFound
       end
 
-      "/#{escape(word)}/#{escape(phrase)}/"
+      #"ruby/en-ru/#lingvo/"
+      "/#{escape(word)}/#{phrase}/#lingvo/"
+      "/#{escape(word)}/en/"
     end
 
     def escape(str)
