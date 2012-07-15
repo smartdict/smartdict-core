@@ -19,7 +19,7 @@ module Smartdict::Drivers
     USER_AGENT = "Mozilla/5.0 (X11; U; Linux x86_64; ru; rv:1.9.1.16) Gecko/20110429 Iceweasel/3.5.16 (like Firefox/3.5.1623123)"
 
     # Host of Lingvo service.
-    HOST = "lingvo.yandex.ru"
+    HOST = "slovari.yandex.ru"
 
     # Mapping for word classes. Default is "other"
     WORD_CLASSES = {
@@ -43,22 +43,23 @@ module Smartdict::Drivers
     def translate
       doc = Nokogiri::HTML(get_response)
 
-      if main_div = doc.css("div.b-translate > div.b-translate__value > ul > li#I").first
-        translate__value = main_div
+      if main = doc.css("div.b-translation__article > ul > li#I").first
       else
-        main_div = doc.css("div.b-translate").first
-        translate__value = main_div.css("div.b-translate__value")
+        main = doc.css("div.b-translation__article").first
       end
 
+      raise Smartdict::TranslationNotFound unless main
+
       # Fetch transcription
-      self.transcription = main_div.xpath('(.//span[@class="b-translate__tr"])[1]').try(:text)
+      self.transcription = doc.css("span.b-translation__tr").first.try(:text)
+
 
       self.translated = {}
 
-      if translate__value.xpath("./i/acronym").any?
-        grep_meanings(translate__value)
+      if main.xpath("./i/acronym").any?
+        grep_meanings(main)
       else
-        translate__value.xpath("./ul/li").each do |li|
+         main.xpath("./ul/li").each do |li|
           grep_meanings(li)
         end
       end
@@ -66,11 +67,15 @@ module Smartdict::Drivers
 
     # TODO: refactor
     def grep_meanings(html_element)
+      require 'pry'
+      #binding.pry
+
       acronym = html_element.css("acronym").first
       return unless acronym
 
       ru_word_class = acronym["title"]
       word_class = WORD_CLASSES[ru_word_class]
+      puts word_class
       translations = []
 
       html_element.css("ul > li").each do |tr|
@@ -122,13 +127,12 @@ module Smartdict::Drivers
     # @return [String] http path for request to translate word.
     def http_path
       phrase = case [from_lang, to_lang]
-      when ["en", "ru"] then "с английского"
-      # ru -> en does not seem to be good and it's not trivial to parse
-      # when ["ru", "en"] then "по-английски"
+      when ["en", "ru"] then "en-ru"
+      when ["ru", "en"] then "ru-en"
       else raise Smartdict::TranslationNotFound
       end
 
-      "/#{escape(word)}/#{escape(phrase)}/"
+      "/#{escape(word)}/#{phrase}/"
     end
 
     def escape(str)

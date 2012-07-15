@@ -15,7 +15,7 @@ describe Smartdict::Drivers::LingvoYandexDriver do
 
     describe "word 'one'" do
       before :all do
-        stub_request(:get, "http://lingvo.yandex.ru/one/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
+        stub_request(:get, "http://slovari.yandex.ru/one/en-ru/").
           to_return(:body => test_data("one", :en, :ru))
         @result = Smartdict::Drivers::LingvoYandexDriver.translate("one", "en", "ru")
       end
@@ -39,7 +39,7 @@ describe Smartdict::Drivers::LingvoYandexDriver do
 
     describe "word 'survive'" do
       before :all do
-        stub_request(:get, "http://lingvo.yandex.ru/survive/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
+        stub_request(:get, "http://slovari.yandex.ru/survive/en-ru/").
           to_return(:body => test_data("survive", :en, :ru))
         @result = Smartdict::Drivers::LingvoYandexDriver.translate("survive", "en", "ru")
       end
@@ -59,7 +59,7 @@ describe Smartdict::Drivers::LingvoYandexDriver do
 
     describe "word 'rant'" do
       before :all do
-        stub_request(:get, "http://lingvo.yandex.ru/rant/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
+        stub_request(:get, "http://slovari.yandex.ru/rant/en-ru/").
           to_return(:body => test_data("rant", :en, :ru))
         @result = Smartdict::Drivers::LingvoYandexDriver.translate("rant", "en", "ru")
       end
@@ -80,7 +80,7 @@ describe Smartdict::Drivers::LingvoYandexDriver do
 
     describe "word 'obsolete'" do
       before :all do
-        stub_request(:get, "http://lingvo.yandex.ru/obsolete/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
+        stub_request(:get, "http://slovari.yandex.ru/obsolete/en-ru/").
           to_return(:body => test_data("obsolete", :en, :ru))
         @result = Smartdict::Drivers::LingvoYandexDriver.translate("obsolete", "en", "ru")
       end
@@ -100,7 +100,7 @@ describe Smartdict::Drivers::LingvoYandexDriver do
 
     describe "word 'sing'" do
       before :all do
-        stub_request(:get, "http://lingvo.yandex.ru/sing/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
+        stub_request(:get, "http://slovari.yandex.ru/sing/en-ru/").
           to_return(:body => test_data("sing", :en, :ru))
         @result = Smartdict::Drivers::LingvoYandexDriver.translate("sing", "en", "ru")
       end
@@ -121,7 +121,7 @@ describe Smartdict::Drivers::LingvoYandexDriver do
 
     describe "when there is no translation" do
       it "raises TranslationNotFound error" do
-        stub_request(:get, "http://lingvo.yandex.ru/doesntexist/%D1%81+%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B3%D0%BE/").
+        stub_request(:get, "http://slovari.yandex.ru/doesntexist/en-ru/").
           to_return(:body => test_data("doesntexist", :en, :ru))
         expect {
           Smartdict::Drivers::LingvoYandexDriver.translate("doesntexist", "en", "ru")
