@@ -46,14 +46,14 @@ class Smartdict::Log
       sql << " WHERE "
 
       if @options[:till]
-        till = @options[:till].is_a?(String) ? Date.parse(@options[:till]) : @options[:till]
+        till = @options[:till].is_a?(String) ? DateTime.parse(@options[:till]) : @options[:till]
         sql << " #{queries_table}.created_at < \"#{till.to_s(:db)}\" "
         where = true
       end
 
       if @options[:since]
         sql << " AND " if where
-        since = @options[:since].is_a?(String) ? Date.parse(@options[:since]) : @options[:since]
+        since = @options[:since].is_a?(String) ? DateTime.parse(@options[:since]) : @options[:since]
         sql << " #{queries_table}.created_at >  \"#{since.to_s(:db)}\" "
         where = true
       end

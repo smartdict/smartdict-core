@@ -17,8 +17,8 @@ module Smartdict::Commands
     SYNTAX
 
     options :format => lambda { configatron.default.format },
-            :since  => lambda { Date.today },
-            :till   => lambda { Time.now },
+            :since  => lambda { Date.today     },
+            :till   => lambda { Date.today + 1 },
             :from   => nil,
             :to     => nil,
             :driver => nil
