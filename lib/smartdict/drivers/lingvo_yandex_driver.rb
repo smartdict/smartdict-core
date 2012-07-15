@@ -43,22 +43,23 @@ module Smartdict::Drivers
     def translate
       doc = Nokogiri::HTML(get_response)
 
-      if main_div = doc.css("div.b-translate > div.b-translate__value > ul > li#I").first
-        translate__value = main_div
+      if main = doc.css("div.b-translation__article > ul > li#I").first
       else
-        main_div = doc.css("div.b-translate").first
-        translate__value = main_div.css("div.b-translate__value")
+        main = doc.css("div.b-translation__article").first
       end
 
+      raise Smartdict::TranslationNotFound unless main
+
       # Fetch transcription
-      self.transcription = main_div.xpath('(.//span[@class="b-translate__tr"])[1]').try(:text)
+      self.transcription = doc.css("span.b-translation__tr").first.try(:text)
+
 
       self.translated = {}
 
-      if translate__value.xpath("./i/acronym").any?
-        grep_meanings(translate__value)
+      if main.xpath("./i/acronym").any?
+        grep_meanings(main)
       else
-        translate__value.xpath("./ul/li").each do |li|
+         main.xpath("./ul/li").each do |li|
           grep_meanings(li)
         end
       end
@@ -66,11 +67,15 @@ module Smartdict::Drivers
 
     # TODO: refactor
     def grep_meanings(html_element)
+      require 'pry'
+      #binding.pry
+
       acronym = html_element.css("acronym").first
       return unless acronym
 
       ru_word_class = acronym["title"]
       word_class = WORD_CLASSES[ru_word_class]
+      puts word_class
       translations = []
 
       html_element.css("ul > li").each do |tr|
@@ -116,8 +121,7 @@ module Smartdict::Drivers
     def get_response
       http = Net::HTTP.new(HOST, 80)
       request = Net::HTTP::Get.new(http_path, { "User-Agent" => USER_AGENT })
-      puts res = http.request(request).read_body
-      res
+      http.request(request).read_body
     end
 
     # @return [String] http path for request to translate word.
@@ -128,9 +132,7 @@ module Smartdict::Drivers
       else raise Smartdict::TranslationNotFound
       end
 
-      #"ruby/en-ru/#lingvo/"
-      "/#{escape(word)}/#{phrase}/#lingvo/"
-      "/#{escape(word)}/en/"
+      "/#{escape(word)}/#{phrase}/"
     end
 
     def escape(str)
