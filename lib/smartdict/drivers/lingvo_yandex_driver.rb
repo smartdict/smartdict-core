@@ -75,7 +75,6 @@ module Smartdict::Drivers
 
       ru_word_class = acronym["title"]
       word_class = WORD_CLASSES[ru_word_class]
-      puts word_class
       translations = []
 
       html_element.css("ul > li").each do |tr|
