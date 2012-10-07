@@ -67,9 +67,6 @@ module Smartdict::Drivers
 
     # TODO: refactor
     def grep_meanings(html_element)
-      require 'pry'
-      #binding.pry
-
       acronym = html_element.css("acronym").first
       return unless acronym
 
