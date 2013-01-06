@@ -1,5 +1,4 @@
-class Smartdict::Core::CommandManager
-  include Smartdict::Core::IsManager
+class Smartdict::Core::CommandManager < Smartdict::Core::AbstractManager
   include Smartdict::Commands
 
   register 'help'     , HelpCommand

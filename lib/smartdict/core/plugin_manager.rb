@@ -1,6 +1,4 @@
-class Smartdict::Core::PluginManager
-  include Smartdict::Core::IsManager
-
+class Smartdict::Core::PluginManager < Smartdict::Core::AbstractManager
   def self.load_plugins
     require_plugins
     run_initializers

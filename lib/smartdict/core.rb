@@ -3,7 +3,7 @@ module Smartdict::Core
 
   autoload :HasLogger
   autoload :Logger
-  autoload :IsManager
+  autoload :AbstractManager
 
   autoload :PluginManager
   autoload :CommandManager

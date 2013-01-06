@@ -1,6 +1,5 @@
-class Smartdict::Core::FormatManager
+class Smartdict::Core::FormatManager < Smartdict::Core::AbstractManager
   include Smartdict::Formats
-  include Smartdict::Core::IsManager
 
   register "text"      , TextFormat
   register "text_color", TextColorFormat
