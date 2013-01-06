@@ -3,7 +3,7 @@ class Smartdict::Formats::TextColorFormat < Smartdict::Formats::AbstractFormat
 
   # :nodoc:
   def format_translation(translation)
-    result = "#{bold_green(translation.word)}"
+    result = "#{bold(green(translation.word))}"
     result << green(" [#{translation.transcription}]") if translation.transcription
     result << "\n"
 
@@ -33,10 +33,6 @@ class Smartdict::Formats::TextColorFormat < Smartdict::Formats::AbstractFormat
 
 
   private
-
-  def bold_green(text)
-    colorize(text, "1;32")
-  end
 
   def bold(text)
     colorize(text, 1)
