@@ -23,7 +23,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'pry'
 
-  gem "yard", "~> 0.6.0"
+  gem "yard", "~> 0.9.20"
   gem "rspec"
   gem "aruba"
 
